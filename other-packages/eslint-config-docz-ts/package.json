@@ -1,0 +1,33 @@
+{
+  "name": "eslint-config-docz-ts",
+  "version": "2.4.0",
+  "description": "Eslint config of Docz for Typescript",
+  "license": "MIT",
+  "author": {
+    "name": "Pedro Nauck",
+    "email": "pedronauck@gmail.com"
+  },
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "package.json"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/doczjs/docz.git",
+    "directory": "other-packages/eslint-config-docz-ts"
+  },
+  "scripts": {
+    "fix": "run-s fix:*",
+    "fix:prettier": "prettier \"**/*.js\" --write"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.1.1",
+    "@typescript-eslint/parser": "^7.1.1",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^5.0.0",
+    "eslint-plugin-mdx": "^1.6.1",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.13.0"
+  }
+}

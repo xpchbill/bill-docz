@@ -1,0 +1,29 @@
+{
+  "name": "react-docgen-actual-name-handler",
+  "version": "2.4.0",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist/",
+    "package.json",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/doczjs/docz.git",
+    "directory": "other-packages/react-docgen-actual-name-handler"
+  },
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development npm run build -w",
+    "build": "babel src --out-dir dist/ --extensions \".ts\"",
+    "fix": "yarn lint --fix",
+    "lint": "eslint . --ext mdx,ts,tsx",
+    "precommit": "lint-staged"
+  },
+  "dependencies": {
+    "react-docgen": "^4.1.1",
+    "recast": "^0.18.1"
+  }
+}
