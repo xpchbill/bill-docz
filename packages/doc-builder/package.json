@@ -52,7 +52,7 @@
     "open": "^7.0.3",
     "ora": "^3.4.0",
     "react-docgen": "^4.1.1",
-    "react-docgen-actual-name-handler": "^2.4.0",
+    "@bill-doc/doc-docgen": "^2.4.0",
     "react-docgen-external-proptypes-handler": "^1.0.3",
     "react-docgen-typescript": "^2.1.0",
     "recast": "^0.18.1",

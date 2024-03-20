@@ -1,5 +1,5 @@
 {
-  "name": "react-docgen-actual-name-handler",
+  "name": "@bill-doc/doc-docgen",
   "version": "2.4.0",
   "license": "MIT",
   "main": "dist/index.js",
@@ -12,8 +12,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/doczjs/docz.git",
-    "directory": "other-packages/react-docgen-actual-name-handler"
+    "url": "https://github.com/doczjs/docz.git"
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development npm run build -w",

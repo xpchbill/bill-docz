@@ -8,7 +8,7 @@ module.exports = async (params, opts = {}) => {
   const { actions, stage } = params
 
   actions.setBabelPlugin({
-    name: 'babel-plugin-export-metadata',
+    name: '@bill-doc/doc-babel-plugin-export-metadata',
     options: {
       root: paths.getRootDir(config),
     },

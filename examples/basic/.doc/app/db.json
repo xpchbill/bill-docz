@@ -1,6 +1,6 @@
 {
   "config": {
-    "title": "Dev Env Basic",
+    "title": "Examples Basic",
     "description": "My awesome app using doc",
     "menu": [],
     "version": "2.4.0",
@@ -17,7 +17,7 @@
         "route": "/",
         "id": "6576455a124f9aaefd860597f03a8fe4",
         "filepath": "src/index.mdx",
-        "fullpath": "/Users/bxiong/workspace/gitlab/bill-docz/dev-env/basic/src/index.mdx",
+        "fullpath": "/Users/bxiong/workspace/gitlab/bill-docz/examples/basic/src/index.mdx",
         "link": "",
         "hidden": false,
         "slug": "src-index",
@@ -43,7 +43,7 @@
         "menu": "Components",
         "id": "411d2842c3d65e6ee7d3ec119ed4c5a0",
         "filepath": "src/components/Alert.mdx",
-        "fullpath": "/Users/bxiong/workspace/gitlab/bill-docz/dev-env/basic/src/components/Alert.mdx",
+        "fullpath": "/Users/bxiong/workspace/gitlab/bill-docz/examples/basic/src/components/Alert.mdx",
         "link": "",
         "hidden": false,
         "slug": "src-components-alert",

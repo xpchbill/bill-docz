@@ -22,8 +22,8 @@
     "packages": "run-s packages:*",
     "packages:fix": "lerna run --parallel fix && echo",
     "packages:lint": "lerna run --parallel lint",
-    "packages:build": "lerna run build --ignore={docz-example-*,dev-env-*,remark-docz}",
-    "packages:test": "lerna run test --stream --ignore={docz-example-*,dev-env-*}",
+    "packages:build": "lerna run build --ignore={docz-example-*,examples-*,remark-docz}",
+    "packages:test": "lerna run test --stream --ignore={docz-example-*,examples-*}",
     "prerelease": "npm run run packages",
     "release": "lerna publish --conventional-commits",
     "release:next": "npm run run packages && lerna publish --conventional-commits --conventional-prerelease --dist-tag=next --exact",
@@ -90,8 +90,8 @@
   "workspaces": {
     "packages": [
       "packages/*",
-      "other-packages/*",
-      "dev-env/*"
+      "lint-configs/*",
+      "examples/*"
     ],
     "nohoist": [
       "examples/*"

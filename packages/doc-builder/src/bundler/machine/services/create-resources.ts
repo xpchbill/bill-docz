@@ -36,7 +36,7 @@ const copyAndModifyPkgJson = async (ctx: ServerMachineCtx) => {
     },
     ...(ctx.isDocRepo && {
       private: true,
-      workspaces: ['../../../packages/**', '../../../other-packages/**'],
+      workspaces: ['../../../packages/**', '../../../lint-configs/**'],
     }),
   }
   await fs.outputJSON(movePath, newPkg, { spaces: 2 })

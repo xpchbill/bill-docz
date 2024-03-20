@@ -1,7 +1,7 @@
 import * as fs from 'fs-extra'
 import * as path from 'path'
 import logger from 'signale'
-import actualNameHandler from 'react-docgen-actual-name-handler'
+import actualNameHandler from '@bill-doc/doc-docgen'
 import * as reactDocgen from 'react-docgen'
 
 import { Config } from '../../config/argv'
