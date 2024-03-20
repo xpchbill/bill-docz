@@ -1,17 +1,15 @@
 {
   "name": "@bill-doc/doc-theme-gatsby",
   "version": "2.4.0",
-  "description": "Gatsby theme created to use Docz",
+  "description": "Gatsby doc theme",
   "license": "MIT",
-  "author": "Pedro Nauck (pedronauck@gmail.com)",
-  "keywords": [
-    "gatsby",
-    "gatsby-theme",
-    "docz"
-  ],
+  "author": {
+    "name": "Bill Xiong",
+    "email": "xpchbill8@gmail.com"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/doczjs/docz.git"
+    "url": "https://github.com/xpchbill/bill-docz.git"
   },
   "scripts": {
     "dev": "echo noop",
@@ -62,7 +60,6 @@
     "node": "18.18.0"
   },
   "peerDependencies": {
-    "docz": ">=2.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

@@ -2,28 +2,23 @@
   "private": true,
   "license": "MIT",
   "author": {
-    "name": "Pedro Nauck",
-    "email": "pedronauck@gmail.com",
-    "url": "https://github.com/pedronauck"
-  },
-  "homepage": "https://docz.site",
-  "bugs": {
-    "url": "https://github.com/doczjs/docz/issues"
+    "name": "Bill Xiong",
+    "email": "xpchbill8@gmail.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/doczjs/docz.git"
+    "url": "https://github.com/xpchbill/bill-docz.git"
   },
   "scripts": {
     "clean": "lerna clean",
     "bs": "lerna bootstrap",
-    "dev": "npm run packages:build && lerna run dev --parallel --scope={docz,@bill-doc/builder,@bill-doc/doc-theme-gatsby,@bill-doc/doc-plugin-rehype,remark-docz}",
+    "dev": "npm run packages:build && lerna run dev --parallel --scope={@bill-doc/doc-core,@bill-doc/builder,@bill-doc/doc-theme-gatsby,@bill-doc/doc-plugin-rehype,@bill-doc/doc-plugin-remark}",
     "examples:lint": "eslint examples --ext js,mdx,ts,tsx",
     "packages": "run-s packages:*",
     "packages:fix": "lerna run --parallel fix && echo",
     "packages:lint": "lerna run --parallel lint",
-    "packages:build": "lerna run build --ignore={docz-example-*,examples-*,remark-docz}",
-    "packages:test": "lerna run test --stream --ignore={docz-example-*,examples-*}",
+    "packages:build": "lerna run build --ignore={examples-*,@bill-doc/doc-plugin-remark}",
+    "packages:test": "lerna run test --stream --ignore={examples-*}",
     "prerelease": "npm run run packages",
     "release": "lerna publish --conventional-commits",
     "release:next": "npm run run packages && lerna publish --conventional-commits --conventional-prerelease --dist-tag=next --exact",

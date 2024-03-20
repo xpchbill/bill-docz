@@ -13,7 +13,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/doczjs/docz.git"
+    "url": "https://github.com/xpchbill/bill-docz.git"
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development npm run build -w",

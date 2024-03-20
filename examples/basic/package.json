@@ -5,7 +5,7 @@
   "license": "MIT",
   "files": [
     "src/",
-    "doczrc.js",
+    "docrc.js",
     "package.json"
   ],
   "scripts": {

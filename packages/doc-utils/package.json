@@ -1,7 +1,7 @@
 {
   "name": "@bill-doc/doc-utils",
   "version": "2.4.0",
-  "description": "Some methods used and utilities used on docz",
+  "description": "Some utilities methods",
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -13,7 +13,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/doczjs/docz.git"
+    "url": "https://github.com/xpchbill/bill-docz.git"
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development npm run build -w",

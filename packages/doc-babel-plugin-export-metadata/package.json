@@ -4,8 +4,8 @@
   "description": "Add file metadata for function declarations",
   "license": "MIT",
   "author": {
-    "name": "Marcelo Piva",
-    "email": "m.pivaa@gmail.com"
+    "name": "Bill Xiong",
+    "email": "xpchbill8@gmail.com"
   },
   "contributors": [
     {
@@ -20,7 +20,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/doczjs/docz.git"
+    "url": "https://github.com/xpchbill/bill-docz.git"
   },
   "scripts": {
     "fix": "npm run lint --fix",
