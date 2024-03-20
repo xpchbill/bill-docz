@@ -38,3 +38,4 @@ storage
 .e2e-tests-cache
 
 examples/**/yarn.lock
+.DS_Store
