@@ -97,18 +97,6 @@ const config = {
         },
       },
     },
-    {
-      resolve: 'gatsby-plugin-compile-es6-packages',
-      options: {
-        modules: [
-          'doc',
-          '@bill-doc/builder',
-          '@bill-doc/doc-theme-gatsby',
-          'mdast-util-mdx',
-          'mdast-util-to-markdown',
-        ],
-      },
-    },
   ],
 }
 

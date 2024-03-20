@@ -89,7 +89,7 @@
   },
   "workspaces": {
     "packages": [
-      "core/*",
+      "packages/*",
       "other-packages/*",
       "dev-env/*"
     ],

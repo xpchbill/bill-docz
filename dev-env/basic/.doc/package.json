@@ -8,10 +8,5 @@
     "dev": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve"
-  },
-  "private": true,
-  "workspaces": [
-    "../../../core/**",
-    "../../../other-packages/**"
-  ]
+  }
 }

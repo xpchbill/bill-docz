@@ -36,7 +36,7 @@ const copyAndModifyPkgJson = async (ctx: ServerMachineCtx) => {
     },
     ...(ctx.isDocRepo && {
       private: true,
-      workspaces: ['../../../core/**', '../../../other-packages/**'],
+      workspaces: ['../../../packages/**', '../../../other-packages/**'],
     }),
   }
   await fs.outputJSON(movePath, newPkg, { spaces: 2 })
