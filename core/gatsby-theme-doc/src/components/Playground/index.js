@@ -2,7 +2,7 @@
 import { jsx } from 'theme-ui'
 import { useState } from 'react'
 // import toJSXString from 'react-element-to-jsx-string'
-import { useConfig } from '@bill-doc/cli'
+import { useConfig } from '@bill-doc/doc-core'
 import { LiveProvider, LiveError, LivePreview, LiveEditor } from 'react-live'
 import { Resizable } from 're-resizable'
 import copy from 'copy-text-to-clipboard'

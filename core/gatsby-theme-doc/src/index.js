@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
-import { theme, useConfig, ComponentsProvider } from '@bill-doc/cli'
+import { theme, useConfig, ComponentsProvider } from '@bill-doc/doc-core'
 import { ThemeProvider } from 'theme-ui'
 
 import defaultTheme from '~theme'

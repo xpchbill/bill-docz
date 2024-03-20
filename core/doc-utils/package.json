@@ -1,5 +1,5 @@
 {
-  "name": "@bill-doc/utils",
+  "name": "@bill-doc/doc-utils",
   "version": "2.4.0",
   "description": "Some methods used and utilities used on docz",
   "license": "MIT",
@@ -14,7 +14,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/doczjs/docz.git",
-    "directory": "core/@bill-doc/utils"
+    "directory": "core/@bill-doc/doc-utils"
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development npm run build -w",

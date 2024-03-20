@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 import { useEffect, useState, useRef } from 'react'
-import { useCurrentDoc } from '@bill-doc/cli'
+import { useCurrentDoc } from '@bill-doc/doc-core'
 
 import * as styles from './styles'
 import { NavLink } from '../NavLink'

@@ -1,6 +1,6 @@
 import * as path from 'path'
 import * as logger from 'signale'
-import { parseMdx } from '@bill-doc/utils/lib/mdast'
+import { parseMdx } from '../../../doc-utils/lib/mdast'
 import { isRegExp, isString } from 'lodash/fp'
 import minimatch from 'minimatch'
 import glob from 'fast-glob'

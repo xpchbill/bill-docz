@@ -115,8 +115,8 @@ module.exports = opts => {
         resolve: 'gatsby-plugin-compile-es6-packages',
         options: {
           modules: [
-            '@bill-doc/cli',
-            '@bill-doc/core',
+            '@bill-doc/doc-core',
+            '@bill-doc/builder',
             'gatsby-theme-doc',
             'mdast-util-mdx',
             'mdast-util-to-markdown',

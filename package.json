@@ -17,7 +17,7 @@
   "scripts": {
     "clean": "lerna clean",
     "bs": "lerna bootstrap",
-    "dev": "npm run packages:build && lerna run dev --parallel --scope={docz,@bill-doc/core,gatsby-theme-doc,@bill-doc/rehype-plugin,remark-docz}",
+    "dev": "npm run packages:build && lerna run dev --parallel --scope={docz,@bill-doc/builder,gatsby-theme-doc,@bill-doc/rehype-plugin,remark-docz}",
     "examples:lint": "eslint examples --ext js,mdx,ts,tsx",
     "packages": "run-s packages:*",
     "packages:fix": "lerna run --parallel fix && echo",

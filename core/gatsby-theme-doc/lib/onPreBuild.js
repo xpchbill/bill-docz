@@ -1,4 +1,4 @@
-const { Plugin, parseConfig } = require('@bill-doc/core')
+const { Plugin, parseConfig } = require('@bill-doc/builder')
 
 module.exports = async (params, opts = {}) => {
   const config = await parseConfig(opts)

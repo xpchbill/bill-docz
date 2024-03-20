@@ -1,4 +1,4 @@
-const { get } = require('@bill-doc/utils')
+const { get } = require('@bill-doc/doc-utils')
 
 const NO_OP = () => {}
 

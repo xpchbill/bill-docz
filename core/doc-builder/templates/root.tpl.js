@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, Router, Routes<% if (!isProd) {%>, useDataServer<%}%> } from '@bill-doc/cli'
+import { Link, Router, Routes<% if (!isProd) {%>, useDataServer<%}%> } from '@bill-doc/doc-core'
 <% if (!isProd) {%>import { hot } from 'react-hot-loader'<%}%>
 import Theme from '<%- theme %>'
 

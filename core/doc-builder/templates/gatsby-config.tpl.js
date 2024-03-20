@@ -1,4 +1,4 @@
-const { mergeWith } = require('@bill-doc/utils')
+const { mergeWith } = require('@bill-doc/doc-utils')
 const fs = require('fs-extra')
 const path = require('path')
 
@@ -43,7 +43,7 @@ const config = {
       options: {
         modules: [
           'doc',
-          '@bill-doc/core',
+          '@bill-doc/builder',
           'gatsby-theme-doc',
           'mdast-util-mdx',
           'mdast-util-to-markdown'

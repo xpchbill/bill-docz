@@ -1,4 +1,4 @@
-const { mergeWith } = require('@bill-doc/utils')
+const { mergeWith } = require('@bill-doc/doc-utils')
 const fs = require('fs-extra')
 const path = require('path')
 
@@ -93,7 +93,7 @@ const config = {
           rootJs:
             '/Users/bxiong/workspace/gitlab/bill-docz/dev-env/basic/.doc/app/root.jsx',
           templates:
-            '/Users/bxiong/workspace/gitlab/bill-docz/node_modules/@bill-doc/core/dist/templates',
+            '/Users/bxiong/workspace/gitlab/bill-docz/node_modules/@bill-doc/builder/dist/templates',
         },
       },
     },
@@ -102,7 +102,7 @@ const config = {
       options: {
         modules: [
           'doc',
-          '@bill-doc/core',
+          '@bill-doc/builder',
           'gatsby-theme-doc',
           'mdast-util-mdx',
           'mdast-util-to-markdown',
