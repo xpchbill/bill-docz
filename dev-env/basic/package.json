@@ -9,11 +9,11 @@
     "package.json"
   ],
   "scripts": {
-    "dev": "docz dev",
-    "build": "docz build --verbose",
+    "dev": "bill-doc dev",
+    "build": "bill-doc build --verbose",
     "lint": "eslint . --ext md,mdx",
     "lint:fix": "eslint . --ext md,mdx --fix",
-    "serve": "docz serve"
+    "serve": "bill-doc serve"
   },
   "volta": {
     "node": "18.18.0"

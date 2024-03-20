@@ -86,7 +86,7 @@ const addComponentsProps = (scopes: string[] = []) => async (
         type: 'code',
         lang: 'jsx',
         meta: null,
-        value: jsxValue,
+        value: childJsxArray.join(''),
       }]
       node.attributes.push({
         type: 'mdxJsxAttribute',
