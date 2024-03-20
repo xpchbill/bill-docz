@@ -25,7 +25,7 @@ const config = {
   },
   plugins: [
     {
-      resolve: 'gatsby-theme-doc',
+      resolve: '@bill-doc/doc-theme-gatsby',
       options: {
         themeConfig: {},
         src: './',
@@ -103,7 +103,7 @@ const config = {
         modules: [
           'doc',
           '@bill-doc/builder',
-          'gatsby-theme-doc',
+          '@bill-doc/doc-theme-gatsby',
           'mdast-util-mdx',
           'mdast-util-to-markdown',
         ],

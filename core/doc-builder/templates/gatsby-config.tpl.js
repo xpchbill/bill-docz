@@ -35,7 +35,7 @@ const config = {
       }
     },<%}%>
     {
-      resolve: 'gatsby-theme-doc',
+      resolve: '@bill-doc/doc-theme-gatsby',
       options: <%- opts %>
     },<% if (isDocRepo) {%>
     {
@@ -44,7 +44,7 @@ const config = {
         modules: [
           'doc',
           '@bill-doc/builder',
-          'gatsby-theme-doc',
+          '@bill-doc/doc-theme-gatsby',
           'mdast-util-mdx',
           'mdast-util-to-markdown'
         ],

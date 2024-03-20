@@ -17,7 +17,7 @@
   "scripts": {
     "clean": "lerna clean",
     "bs": "lerna bootstrap",
-    "dev": "npm run packages:build && lerna run dev --parallel --scope={docz,@bill-doc/builder,gatsby-theme-doc,@bill-doc/rehype-plugin,remark-docz}",
+    "dev": "npm run packages:build && lerna run dev --parallel --scope={docz,@bill-doc/builder,@bill-doc/doc-theme-gatsby,@bill-doc/doc-plugin-rehype,remark-docz}",
     "examples:lint": "eslint examples --ext js,mdx,ts,tsx",
     "packages": "run-s packages:*",
     "packages:fix": "lerna run --parallel fix && echo",
@@ -77,7 +77,7 @@
     "lint-staged": "^9.2.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^3.2.5",
-    "@bill-doc/remark-plugin": "^2.1.0",
+    "@bill-doc/doc-plugin-remark": "^2.1.0",
     "trash-cli": "^3.0.0",
     "trash": "^6.0.0",
     "ts-jest": "^24.0.2",
