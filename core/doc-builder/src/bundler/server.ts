@@ -1,5 +1,5 @@
 import { interpret } from 'xstate'
-import { finds } from 'load-cfg'
+import { finds } from '@bill-doc/doc-config-loader'
 import findUp from 'find-up'
 
 import { devServerMachine } from './machine'

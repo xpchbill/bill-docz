@@ -1,6 +1,6 @@
 import * as path from 'path'
 import * as fs from 'fs-extra'
-import { load, loadFrom, finds } from 'load-cfg'
+import { load, loadFrom, finds } from '@bill-doc/doc-config-loader'
 import chokidar from 'chokidar'
 import get from 'lodash/get'
 

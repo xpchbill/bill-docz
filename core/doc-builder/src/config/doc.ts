@@ -1,7 +1,7 @@
 import * as path from 'path'
 import { Arguments } from 'yargs'
 import { omit, merge } from 'lodash/fp'
-import { load, loadFrom } from 'load-cfg'
+import { load, loadFrom } from '@bill-doc/doc-config-loader'
 import detectPort from 'detect-port'
 
 import * as paths from './paths'
