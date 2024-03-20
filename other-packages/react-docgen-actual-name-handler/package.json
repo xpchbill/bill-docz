@@ -19,8 +19,7 @@
     "dev": "cross-env NODE_ENV=development npm run build -w",
     "build": "babel src --out-dir dist/ --extensions \".ts\"",
     "fix": "npm run lint --fix",
-    "lint": "eslint . --ext mdx,ts,tsx",
-    "precommit": "lint-staged"
+    "lint": "eslint . --ext mdx,ts,tsx"
   },
   "dependencies": {
     "react-docgen": "^4.1.1",

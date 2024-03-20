@@ -38,6 +38,6 @@ export const getExportsVariables = traverseOnExports(path => {
     case 'Identifier':
       return get(path, 'node.declaration.name')
     default:
-      console.error(`Unexpected export type ${type} in docz-utils/exports`)
+      console.error(`Unexpected export type ${type} in @bill-doc/utils/exports`)
   }
 })

@@ -21,7 +21,6 @@
     "build": "babel src --out-dir dist/ --extensions .ts",
     "fix": "npm run lint --fix",
     "lint": "eslint . --ext mdx,ts,tsx",
-    "precommit": "lint-staged",
     "test": "jest"
   },
   "volta": {

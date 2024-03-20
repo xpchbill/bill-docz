@@ -1,4 +1,4 @@
-const { Plugin, parseConfig } = require('docz-core')
+const { Plugin, parseConfig } = require('@bill-doc/core')
 
 module.exports = async (params, opts) => {
   const { stage, actions, getConfig } = params

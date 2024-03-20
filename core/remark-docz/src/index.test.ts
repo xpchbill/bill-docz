@@ -2,7 +2,7 @@ import mdx from '@mdx-js/mdx'
 import plugin from './'
 
 const content = `
-import { Playground } from 'docz'
+import { Playground } from '@bill-doc/cli'
 
 <Playground>
   {() => {

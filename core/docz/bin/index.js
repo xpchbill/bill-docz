@@ -1,3 +1,3 @@
 #!/usr/bin/env node
-require('docz-core').cli()
+require('@bill-doc/core').cli()
 // console.log('xxxxxxxxxxxxxxxx');

@@ -2,7 +2,7 @@
 import { Fragment, forwardRef } from 'react'
 import { jsx } from 'theme-ui'
 import { Link } from 'gatsby'
-import { useDocs, useCurrentDoc } from 'docz'
+import { useDocs, useCurrentDoc } from '@bill-doc/cli'
 import { get } from 'lodash/fp'
 
 import * as styles from './styles'

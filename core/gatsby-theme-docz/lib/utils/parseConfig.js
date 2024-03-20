@@ -1,4 +1,4 @@
-const { setArgs, parseConfig, getBaseConfig } = require('docz-core')
+const { setArgs, parseConfig, getBaseConfig } = require('@bill-doc/core')
 const yargs = require('yargs')
 
 const getDoczConfig = opts => {

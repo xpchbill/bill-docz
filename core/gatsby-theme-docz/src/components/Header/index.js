@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, Box, Flex, useColorMode } from 'theme-ui'
-import { useConfig, useCurrentDoc } from 'docz'
+import { useConfig, useCurrentDoc } from '@bill-doc/cli'
 
 import * as styles from './styles'
 import { Edit, Menu, Sun, Github } from '../Icons'

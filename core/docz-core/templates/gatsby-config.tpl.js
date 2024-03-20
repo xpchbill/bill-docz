@@ -1,4 +1,4 @@
-const { mergeWith } = require('docz-utils')
+const { mergeWith } = require('@bill-doc/utils')
 const fs = require('fs-extra')
 const path = require('path')
 
@@ -42,7 +42,7 @@ const config = {
       options: {
         modules: [
           'docz',
-          'docz-core',
+          '@bill-doc/core',
           'gatsby-theme-docz',
           'mdast-util-mdx',
           'mdast-util-to-markdown'

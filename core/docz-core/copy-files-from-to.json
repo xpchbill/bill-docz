@@ -1,8 +1,8 @@
 {
   "copyFiles": [
     {
-      "from": "templates/",
-      "to": "dist/templates/"
+      "from": "./templates",
+      "to": "./dist/"
     }
   ],
   "copyFileSettings": {

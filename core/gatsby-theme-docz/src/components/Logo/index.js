@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, Flex } from 'theme-ui'
-import { Link, useConfig } from 'docz'
+import { Link, useConfig } from '@bill-doc/cli'
 
 import * as styles from './styles'
 

@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { useState } from 'react'
 import { jsx } from 'theme-ui'
-import { useConfig } from 'docz'
+import { useConfig } from '@bill-doc/cli'
 import Iframe from 'react-frame-component'
 import ReactResizeDetector from 'react-resize-detector'
 

@@ -1,5 +1,5 @@
 {
-  "name": "docz-utils",
+  "name": "@bill-doc/utils",
   "version": "2.4.0",
   "description": "Some methods used and utilities used on docz",
   "license": "MIT",
@@ -14,14 +14,13 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/doczjs/docz.git",
-    "directory": "core/docz-utils"
+    "directory": "core/@bill-doc/utils"
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development npm run build -w",
     "build": "babel src --out-dir lib/ --extensions \".ts\"",
     "fix": "npm run lint --fix",
     "lint": "eslint . --ext mdx,ts,tsx",
-    "precommit": "lint-staged",
     "test": "npm run jest"
   },
   "volta": {

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { useComponents } from 'docz'
+import { useComponents } from '@bill-doc/cli'
 import { propEq, get } from 'lodash/fp'
 import { MDXProvider } from '@mdx-js/react'
 

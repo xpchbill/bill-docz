@@ -1,5 +1,5 @@
 {
-  "name": "docz",
+  "name": "@bill-doc/cli",
   "version": "2.4.0",
   "description": "It's has never been so easy to documents your things!",
   "license": "MIT",
@@ -24,8 +24,7 @@
     "dev": "cross-env NODE_ENV=development npm run build -w",
     "build": "babel src --out-dir dist/ --extensions .ts,.tsx,.js",
     "fix": "npm run lint --fix",
-    "lint": "eslint . --ext mdx,ts,tsx",
-    "precommit": "lint-staged"
+    "lint": "eslint . --ext mdx,ts,tsx"
   },
   "volta": {
     "node": "18.18.0"
@@ -35,7 +34,7 @@
     "@mdx-js/react": "^2.0.0",
     "array-sort": "^1.0.0",
     "capitalize": "^2.0.0",
-    "docz-core": "^2.4.0",
+    "@bill-doc/core": "^2.4.0",
     "fast-deep-equal": "^2.0.1",
     "gatsby": "^5.13.3",
     "gatsby-plugin-eslint": "^4.0.4",

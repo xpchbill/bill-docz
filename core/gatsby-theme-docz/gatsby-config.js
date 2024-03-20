@@ -116,7 +116,7 @@ module.exports = opts => {
         options: {
           modules: [
             'docz',
-            'docz-core',
+            '@bill-doc/core',
             'gatsby-theme-docz',
             'mdast-util-mdx',
             'mdast-util-to-markdown',

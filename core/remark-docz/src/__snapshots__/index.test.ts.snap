@@ -2,7 +2,7 @@
 
 exports[`rendering children as function 1`] = `
 "/* @jsx mdx */
-import { Playground } from 'docz'
+import { Playground } from '@bill-doc/cli'
 
 const makeShortcode = name => function MDXDefaultShortcode(props) {
   console.warn(\\"Component \\" + name + \\" was not imported, exported, or provided by MDXProvider as global scope\\")
@@ -10,7 +10,7 @@ const makeShortcode = name => function MDXDefaultShortcode(props) {
 };
 
 const layoutProps = {
-  
+
 };
 const MDXLayout = \\"wrapper\\"
 export default function MDXContent({

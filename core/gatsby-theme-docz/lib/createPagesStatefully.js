@@ -1,5 +1,5 @@
 const { get } = require('lodash/fp')
-const { parseConfig } = require('docz-core')
+const { parseConfig } = require('@bill-doc/core')
 
 const ENTRIES_QUERY = `
   {

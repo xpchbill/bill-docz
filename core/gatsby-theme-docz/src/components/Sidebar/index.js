@@ -2,7 +2,7 @@
 import { Fragment, forwardRef, useState, useRef, useEffect } from 'react'
 import { Global } from '@emotion/react'
 import { jsx, Box } from 'theme-ui'
-import { useMenus, useCurrentDoc } from 'docz'
+import { useMenus, useCurrentDoc } from '@bill-doc/cli'
 
 import * as styles from './styles'
 import { NavSearch } from '../NavSearch'

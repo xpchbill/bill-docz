@@ -3,7 +3,7 @@ import remarkDocz from 'remark-docz'
 import plugin from './'
 
 const content = `
-import { Playground } from 'docz'
+import { Playground } from '@bill-doc/cli'
 
 <Playground>
   {() => {
