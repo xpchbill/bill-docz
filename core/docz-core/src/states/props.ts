@@ -36,7 +36,7 @@ export const getPattern = (config: Config) => {
     .concat([
       unixPath(filesPattern),
       '!**/node_modules',
-      '!**/doczrc.js',
+      '!**/docrc.js',
     ]) as string[]
 }
 

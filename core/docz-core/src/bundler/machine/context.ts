@@ -2,7 +2,7 @@ import { Config } from '../../config/argv'
 
 export interface ServerMachineCtx {
   args: Config
-  doczrcFilepath?: string
+  docrcFilepath?: string
   firstInstall?: boolean
-  isDoczRepo?: boolean
+  isDocRepo?: boolean
 }

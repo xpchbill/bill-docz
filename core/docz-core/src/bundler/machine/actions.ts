@@ -8,10 +8,10 @@ import sh from 'shelljs'
 
 import * as paths from '../../config/paths'
 import { ServerMachineCtx } from './context'
-import { copyDoczRc } from './services/create-resources'
+import { copyDocRc } from './services/create-resources'
 
 const ensureFile = (filename: string, toDelete?: string) => {
-  const ghost = path.resolve(paths.docz, toDelete || filename)
+  const ghost = path.resolve(paths.doc, toDelete || filename)
   const original = path.resolve(paths.root, filename)
   if (fs.pathExistsSync(ghost) && !fs.pathExistsSync(original)) {
     fs.removeSync(ghost)
@@ -28,25 +28,25 @@ export const ensureFiles = ({ args }: ServerMachineCtx) => {
   themeNames.forEach(themeName => {
     fs.copySync(
       path.join(appPath, themeName),
-      path.join(paths.docz, 'src', themeName)
+      path.join(paths.doc, 'src', themeName)
     )
   })
   const userPagesPath = path.join(appPath, 'pages')
-  const doczPagesPath = path.join(paths.docz, 'src', 'pages')
+  const docPagesPath = path.join(paths.doc, 'src', 'pages')
   // Copy 404 and other possible Gatsby pages
   if (fs.existsSync(userPagesPath)) {
-    fs.copySync(userPagesPath, doczPagesPath)
+    fs.copySync(userPagesPath, docPagesPath)
   }
 
-  copyDoczRc(args.config)
+  copyDocRc(args.config)
   ensureFile('gatsby-browser.js')
   ensureFile('gatsby-ssr.js')
   ensureFile('gatsby-node.js')
   ensureFile('gatsby-config.js', 'gatsby-config.custom.js')
 
-  const publicPath = path.join(paths.docz, '..', args.public)
+  const publicPath = path.join(paths.doc, '..', args.public)
   if (fs.existsSync(publicPath)) {
-    const destinationPath = path.join(paths.docz, 'static', args.public)
+    const destinationPath = path.join(paths.doc, 'static', args.public)
     try {
       fs.copySync(publicPath, destinationPath)
     } catch (err: any) {
@@ -58,9 +58,9 @@ export const ensureFiles = ({ args }: ServerMachineCtx) => {
 }
 
 export const getIsFirstInstall = () => {
-  return !sh.test('-e', path.join(paths.docz, 'package.json'))
+  return !sh.test('-e', path.join(paths.doc, 'package.json'))
 }
-export const getIsDoczRepo = () => {
+export const getIsDocRepo = () => {
   return sh.test('-e', path.join(paths.root, '../../core'))
 }
 
@@ -69,9 +69,9 @@ export const assignFirstInstall = assign((ctx: ServerMachineCtx) => {
   return assoc('firstInstall', firstInstall, ctx)
 })
 
-export const checkIsDoczRepo = assign((ctx: ServerMachineCtx) => {
-  const isDoczRepo = getIsDoczRepo()
-  return assoc('isDoczRepo', isDoczRepo, ctx)
+export const checkIsDocRepo = assign((ctx: ServerMachineCtx) => {
+  const isDocRepo = getIsDocRepo()
+  return assoc('isDocRepo', isDocRepo, ctx)
 })
 
 // @ts-ignore

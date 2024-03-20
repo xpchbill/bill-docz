@@ -3,24 +3,24 @@ process.setMaxListeners(Infinity)
 import { Arguments } from 'yargs'
 import path from 'path'
 
-import { parseConfig } from '../config/docz'
-import { getIsFirstInstall, getIsDoczRepo } from '../bundler/machine/actions'
+import { parseConfig } from '../config/doc'
+import { getIsFirstInstall, getIsDocRepo } from '../bundler/machine/actions'
 import { ensureDirs, createResources } from '../bundler/machine/services'
-import { copyDoczRc } from '../bundler/machine/services/create-resources'
+import { copyDocRc } from '../bundler/machine/services/create-resources'
 import * as paths from '../config/paths'
 
 export const init = async (args: Arguments<any>) => {
-  copyDoczRc(args.config)
-  const doczrcFilepath = path.join(paths.docz, 'doczrc.js')
+  copyDocRc(args.config)
+  const docrcFilepath = path.join(paths.doc, 'docrc.js')
   const config = await parseConfig(args)
   const isFirstInstall = getIsFirstInstall()
-  const isDoczRepo = getIsDoczRepo()
+  const isDocRepo = getIsDocRepo()
   await ensureDirs()
   const serverMachineContext = {
     args: config,
-    isDoczRepo,
+    isDocRepo,
     firstInstall: isFirstInstall,
-    doczrcFilepath,
+    docrcFilepath,
   }
   await createResources(serverMachineContext)
 }

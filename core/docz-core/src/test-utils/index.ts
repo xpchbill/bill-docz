@@ -2,7 +2,7 @@ import * as paths from '../config/paths'
 import yargs from 'yargs'
 import { setArgs, Config } from '../config/argv'
 import { Params } from '../lib/DataServer'
-import { getBaseConfig } from '../config/docz'
+import { getBaseConfig } from '../config/doc'
 
 export const mockedParams = (): Params => {
   let data: any = {}

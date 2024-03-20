@@ -8,7 +8,7 @@ import { ensureFiles } from './machine/actions'
 import { spawnSync } from '../utils/spawn'
 
 export const build: BuildFn = async (config, dist) => {
-  const publicDir = path.join(paths.docz, 'public')
+  const publicDir = path.join(paths.doc, 'public')
   const cliArgs = ['run', 'build']
 
   if (typeof config.base === 'string' && config.base.length) {
@@ -18,7 +18,7 @@ export const build: BuildFn = async (config, dist) => {
     cliArgs.push('--prefix-paths')
   }
   ensureFiles({ args: config })
-  sh.cd(paths.docz)
+  sh.cd(paths.doc)
   spawnSync('npm', cliArgs)
   await fs.copy(publicDir, dist)
 }

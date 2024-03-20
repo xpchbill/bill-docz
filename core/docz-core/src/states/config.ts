@@ -37,15 +37,15 @@ const getInitialConfig = (config: Config): Payload => {
 }
 
 const update = async (params: Params, initial: Payload, { config }: Config) => {
-  const pathToConfig = path.join(paths.docz, 'doczrc.js')
+  const pathToConfig = path.join(paths.doc, 'docrc.js')
   const next = config
     ? loadFrom(pathToConfig, initial, true, true)
-    : load('docz', initial, true, true)
+    : load('doc', initial, true, true)
 
   params.setState('config', next)
 }
 
-export const WATCH_IGNORE = /(((^|[\/\\])\.((?!docz)(.+)))|(node_modules))/
+export const WATCH_IGNORE = /(((^|[\/\\])\.((?!doc)(.+)))|(node_modules))/
 
 export const createWatcher = (glob: any, config: Config) => {
   const ignored = config.watchIgnore || WATCH_IGNORE
@@ -60,7 +60,7 @@ export const createWatcher = (glob: any, config: Config) => {
 }
 
 export const state = (config: Config, dev?: boolean): State => {
-  const glob = config.config || finds('docz')
+  const glob = config.config || finds('doc')
   const initial = getInitialConfig(config)
   const watcher = createWatcher(glob, config)
 

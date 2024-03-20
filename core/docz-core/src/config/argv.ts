@@ -7,7 +7,7 @@ import { get } from 'lodash/fp'
 
 import { Plugin } from '../lib/Plugin'
 import * as paths from '../config/paths'
-import { doczRcBaseConfig } from './docz'
+import { docRcBaseConfig } from './doc'
 
 const getEnv = (val: string | string[], defaultValue: any = null): any =>
   envDotProp.get(val, defaultValue, { parse: true })
@@ -18,7 +18,7 @@ const getInitialTitle = (pkg: any): string => {
 }
 
 const getInitialDescription = (pkg: any): string =>
-  get('description', pkg) || 'My awesome app using docz'
+  get('description', pkg) || 'My awesome app using doc'
 
 export type Env = 'production' | 'development'
 export type ThemeConfig = Record<string, any>
@@ -90,84 +90,84 @@ export const setArgs = (yargs: Yargs) => {
   return yargs
     .option('root', {
       type: 'string',
-      default: getEnv('docz.root', paths.root),
+      default: getEnv('doc.root', paths.root),
     })
     .option('base', {
       type: 'string',
-      default: getEnv('docz.base', '/'),
+      default: getEnv('doc.base', '/'),
     })
     .option('source', {
       alias: 'src',
       type: 'string',
-      default: getEnv('docz.source', doczRcBaseConfig.src),
+      default: getEnv('doc.source', docRcBaseConfig.src),
     })
     .option('gatsbyRoot', {
       type: 'string',
-      default: getEnv('docz.gatsbyRoot', doczRcBaseConfig.gatsbyRoot),
+      default: getEnv('doc.gatsbyRoot', docRcBaseConfig.gatsbyRoot),
     })
     .option('files', {
       type: 'string',
-      default: getEnv('docz.files', '**/*.{md,markdown,mdx}'),
+      default: getEnv('doc.files', '**/*.{md,markdown,mdx}'),
     })
     .option('ignore', {
       type: 'array',
-      default: getEnv('docz.ignore', []),
+      default: getEnv('doc.ignore', []),
     })
     .option('public', {
       type: 'string',
-      default: getEnv('docz.public', '/public'),
+      default: getEnv('doc.public', '/public'),
     })
     .option('dest', {
       alias: 'd',
       type: 'string',
-      default: getEnv('docz.dest', '.docz/dist'),
+      default: getEnv('doc.dest', '.doc/dist'),
     })
     .option('editBranch', {
       alias: 'eb',
       type: 'string',
-      default: getEnv('docz.edit.branch', 'master'),
+      default: getEnv('doc.edit.branch', 'master'),
     })
     .option('config', {
       type: 'string',
-      default: getEnv('docz.config', ''),
+      default: getEnv('doc.config', ''),
     })
     .option('title', {
       type: 'string',
-      default: getEnv('docz.title', getInitialTitle(pkg)),
+      default: getEnv('doc.title', getInitialTitle(pkg)),
     })
     .option('description', {
       type: 'string',
-      default: getEnv('docz.description', getInitialDescription(pkg)),
+      default: getEnv('doc.description', getInitialDescription(pkg)),
     })
     .option('typescript', {
       alias: 'ts',
       type: 'boolean',
-      default: getEnv('docz.typescript', false),
+      default: getEnv('doc.typescript', false),
     })
     .option('propsParser', {
       type: 'boolean',
-      default: getEnv('docz.props.parser', true),
+      default: getEnv('doc.props.parser', true),
     })
     .option('debug', {
       type: 'boolean',
-      default: getEnv('docz.debug', false),
+      default: getEnv('doc.debug', false),
     })
     .option('host', {
       type: 'string',
-      default: getEnv('docz.host', 'localhost'),
+      default: getEnv('doc.host', 'localhost'),
     })
     .option('port', {
       alias: 'p',
       type: 'number',
-      default: getEnv('docz.port', 3000),
+      default: getEnv('doc.port', 3000),
     })
     .option('native', {
       type: 'boolean',
-      default: getEnv('docz.native', false),
+      default: getEnv('doc.native', false),
     })
     .option('separator', {
       type: 'string',
-      default: getEnv('docz.separator', '-'),
+      default: getEnv('doc.separator', '-'),
     })
     .option('openBrowser', {
       alias: ['o', 'open'],

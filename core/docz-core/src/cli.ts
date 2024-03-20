@@ -6,11 +6,11 @@ import * as commands from './commands'
 
 export const cli = () => {
   return yargs
-    .command('init', 'initialize docz in your app', setArgs, async args => {
+    .command('init', 'initialize doc in your app', setArgs, async args => {
       setEnv('development')
       await commands.init(args)
     })
-    .command('dev', 'initialize docz dev server', setArgs, async args => {
+    .command('dev', 'initialize doc dev server', setArgs, async args => {
       setEnv('development')
       await commands.dev(args)
     })
@@ -28,6 +28,6 @@ export const cli = () => {
     .recommendCommands()
     .help()
     .wrap(72)
-    .epilog('for more information visit https://github.com/doczjs/docz')
+    .epilog('for more information visit https://github.com/docjs/doc')
     .showHelpOnFail(false, 'whoops, something went wrong! run with --help').argv
 }

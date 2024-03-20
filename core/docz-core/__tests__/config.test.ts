@@ -1,10 +1,10 @@
 import * as path from 'path'
 import { setArgs } from '../src/config/argv'
-import { getBaseConfig } from '../src/config/docz'
+import { getBaseConfig } from '../src/config/doc'
 import { getThemesDir } from '../src/config/paths'
 import yargs from 'yargs'
 
-describe('config.argv & config.docz', () => {
+describe('config.argv & config.doc', () => {
   test('works', () => {
     const { argv } = setArgs(yargs)
     // expect(argv).toMatchInlineSnapshot(`undefined`)

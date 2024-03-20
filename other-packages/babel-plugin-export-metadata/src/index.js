@@ -101,7 +101,7 @@ const replaceDefaultCallAddFileMetaProperties = (t, path, filename) => {
 
 const insertNodeExport = t => (path, state) => {
   const filename = getFilename(state)
-  if (/(\.cache|\.docz).+/.test(filename)) return
+  if (/(\.cache|\.doc).+/.test(filename)) return
 
   const name = get(path, 'node.declaration.id.name')
   const declarations = get(path, 'node.declaration.declarations')
@@ -133,7 +133,7 @@ const insertNodeExport = t => (path, state) => {
 
 const insertNodeExportDefault = t => (path, state) => {
   const filename = getFilename(state)
-  if (/(\.cache|\.docz).+/.test(filename)) return
+  if (/(\.cache|\.doc).+/.test(filename)) return
 
   const declaration = get(path, 'node.declaration', {})
 

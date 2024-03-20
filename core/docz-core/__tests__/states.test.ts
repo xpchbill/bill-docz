@@ -1,6 +1,6 @@
 import * as states from '../src/states/index'
 import { createConfigStateInput } from '../src/test-utils/data-bank'
-import { getBaseConfig } from '../src/config/docz'
+import { getBaseConfig } from '../src/config/doc'
 import * as paths from '../src/config/paths'
 import { Entries } from '../src/lib/Entries'
 import { setArgs } from '../src/config/argv'

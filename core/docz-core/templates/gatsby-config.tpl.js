@@ -2,6 +2,7 @@ const { mergeWith } = require('@bill-doc/utils')
 const fs = require('fs-extra')
 const path = require('path')
 
+
 let custom = {}
 const hasGatsbyConfig = fs.existsSync('./gatsby-config.custom.js')
 
@@ -34,16 +35,16 @@ const config = {
       }
     },<%}%>
     {
-      resolve: 'gatsby-theme-docz',
+      resolve: 'gatsby-theme-doc',
       options: <%- opts %>
-    },<% if (isDoczRepo) {%>
+    },<% if (isDocRepo) {%>
     {
       resolve: 'gatsby-plugin-compile-es6-packages',
       options: {
         modules: [
-          'docz',
+          'doc',
           '@bill-doc/core',
-          'gatsby-theme-docz',
+          'gatsby-theme-doc',
           'mdast-util-mdx',
           'mdast-util-to-markdown'
         ],

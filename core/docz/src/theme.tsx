@@ -1,6 +1,6 @@
 import React, { memo } from 'react'
 import { FC, ComponentType as CT } from 'react'
-import { doczState, Database, ThemeConfig, TransformFn, Entry } from './state'
+import { docState, Database, ThemeConfig, TransformFn, Entry } from './state'
 
 export interface ThemeProps {
   db: Database
@@ -19,14 +19,14 @@ export function theme(
 
       return (
         // @ts-ignore
-        <doczState.Provider initial={initial}>
+        <docState.Provider initial={initial}>
           {/* @ts-ignore */}
           <WrappedComponent>{children}</WrappedComponent>
-        </doczState.Provider>
+        </docState.Provider>
       )
     })
 
-    Theme.displayName = WrappedComponent.displayName || 'DoczTheme'
+    Theme.displayName = WrappedComponent.displayName || 'DocTheme'
     return Theme
   }
 }

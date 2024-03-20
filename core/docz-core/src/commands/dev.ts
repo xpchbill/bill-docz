@@ -3,12 +3,12 @@ process.setMaxListeners(Infinity)
 import { Arguments } from 'yargs'
 import logger from 'signale'
 
-import { parseConfig } from '../config/docz'
+import { parseConfig } from '../config/doc'
 import { bundler as gatsby } from '../bundler'
-import { copyDoczRc } from '../bundler/machine/services/create-resources'
+import { copyDocRc } from '../bundler/machine/services/create-resources'
 
 export const dev = async (args: Arguments<any>) => {
-  copyDoczRc(args.config)
+  copyDocRc(args.config)
   const config = await parseConfig(args)
   const bundler = gatsby(config)
   const app = await bundler.createApp()

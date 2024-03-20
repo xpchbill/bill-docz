@@ -6,8 +6,8 @@ import { devServerMachine } from './machine'
 import { Config as Args } from '../config/argv'
 
 export const server = (args: Args) => async () => {
-  const doczrcFilepath = await findUp(finds('docz'))
-  const machine = devServerMachine.withContext({ args, doczrcFilepath })
+  const docrcFilepath = await findUp(finds('doc'))
+  const machine = devServerMachine.withContext({ args, docrcFilepath })
   const service = interpret(machine).onTransition(state => {
     if (args.debug) {
       console.log(state.value)

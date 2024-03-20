@@ -6,25 +6,25 @@ import * as paths from '../../../config/paths'
 import { ServerMachineCtx } from '../context'
 import { outputFileFromTemplate } from '../../../utils/template'
 
-export const copyDoczRc = (configPath?: string) => {
-  const sourceDoczRc = configPath
+export const copyDocRc = (configPath?: string) => {
+  const sourceDocRc = configPath
     ? path.join(paths.root, configPath)
-    : path.join(paths.root, 'doczrc.js')
+    : path.join(paths.root, 'docrc.js')
 
-  const hasDoczRc = fs.existsSync(sourceDoczRc)
-  if (!hasDoczRc) return
+  const hasDocRc = fs.existsSync(sourceDocRc)
+  if (!hasDocRc) return
 
-  const destinationDoczRc = path.join(paths.docz, 'doczrc.js')
+  const destinationDocRc = path.join(paths.doc, 'docrc.js')
   try {
-    fs.copySync(sourceDoczRc, destinationDoczRc)
+    fs.copySync(sourceDocRc, destinationDocRc)
   } catch (err: any) {}
 }
 
 const copyAndModifyPkgJson = async (ctx: ServerMachineCtx) => {
-  const movePath = path.join(paths.docz, 'package.json')
+  const movePath = path.join(paths.doc, 'package.json')
   // const pkg = await fs.readJSON(filepath, { throws: false })
   const newPkg = {
-    name: 'docz-app',
+    name: 'doc-app',
     license: 'MIT',
     dependencies: {
       gatsby: 'just-to-fool-cli-never-installed',
@@ -34,7 +34,7 @@ const copyAndModifyPkgJson = async (ctx: ServerMachineCtx) => {
       build: 'gatsby build',
       serve: 'gatsby serve',
     },
-    ...(ctx.isDoczRepo && {
+    ...(ctx.isDocRepo && {
       private: true,
       workspaces: ['../../../core/**', '../../../other-packages/**'],
     }),
@@ -52,7 +52,7 @@ const writeEslintRc = async () => {
   ]
   for (const filename of possibleFilenames) {
     const filepath = path.join(paths.root, filename)
-    const dest = path.join(paths.docz, filename)
+    const dest = path.join(paths.doc, filename)
     if (fs.pathExistsSync(filepath)) {
       await fs.copy(filepath, dest)
       return
@@ -63,7 +63,7 @@ const writeEslintRc = async () => {
 const copyDotEnv = () => {
   const filename = '.env'
   const filepath = path.join(paths.root, filename)
-  const dest = path.join(paths.docz, filename)
+  const dest = path.join(paths.doc, filename)
 
   if (fs.pathExistsSync(filepath)) {
     fs.copySync(filepath, dest)
@@ -73,7 +73,7 @@ const copyDotEnv = () => {
 const copyEslintIgnore = async () => {
   const filename = '.eslintignore'
   const filepath = path.join(paths.root, filename)
-  const dest = path.join(paths.docz, filename)
+  const dest = path.join(paths.doc, filename)
 
   if (fs.pathExistsSync(filepath)) {
     await fs.copy(filepath, dest)
@@ -81,35 +81,35 @@ const copyEslintIgnore = async () => {
 }
 
 export const writeDefaultNotFound = async () => {
-  const outputPath = path.join(paths.docz, 'src/pages/404.js')
+  const outputPath = path.join(paths.doc, 'src/pages/404.js')
   // If it exists then it would have been created in ensureFiles while copying the theme
   if (fs.existsSync(outputPath)) return
   await outputFileFromTemplate('404.tpl.js', outputPath, {})
 }
 
-const writeGatsbyConfig = async ({ args, isDoczRepo }: ServerMachineCtx) => {
-  const outputPath = path.join(paths.docz, 'gatsby-config.js')
+const writeGatsbyConfig = async ({ args, isDocRepo }: ServerMachineCtx) => {
+  const outputPath = path.join(paths.doc, 'gatsby-config.js')
   const config = omit(['plugins'], args)
   const newConfig = {
     ...config,
-    root: paths.docz,
+    root: paths.doc,
   }
 
   await outputFileFromTemplate('gatsby-config.tpl.js', outputPath, {
-    isDoczRepo,
+    isDocRepo,
     config: newConfig,
     opts: JSON.stringify(newConfig),
   })
 }
 
 const writeGatsbyConfigNode = async () => {
-  const outputPath = path.join(paths.docz, 'gatsby-node.js')
+  const outputPath = path.join(paths.doc, 'gatsby-node.js')
   await outputFileFromTemplate('gatsby-node.tpl.js', outputPath)
 }
 
 const copyGatsbyConfigFile = async (from: string, to: string) => {
   const filepath = path.join(paths.root, from)
-  const dest = path.join(paths.docz, to)
+  const dest = path.join(paths.doc, to)
   if (fs.pathExistsSync(filepath)) {
     await fs.copy(filepath, dest)
   }
@@ -129,7 +129,7 @@ const writeGatsbyBrowser = async () =>
 
 export const createResources = async (ctx: ServerMachineCtx) => {
   try {
-    copyDoczRc(ctx.args.config)
+    copyDocRc(ctx.args.config)
     copyDotEnv()
     await copyAndModifyPkgJson(ctx)
     await writeEslintRc()

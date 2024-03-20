@@ -15,11 +15,11 @@ const replaceThemesDir = (filepath: string, args: Config) => {
     paths.getThemesDir(args),
     path.resolve(paths.root, filepath)
   )
-  // => e.g. '/gatsby-theme-docz/**/index.tsx'
+  // => e.g. '/gatsby-theme-doc/**/index.tsx'
 
   // Prefix with 'src':
   return path.join('src', rawFilePath)
-  // => 'src/gatsby-theme-docz/**/index.tsx'
+  // => 'src/gatsby-theme-doc/**/index.tsx'
 }
 
 const watchGatsbyThemeFiles = (args: Config) => {
@@ -29,11 +29,11 @@ const watchGatsbyThemeFiles = (args: Config) => {
   )
   const copy = (filepath: string) => {
     const src = path.resolve(paths.root, filepath)
-    const dest = path.resolve(paths.docz, replaceThemesDir(filepath, args))
+    const dest = path.resolve(paths.doc, replaceThemesDir(filepath, args))
     fs.copySync(src, dest)
   }
   const remove = (filepath: string) => {
-    fs.removeSync(path.resolve(paths.docz, filepath))
+    fs.removeSync(path.resolve(paths.doc, filepath))
   }
 
   watcher
@@ -54,7 +54,7 @@ const createWatch = (args: Config) => (
   const watcher = createWatcher(glob, args)
   const srcPath = path.join(paths.root, src)
   const destPath = path.join(
-    paths.docz,
+    paths.doc,
     custom ? src.replace('.js', '.custom.js') : src
   )
 
@@ -69,20 +69,20 @@ const createWatch = (args: Config) => (
   return () => watcher.close()
 }
 
-const watchDoczRc = (args: Context['args']) => {
+const watchDocRc = (args: Context['args']) => {
   const watcher = createWatcher(
-    path.join(paths.root, args.config ? args.config : 'doczrc.js'),
+    path.join(paths.root, args.config ? args.config : 'docrc.js'),
     args
   )
 
   const copy = (filepath: string) => {
     const src = path.resolve(paths.root, filepath)
-    const dest = path.resolve(paths.docz, 'doczrc.js')
+    const dest = path.resolve(paths.doc, 'docrc.js')
     fs.copySync(src, dest)
   }
 
   const remove = () => {
-    fs.removeSync(path.resolve(paths.docz, 'doczrc.js'))
+    fs.removeSync(path.resolve(paths.doc, 'docrc.js'))
   }
 
   watcher
@@ -94,7 +94,7 @@ const watchDoczRc = (args: Context['args']) => {
 
 export const watchFiles = ({ args }: Context) => () => {
   const watch = createWatch(args)
-  const doczrc = watchDoczRc(args)
+  const docrc = watchDocRc(args)
   const gatsbyBrowser = watch(paths.gatsbyBrowser, 'gatsby-browser.js')
   const gatsbyNode = watch(paths.gatsbyNode, 'gatsby-node.js')
   const gatsbySSR = watch(paths.gatsbySSR, 'gatsby-ssr.js')
@@ -102,7 +102,7 @@ export const watchFiles = ({ args }: Context) => () => {
   const themeFilesWatcher = watchGatsbyThemeFiles(args)
 
   return () => {
-    doczrc()
+    docrc()
     gatsbyConfig()
     gatsbyBrowser()
     gatsbyNode()

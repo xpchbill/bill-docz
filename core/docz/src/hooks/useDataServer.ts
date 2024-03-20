@@ -1,12 +1,12 @@
 import { useEffect } from 'react'
-import { doczState } from '../state'
+import { docState } from '../state'
 
 const updateState = (ev: any) => {
   const { type, payload } = JSON.parse(ev.data)
   const prop = type.startsWith('state.') && type.split('.')[1]
 
   if (prop) {
-    doczState.set(state => ({ ...state, [prop]: payload }))
+    docState.set(state => ({ ...state, [prop]: payload }))
   }
 }
 

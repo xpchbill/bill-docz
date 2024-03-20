@@ -17,18 +17,18 @@ export const ensureSlash = (filepath: any, needsSlash: boolean) => {
 }
 
 export const root = fs.realpathSync(process.cwd())
-const IS_DOCZ_PROJECT = path.parse(root).base === '.docz'
+const IS_DOCZ_PROJECT = path.parse(root).base === '.doc'
 
 export const resolveApp = (to: string) =>
   path.resolve(root, IS_DOCZ_PROJECT ? '../' : './', to)
 
-export const checkIsDoczProject = (config: Config) => {
-  return path.parse(config.root || root).base === '.docz'
+export const checkIsDocProject = (config: Config) => {
+  return path.parse(config.root || root).base === '.doc'
 }
 
 export const getRootDir = (config: Config) => {
-  const isDoczProject = checkIsDoczProject(config)
-  return isDoczProject ? path.resolve(root, '../') : root
+  const isDocProject = checkIsDocProject(config)
+  return isDocProject ? path.resolve(root, '../') : root
 }
 
 export const getThemesDir = (config: Config) => {
@@ -41,7 +41,7 @@ export interface Paths {
   templates: string
   servedPath: (base: string) => string
 
-  docz: string
+  doc: string
   app: string
   cache: string
   appPackageJson: string
@@ -50,7 +50,7 @@ export interface Paths {
   gatsbyNode: string
   gatsbySSR: string
 
-  checkIsDoczProject: (config: any) => boolean
+  checkIsDocProject: (config: any) => boolean
   getRootDir: (config: any) => string
   getThemesDir: (config: any) => string
   getDist: (dest: string) => string
@@ -67,9 +67,9 @@ export const templates = path.join(resolve.sync('@bill-doc/core'), '../templates
 
 export const servedPath = (base: string) => ensureSlash(base, true)
 
-export const docz = resolveApp('.docz')
-export const cache = path.resolve(docz, '.cache/')
-export const app = path.resolve(docz, 'app/')
+export const doc = resolveApp('.doc')
+export const cache = path.resolve(doc, '.cache/')
+export const app = path.resolve(doc, 'app/')
 export const appPackageJson = resolveApp('package.json')
 export const appTsConfig = resolveApp('tsconfig.json')
 export const gatsbyConfig = resolveApp('gatsby-config.js')

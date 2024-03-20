@@ -53,9 +53,9 @@ export interface Database {
   entries?: Entries
 }
 
-export interface DoczState extends Database {
+export interface DocState extends Database {
   themeConfig?: ThemeConfig
   transform?: TransformFn
 }
 
-export const doczState = create<DoczState>({} as any)
+export const docState = create<DocState>({} as any)

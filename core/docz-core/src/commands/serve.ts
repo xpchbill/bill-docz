@@ -3,7 +3,7 @@ import { Arguments } from 'yargs'
 
 import * as paths from '../config/paths'
 import { spawnSync } from '../utils/spawn'
-import { parseConfig } from '../config/docz'
+import { parseConfig } from '../config/doc'
 
 export const serve = async (args: Arguments<any>) => {
   const config = await parseConfig(args)
@@ -24,6 +24,6 @@ export const serve = async (args: Arguments<any>) => {
     cliArgs.push(String(config.host))
   }
 
-  sh.cd(paths.docz)
+  sh.cd(paths.doc)
   spawnSync('npm', cliArgs)
 }

@@ -2,7 +2,7 @@
 export { cli } from './cli'
 
 /** config exports */
-export { parseConfig, getBaseConfig } from './config/docz'
+export { parseConfig, getBaseConfig } from './config/doc'
 export { Config, setArgs } from './config/argv'
 
 /** states */

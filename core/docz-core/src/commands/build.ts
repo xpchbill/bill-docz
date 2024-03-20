@@ -1,20 +1,20 @@
 import { Arguments } from 'yargs'
 import * as logger from 'signale'
 
-import { parseConfig } from '../config/docz'
+import { parseConfig } from '../config/doc'
 import { bundler as gatsby } from '../bundler'
 import { init } from './init'
-import { copyDoczRc } from '../bundler/machine/services/create-resources'
+import { copyDocRc } from '../bundler/machine/services/create-resources'
 
 export const build = async (args: Arguments<any>) => {
-  copyDoczRc(args.config)
+  copyDocRc(args.config)
   const config = await parseConfig(args)
   const bundler = gatsby(config)
 
   try {
     await init(args)
   } catch (err: any) {
-    logger.error(`Failed to initialize docz : ${err.message}`)
+    logger.error(`Failed to initialize doc : ${err.message}`)
   }
 
   try {

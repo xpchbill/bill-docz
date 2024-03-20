@@ -5,8 +5,8 @@ import { getTestConfig, mockedParams } from '../src/test-utils'
 
 describe('props', () => {
   beforeEach(() => {
-    if (fs.existsSync('./.docz/.cache/propsParser.json')) {
-      fs.unlinkSync('./.docz/.cache/propsParser.json')
+    if (fs.existsSync('./.doc/.cache/propsParser.json')) {
+      fs.unlinkSync('./.doc/.cache/propsParser.json')
     }
   })
 

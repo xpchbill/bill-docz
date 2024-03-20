@@ -5,7 +5,7 @@ import match from 'match-sorter'
 import sort from 'array-sort'
 
 import { compare, flatArrFromObject } from '../utils/helpers'
-import { Entry, MenuItem, doczState } from '../state'
+import { Entry, MenuItem, docState } from '../state'
 
 const noMenu = (entry: Entry) => !entry.menu
 const fromMenu = (menu: string) => (entry: Entry) => entry.menu === menu
@@ -127,7 +127,7 @@ export interface UseMenusParams {
 
 export const useMenus = (opts?: UseMenusParams) => {
   const { query = '' } = opts || {}
-  const { entries, config } = useContext(doczState.context)
+  const { entries, config } = useContext(docState.context)
   if (!entries) return null
 
   const arr = entries.map(({ value }) => value) as Entry[]

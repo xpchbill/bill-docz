@@ -7,7 +7,7 @@ import * as reactDocgen from 'react-docgen'
 import { Config } from '../../config/argv'
 import { getRootDir } from '../../config/paths'
 import { unixPath } from '.'
-import { resolver as doczResolver } from './docz-docgen-resolver'
+import { resolver as docResolver } from './doc-docgen-resolver'
 import externalProptypesHandler from './externalProptypesHandler'
 
 const throwError = (err: any) => {
@@ -16,7 +16,7 @@ const throwError = (err: any) => {
 }
 
 export const jsParser = (files: string[], config: Config) => {
-  const resolver = config.docgenConfig.resolver || doczResolver
+  const resolver = config.docgenConfig.resolver || docResolver
 
   const root = getRootDir(config)
   const parseFilepathProps = (filepath: string) => {

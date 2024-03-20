@@ -44,7 +44,7 @@ const machine = Machine<ServerMachineCtx>({
         idle: {
           on: {
             START_MACHINE: {
-              actions: ['assignFirstInstall', 'checkIsDoczRepo'],
+              actions: ['assignFirstInstall', 'checkIsDocRepo'],
               target: 'ensuringDirs',
             },
           },

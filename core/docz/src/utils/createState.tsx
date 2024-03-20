@@ -29,7 +29,7 @@ export function create<T = any>(initial: T): State<T> {
     set: fn => dispatch(fn),
     // @ts-ignore
     Provider: class Provider extends Component<ProviderProps<T>, T> {
-      public static displayName = 'DoczStateProvider'
+      public static displayName = 'DocStateProvider'
       public static getDerivedStateFromProps(props: any, state: any): any {
         if (!equal(props.initial, state)) return props.initial
         return null

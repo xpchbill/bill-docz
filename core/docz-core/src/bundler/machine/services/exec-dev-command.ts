@@ -9,7 +9,7 @@ import { openBrowser } from '../../../utils/open-browser'
 import * as paths from '../../../config/paths'
 
 export const findRootPath = async () => {
-  let repoRootPath = path.join(paths.docz, '../')
+  let repoRootPath = path.join(paths.doc, '../')
   try {
     const foundRootPath = await findUp(
       async directory => {
@@ -61,7 +61,7 @@ export const execDevCommand = async ({ args }: ServerMachineCtx) => {
     ].filter(Boolean),
     {
       stdio: 'inherit',
-      cwd: paths.docz,
+      cwd: paths.doc,
     }
   )
   const protocol = useHttps ? 'https' : 'http'

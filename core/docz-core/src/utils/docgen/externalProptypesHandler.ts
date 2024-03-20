@@ -1,6 +1,6 @@
 // vendored from react-docgen-external-proptypes-handler
 // which is not well maintained
-// https://github.com/doczjs/docz/issues/727
+// https://github.com/docjs/doc/issues/727
 
 const path = require('path')
 const fs = require('fs')
@@ -19,7 +19,7 @@ try {
   babylon = buildParser()
 } catch (e: any) {
   /** DOCZ: special error message as people often encounter errors here because they misconfigure or lack a babel plugin */
-  console.error('Error while initializing babel in docz: ', e)
+  console.error('Error while initializing babel in doc: ', e)
   /** DOCZ: disabling this require because it no longer exists */
   throw new Error(e)
   // babylon = require('react-docgen/dist/babylon').default

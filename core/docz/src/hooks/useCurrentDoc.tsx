@@ -1,9 +1,9 @@
 import { useContext } from 'react'
 import { get } from 'lodash/fp'
 
-import { doczState } from '../state'
+import { docState } from '../state'
 
 export const useCurrentDoc = () => {
-  const state = useContext(doczState.context)
+  const state = useContext(docState.context)
   return get('currentEntry.value', state)
 }

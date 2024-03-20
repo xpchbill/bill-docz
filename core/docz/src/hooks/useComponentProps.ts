@@ -4,7 +4,7 @@ import { pascalCase } from 'pascal-case'
 import marksy from 'marksy'
 
 import { useComponents } from '../hooks'
-import { doczState } from '../state'
+import { docState } from '../state'
 
 interface UseComponentPropsParams {
   componentName: string
@@ -16,7 +16,7 @@ export const useComponentProps = ({
   fileName,
 }: UseComponentPropsParams) => {
   const components = useComponents()
-  const { props: stateProps } = useContext(doczState.context)
+  const { props: stateProps } = useContext(docState.context)
 
   const componentMatcher = (componentName: string, item: any) => {
     const matchingPatterns = [
