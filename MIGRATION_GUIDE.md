@@ -1,6 +1,6 @@
 # Migration Guide
 
-The [v2 release](https://github.com/pedronauck/docz/pull/950) is our biggest release in terms of changes to our core scripts. Our bundler system was entirely modified in order to use Gatsby as default bundler and you will need to update your code if you’re coming from a previous version. 
+The [v2 release](https://github.com/pedronauck/docz/pull/950) is our biggest release in terms of changes to our core scripts. Our bundler system was entirely modified in order to use Gatsby as default bundler and you will need to update your code if you’re coming from a previous version.
 
 It’s not a big deal, but you will need to follow this guide in order to get Docz running properly on your project after the upgrade.
 
@@ -39,13 +39,13 @@ The `createPlugin` method also changed in order to fit with Gatsby now.
 
 ## `docz-theme-default` removed
 
-Make sure to remove `docz-theme-default` from your dependencies when migrating : 
+Make sure to remove `docz-theme-default` from your dependencies when migrating :
 
 ```sh
-yarn remove docz-theme-default # npm uninstall docz-theme-default
+npm run remove docz-theme-default # npm uninstall docz-theme-default
 ```
 
-The main reason that made us change our core to use Gatsby is that they have added a feature called themes. 
+The main reason that made us change our core to use Gatsby is that they have added a feature called themes.
 
 In the last major version we launched our own Gatsby theme `gatsby-theme-docz` and this was a huge step forward because we can now use Docz inside a Gatsby project and bring a lot of new possibilities when creating documentation.
 
@@ -63,7 +63,7 @@ Check [here](https://github.com/FormidableLabs/prism-react-renderer) for more in
 
 ### New `themeConfig` properties
 
-Another great thing launched in the newest version is the integration with [Theme UI](https://theme-ui.com). Theme UI is a library for building consistent, themeable React apps based on constraint-based design principles. 
+Another great thing launched in the newest version is the integration with [Theme UI](https://theme-ui.com). Theme UI is a library for building consistent, themeable React apps based on constraint-based design principles.
 
 So, in order to integrate it with our new theme, a lot of changes have been made inside the `themeConfig` object.
 
@@ -113,7 +113,7 @@ These plugins are added by adding a `gatsby-config.js` in your project root or m
 npm install --save node-sass gatsby-plugin-sass
 
 # yarn
-yarn add node-sass gatsby-plugin-sass
+npm run add node-sass gatsby-plugin-sass
 ```
 
 2. Add the plugin to your `gatsby-config.js`

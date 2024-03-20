@@ -13,7 +13,7 @@
     "directory": "core/docz-rollup"
   },
   "scripts": {
-    "fix": "yarn lint --fix",
+    "fix": "npm run lint --fix",
     "lint": "eslint . --ext .js",
     "precommit": "lint-staged"
   },

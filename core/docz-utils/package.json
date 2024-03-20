@@ -19,10 +19,10 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development npm run build -w",
     "build": "babel src --out-dir lib/ --extensions \".ts\"",
-    "fix": "yarn lint --fix",
+    "fix": "npm run lint --fix",
     "lint": "eslint . --ext mdx,ts,tsx",
     "precommit": "lint-staged",
-    "test": "yarn jest"
+    "test": "npm run jest"
   },
   "volta": {
     "node": "18.18.0"

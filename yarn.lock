@@ -5055,7 +5055,7 @@ async@^2.1.4:
   dependencies:
     lodash "^4.17.14"
 
-async@^3.1.0, async@^3.2.0, async@^3.2.3:
+async@^3.1.0, async@^3.2.0, async@^3.2.3, async@^3.2.5:
   version "3.2.5"
   resolved "https://registry.npmjs.org/async/-/async-3.2.5.tgz"
   integrity sha512-baNZyqaaLhyLVKm/DlvdW051MSgO6b8eVfIezl9E5PqWxFgzLm/wQntEW4zOytVburDEr0JlALEpdOFwvErLsg==
@@ -5147,6 +5147,15 @@ axios@^1.6.0:
     form-data "^4.0.0"
     proxy-from-env "^1.1.0"
 
+axios@^1.6.2:
+  version "1.6.8"
+  resolved "https://registry.npmjs.org/axios/-/axios-1.6.8.tgz"
+  integrity sha512-v/ZHtJDU39mDpyBoFVkETcd/uNdxrWRrg3bKpOKzXFA6Bvqopts6ALSMU3y6ijYxbw2B+wPrIv46egTzJXCLGQ==
+  dependencies:
+    follow-redirects "^1.15.6"
+    form-data "^4.0.0"
+    proxy-from-env "^1.1.0"
+
 axobject-query@^3.2.1:
   version "3.2.1"
   resolved "https://registry.npmjs.org/axobject-query/-/axobject-query-3.2.1.tgz"
@@ -5211,7 +5220,7 @@ babel-plugin-dynamic-import-node@^2.3.3:
   dependencies:
     object.assign "^4.1.0"
 
-babel-plugin-export-metadata@^2.4.0, "babel-plugin-export-metadata@file:/Users/bxiong/workspace/github/bill-docz/other-packages/babel-plugin-export-metadata":
+babel-plugin-export-metadata@^2.4.0, "babel-plugin-export-metadata@file:/Users/bxiong/workspace/gitlab/bill-docz/other-packages/babel-plugin-export-metadata":
   version "2.4.0"
   resolved "file:other-packages/babel-plugin-export-metadata"
   dependencies:
@@ -6127,6 +6136,14 @@ chalk@^4.1.2:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
 
+chalk@=4.1.2:
+  version "4.1.2"
+  resolved "https://registry.npmjs.org/chalk/-/chalk-4.1.2.tgz"
+  integrity sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==
+  dependencies:
+    ansi-styles "^4.1.0"
+    supports-color "^7.1.0"
+
 change-case-all@1.0.14:
   version "1.0.14"
   resolved "https://registry.npmjs.org/change-case-all/-/change-case-all-1.0.14.tgz"
@@ -6222,6 +6239,11 @@ chardet@^0.7.0:
   resolved "https://registry.npmjs.org/chardet/-/chardet-0.7.0.tgz"
   integrity sha512-mT8iDcrh03qDGRRmoA2hmBJnxpllMR+0/0qlzjqZES6NdiWDcZkCNAk4rPFZ9Q85r27unkiNNg8ZOiwZXBHwcA==
 
+charenc@0.0.2:
+  version "0.0.2"
+  resolved "https://registry.npmjs.org/charenc/-/charenc-0.0.2.tgz"
+  integrity sha512-yrLQ/yVUFXkzg7EDQsPieE/53+0RlaWTs+wBrvW36cyilJ2SaDWfl4Yj7MtLTXleV9uEKefbAGUPv2/iWSooRA==
+
 check-error@^1.0.2:
   version "1.0.3"
   resolved "https://registry.npmjs.org/check-error/-/check-error-1.0.3.tgz"
@@ -6291,6 +6313,13 @@ ci-info@^3.6.1:
   version "3.9.0"
   resolved "https://registry.npmjs.org/ci-info/-/ci-info-3.9.0.tgz"
   integrity sha512-NIxF55hv4nSqQswkAeiOi1r83xy8JldOFDTWiug55KBu9Jnblncd2U6ViHmYgHf01TPZS77NJBhBMKdWj9HQMQ==
+
+cjson@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.npmjs.org/cjson/-/cjson-0.5.0.tgz"
+  integrity sha512-D3CKJU9YnZNyerUQ1IzNUvMnToP3MGC2XbIAPi/7yqunJJW3rBwCVapousoFtaR9IbejeEM0KIshxC1n4HQcXw==
+  dependencies:
+    json-parse-helpfulerror "^1.0.3"
 
 class-utils@^0.3.5:
   version "0.3.6"
@@ -6950,6 +6979,27 @@ copy-descriptor@^0.1.0:
   resolved "https://registry.npmjs.org/copy-descriptor/-/copy-descriptor-0.1.1.tgz"
   integrity sha512-XgZ0pFcakEUlbwQEVNg3+QAis1FyTL3Qel9FYy8pSkQqoG3PNoT0bOCQtOXcOkur21r2Eq2kI+IE+gsmAEVlYw==
 
+copy-files-from-to@^3.9.1:
+  version "3.9.1"
+  resolved "https://registry.npmjs.org/copy-files-from-to/-/copy-files-from-to-3.9.1.tgz"
+  integrity sha512-SZHxqHotMXghpWTDgjq3c2nnRWesLqYfrLcCvML3yAaSf3+iIKv4clX5jsarMZ5iI7JMf6i9/B/VFDxVELG0Fg==
+  dependencies:
+    async "^3.2.5"
+    axios "^1.6.2"
+    chalk "=4.1.2"
+    cjson "^0.5.0"
+    fast-glob "^3.3.2"
+    glob-parent "^6.0.2"
+    is-glob "^4.0.3"
+    is-utf8 "^0.2.1"
+    lodash "^4.17.21"
+    md5 "^2.3.0"
+    mkdirp "^3.0.1"
+    note-down "=1.0.2"
+    terser "^5.24.0"
+    unixify "^1.0.0"
+    yargs "^17.7.2"
+
 copy-text-to-clipboard@^2.1.0:
   version "2.2.0"
   resolved "https://registry.npmjs.org/copy-text-to-clipboard/-/copy-text-to-clipboard-2.2.0.tgz"
@@ -7130,6 +7180,11 @@ cross-spawn@^7.0.0, cross-spawn@^7.0.2, cross-spawn@^7.0.3:
     path-key "^3.1.0"
     shebang-command "^2.0.0"
     which "^2.0.1"
+
+crypt@0.0.2:
+  version "0.0.2"
+  resolved "https://registry.npmjs.org/crypt/-/crypt-0.0.2.tgz"
+  integrity sha512-mCxBlsHFYh9C+HVpiEacem8FEBnMXgU9gy4zmNC+SXAZNB/1idgp/aulFJ4FgCi7GPEVbfyng092GqL2k2rmow==
 
 crypto-md5@^1.0.0:
   version "1.0.0"
@@ -7820,7 +7875,7 @@ detect-port@^1.3.0, detect-port@^1.5.1:
     address "^1.0.1"
     debug "4"
 
-"dev-env-basic@file:/Users/bxiong/workspace/github/bill-docz/dev-env/basic":
+"dev-env-basic@file:/Users/bxiong/workspace/gitlab/bill-docz/dev-env/basic":
   version "2.4.0"
   resolved "file:dev-env/basic"
   dependencies:
@@ -7933,7 +7988,7 @@ doctrine@^3.0.0:
   dependencies:
     esutils "^2.0.2"
 
-docz-core@^2.4.0, "docz-core@file:/Users/bxiong/workspace/github/bill-docz/core/docz-core":
+docz-core@^2.4.0, "docz-core@file:/Users/bxiong/workspace/gitlab/bill-docz/core/docz-core":
   version "2.4.0"
   resolved "file:core/docz-core"
   dependencies:
@@ -7971,7 +8026,7 @@ docz-core@^2.4.0, "docz-core@file:/Users/bxiong/workspace/github/bill-docz/core/
     xstate "^4.6.7"
     yargs "^13.3.0"
 
-"docz-rollup@file:/Users/bxiong/workspace/github/bill-docz/core/docz-rollup":
+"docz-rollup@file:/Users/bxiong/workspace/gitlab/bill-docz/core/docz-rollup":
   version "2.4.0"
   resolved "file:core/docz-rollup"
   dependencies:
@@ -7993,7 +8048,7 @@ docz-core@^2.4.0, "docz-core@file:/Users/bxiong/workspace/github/bill-docz/core/
     rollup-plugin-progress "^1.1.2"
     rollup-plugin-typescript2 "^0.22.0"
 
-docz-utils@^2.4.0, "docz-utils@file:/Users/bxiong/workspace/github/bill-docz/core/docz-utils":
+docz-utils@^2.4.0, "docz-utils@file:/Users/bxiong/workspace/gitlab/bill-docz/core/docz-utils":
   version "2.4.0"
   resolved "file:core/docz-utils"
   dependencies:
@@ -8020,7 +8075,7 @@ docz-utils@^2.4.0, "docz-utils@file:/Users/bxiong/workspace/github/bill-docz/cor
     unist-util-is "^3.0.0"
     unist-util-visit "^1.4.1"
 
-docz@^2.4.0, "docz@file:/Users/bxiong/workspace/github/bill-docz/core/docz":
+docz@^2.4.0, "docz@file:/Users/bxiong/workspace/gitlab/bill-docz/core/docz":
   version "2.4.0"
   resolved "file:core/docz"
   dependencies:
@@ -8182,7 +8237,7 @@ duplexer@^0.1.1, duplexer@^0.1.2:
   resolved "https://registry.npmjs.org/duplexer/-/duplexer-0.1.2.tgz"
   integrity sha512-jtD6YG370ZCIi/9GTaJKQxWTZD045+4R4hTk/x1UyoqadyJ9x9CgSi1RlVDQF8U2sxLLSnFkCaMihqljHIWgMg==
 
-"e2e-tests@file:/Users/bxiong/workspace/github/bill-docz/other-packages/e2e-tests":
+"e2e-tests@file:/Users/bxiong/workspace/gitlab/bill-docz/other-packages/e2e-tests":
   version "2.2.0"
   resolved "file:other-packages/e2e-tests"
   dependencies:
@@ -8590,7 +8645,7 @@ escodegen@^1.8.1, escodegen@^1.9.1:
   optionalDependencies:
     source-map "~0.6.1"
 
-"eslint-config-docz-js@file:/Users/bxiong/workspace/github/bill-docz/other-packages/eslint-config-docz-js":
+"eslint-config-docz-js@file:/Users/bxiong/workspace/gitlab/bill-docz/other-packages/eslint-config-docz-js":
   version "2.4.0"
   resolved "file:other-packages/eslint-config-docz-js"
   dependencies:
@@ -8601,7 +8656,7 @@ escodegen@^1.8.1, escodegen@^1.9.1:
     eslint-plugin-prettier "^3.1.0"
     eslint-plugin-react "^7.13.0"
 
-"eslint-config-docz-ts@file:/Users/bxiong/workspace/github/bill-docz/other-packages/eslint-config-docz-ts":
+"eslint-config-docz-ts@file:/Users/bxiong/workspace/gitlab/bill-docz/other-packages/eslint-config-docz-ts":
   version "2.4.0"
   resolved "file:other-packages/eslint-config-docz-ts"
   dependencies:
@@ -9395,7 +9450,7 @@ fast-fifo@^1.1.0, fast-fifo@^1.2.0:
   resolved "https://registry.npmjs.org/fast-fifo/-/fast-fifo-1.3.2.tgz"
   integrity sha512-/d9sfos4yxzpwkDkuN7k2SqFKtYNmCTzgfEpz82x34IM9/zc8KGxQoXg1liNC/izpRM/MBdt44Nmx41ZWqk+FQ==
 
-fast-glob@^3.0.3, fast-glob@^3.0.4, fast-glob@^3.2.9:
+fast-glob@^3.0.3, fast-glob@^3.0.4, fast-glob@^3.2.9, fast-glob@^3.3.2:
   version "3.3.2"
   resolved "https://registry.npmjs.org/fast-glob/-/fast-glob-3.3.2.tgz"
   integrity sha512-oX2ruAFQwf/Orj8m737Y5adxDQO0LAB7/S5MnxCdTNDd4p6BsyIVsv9JQsATbTSq8KHRpLwIHbVlUNatxd+1Ow==
@@ -9681,10 +9736,10 @@ flatted@^3.2.9:
   resolved "https://registry.npmjs.org/flatted/-/flatted-3.3.1.tgz"
   integrity sha512-X8cqMLLie7KsNUDSdzeN8FYK9rEt4Dt67OsG/DNGnYTSDBG4uFAJFBnUeiV+zCVAvwFy56IjM9sH51jVaEhNxw==
 
-follow-redirects@^1.14.0, follow-redirects@^1.15.4:
-  version "1.15.5"
-  resolved "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.15.5.tgz"
-  integrity sha512-vSFWUON1B+yAw1VN4xMfxgn5fTUiaOzAJCKBwIIgT/+7CuGy9+r+5gITvP62j3RmaD5Ph65UaERdOSRGUzZtgw==
+follow-redirects@^1.14.0, follow-redirects@^1.15.4, follow-redirects@^1.15.6:
+  version "1.15.6"
+  resolved "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.15.6.tgz"
+  integrity sha512-wWN62YITEaOpSK584EZXJafH1AGpO8RVgElfkuXbTOrPX4fIfOyEpW/CsiNd8JdYrAoOvafRTOEnvsO++qCqFA==
 
 for-each@^0.3.3:
   version "0.3.3"
@@ -10212,7 +10267,7 @@ gatsby-telemetry@^4.13.1:
     lodash "^4.17.21"
     node-fetch "^2.6.11"
 
-gatsby-theme-docz@^2.4.0, "gatsby-theme-docz@file:/Users/bxiong/workspace/github/bill-docz/core/gatsby-theme-docz":
+gatsby-theme-docz@^2.4.0, "gatsby-theme-docz@file:/Users/bxiong/workspace/gitlab/bill-docz/core/gatsby-theme-docz":
   version "2.4.0"
   resolved "file:core/gatsby-theme-docz"
   dependencies:
@@ -11976,6 +12031,11 @@ is-buffer@^2.0.0:
   resolved "https://registry.npmjs.org/is-buffer/-/is-buffer-2.0.5.tgz"
   integrity sha512-i2R6zNFDwgEHJyQUtJEk0XFi1i0dPFn/oqjK3/vPCcDeJvW5NQ83V8QbicfF1SupOaB0h8ntgBC2YiE7dfyctQ==
 
+is-buffer@~1.1.6:
+  version "1.1.6"
+  resolved "https://registry.npmjs.org/is-buffer/-/is-buffer-1.1.6.tgz"
+  integrity sha512-NcdALwpXkTm5Zvvbk7owOUSvVvBKDgKP5/ewfXEznmQFfs4ZRmanOeKBTjRVjka3QFoN6XJ+9F3USqfHqTaU5w==
+
 is-callable@^1.1.3, is-callable@^1.1.4, is-callable@^1.2.7:
   version "1.2.7"
   resolved "https://registry.npmjs.org/is-callable/-/is-callable-1.2.7.tgz"
@@ -13118,6 +13178,11 @@ jest@^24.9.0:
     import-local "^2.0.0"
     jest-cli "^24.9.0"
 
+jju@^1.1.0:
+  version "1.4.0"
+  resolved "https://registry.npmjs.org/jju/-/jju-1.4.0.tgz"
+  integrity sha512-8wb9Yw966OSxApiCt0K3yNJL8pnNeIv+OEq2YMidz4FKP6nonSRoOXc80iXY4JaN2FC11B9qsNmDsm+ZOfMROA==
+
 joi@^17.9.2:
   version "17.12.2"
   resolved "https://registry.npmjs.org/joi/-/joi-17.12.2.tgz"
@@ -13261,6 +13326,13 @@ json-parse-even-better-errors@^3.0.0:
   version "3.0.1"
   resolved "https://registry.npmjs.org/json-parse-even-better-errors/-/json-parse-even-better-errors-3.0.1.tgz"
   integrity sha512-aatBvbL26wVUCLmbWdCpeu9iF5wOyWpagiKkInA+kfws3sWdBrTnsvN2CKcyCYyUrc7rebNBlK6+kteg7ksecg==
+
+json-parse-helpfulerror@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.npmjs.org/json-parse-helpfulerror/-/json-parse-helpfulerror-1.0.3.tgz"
+  integrity sha512-XgP0FGR77+QhUxjXkwOMkC94k3WtqEBfcnjWqhRd82qTat4SWKRE+9kUnynz/shm3I4ea2+qISvTIeGTNU7kJg==
+  dependencies:
+    jju "^1.1.0"
 
 json-schema-traverse@^0.4.1:
   version "0.4.1"
@@ -13772,7 +13844,7 @@ lmdb@2.5.3:
     "@lmdb/lmdb-linux-x64" "2.5.3"
     "@lmdb/lmdb-win32-x64" "2.5.3"
 
-load-cfg@^2.4.0, "load-cfg@file:/Users/bxiong/workspace/github/bill-docz/other-packages/load-cfg":
+load-cfg@^2.4.0, "load-cfg@file:/Users/bxiong/workspace/gitlab/bill-docz/other-packages/load-cfg":
   version "2.4.0"
   resolved "file:other-packages/load-cfg"
   dependencies:
@@ -14402,6 +14474,15 @@ match-url-wildcard@0.0.4:
   integrity sha512-R1XhQaamUZPWLOPtp4ig5j+3jctN+skhgRmEQTUamMzmNtRG69QEirQs0NZKLtHMR7tzWpmtnS4Eqv65DcgXUA==
   dependencies:
     escape-string-regexp "^1.0.5"
+
+md5@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.npmjs.org/md5/-/md5-2.3.0.tgz"
+  integrity sha512-T1GITYmFaKuO91vxyoQMFETst+O71VUPEU3ze5GNzDm0OWdP8v1ziTaAEPUr/3kLsY3Sftgz242A1SetQiDL7g==
+  dependencies:
+    charenc "0.0.2"
+    crypt "0.0.2"
+    is-buffer "~1.1.6"
 
 mdast-util-compact@^2.0.0:
   version "2.0.1"
@@ -15467,6 +15548,11 @@ mkdirp@^1.0.3:
   resolved "https://registry.npmjs.org/mkdirp/-/mkdirp-1.0.4.tgz"
   integrity sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==
 
+mkdirp@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.npmjs.org/mkdirp/-/mkdirp-3.0.1.tgz"
+  integrity sha512-+NsyUUAZDmo6YVHzL/stxSu3t9YS1iljliy3BSDrXJ/dkn1KYdmtZODGGjLcc9XLgVVpH4KshHB8XmZgMhaBXg==
+
 modify-values@^1.0.1:
   version "1.0.1"
   resolved "https://registry.npmjs.org/modify-values/-/modify-values-1.0.1.tgz"
@@ -15890,6 +15976,13 @@ not@^0.1.0:
   version "0.1.0"
   resolved "https://registry.npmjs.org/not/-/not-0.1.0.tgz"
   integrity sha512-5PDmaAsVfnWUgTUbJ3ERwn7u79Z0dYxN9ErxCpVJJqe2RK0PJ3z+iFUxuqjwtlDDegXvtWoxD/3Fzxox7tFGWA==
+
+note-down@=1.0.2:
+  version "1.0.2"
+  resolved "https://registry.npmjs.org/note-down/-/note-down-1.0.2.tgz"
+  integrity sha512-TvLvdM5FJN3Lw9S09sNfcFnfFGioih49btr87VdCecHQAjOhtcRaqducIWDGnP/VJOEv5IxNxD6pmakGg9aAww==
+  dependencies:
+    chalk "=4.1.2"
 
 npm-bundled@^1.1.2:
   version "1.1.2"
@@ -18084,7 +18177,7 @@ react-dev-utils@^12.0.1:
     strip-ansi "^6.0.1"
     text-table "^0.2.0"
 
-react-docgen-actual-name-handler@^2.4.0, "react-docgen-actual-name-handler@file:/Users/bxiong/workspace/github/bill-docz/other-packages/react-docgen-actual-name-handler":
+react-docgen-actual-name-handler@^2.4.0, "react-docgen-actual-name-handler@file:/Users/bxiong/workspace/gitlab/bill-docz/other-packages/react-docgen-actual-name-handler":
   version "2.4.0"
   resolved "file:other-packages/react-docgen-actual-name-handler"
   dependencies:
@@ -18633,7 +18726,7 @@ regjsparser@^0.9.1:
   dependencies:
     jsesc "~0.5.0"
 
-rehype-docz@^2.4.0, "rehype-docz@file:/Users/bxiong/workspace/github/bill-docz/core/rehype-docz":
+rehype-docz@^2.4.0, "rehype-docz@file:/Users/bxiong/workspace/gitlab/bill-docz/core/rehype-docz":
   version "2.4.0"
   resolved "file:core/rehype-docz"
   dependencies:
@@ -18686,7 +18779,7 @@ relay-runtime@12.0.0:
     fbjs "^3.0.0"
     invariant "^2.2.4"
 
-remark-docz@^2.4.0, "remark-docz@file:/Users/bxiong/workspace/github/bill-docz/core/remark-docz":
+remark-docz@^2.4.0, "remark-docz@file:/Users/bxiong/workspace/gitlab/bill-docz/core/remark-docz":
   version "2.4.0"
   resolved "file:core/remark-docz"
   dependencies:
@@ -20815,7 +20908,7 @@ terser-webpack-plugin@^5.3.10, terser-webpack-plugin@^5.3.9:
     serialize-javascript "^6.0.1"
     terser "^5.26.0"
 
-terser@^5.2.0, terser@^5.26.0:
+terser@^5.2.0, terser@^5.24.0, terser@^5.26.0:
   version "5.29.2"
   resolved "https://registry.npmjs.org/terser/-/terser-5.29.2.tgz"
   integrity sha512-ZiGkhUBIM+7LwkNjXYJq8svgkd+QK3UUr0wJqY4MieaezBSAIPgbSPZyIx0idM6XWK5CMzSWa8MJIzmRcB8Caw==
@@ -23037,6 +23130,19 @@ yargs@^16.2.0:
     yargs-parser "^20.2.2"
 
 yargs@^17.6.2:
+  version "17.7.2"
+  resolved "https://registry.npmjs.org/yargs/-/yargs-17.7.2.tgz"
+  integrity sha512-7dSzzRQ++CKnNI/krKnYRV7JKKPUXMEh61soaHKg9mrWEhzFWhFnxPxGl+69cD1Ou63C13NUPCnmIcrvqCuM6w==
+  dependencies:
+    cliui "^8.0.1"
+    escalade "^3.1.1"
+    get-caller-file "^2.0.5"
+    require-directory "^2.1.1"
+    string-width "^4.2.3"
+    y18n "^5.0.5"
+    yargs-parser "^21.1.1"
+
+yargs@^17.7.2:
   version "17.7.2"
   resolved "https://registry.npmjs.org/yargs/-/yargs-17.7.2.tgz"
   integrity sha512-7dSzzRQ++CKnNI/krKnYRV7JKKPUXMEh61soaHKg9mrWEhzFWhFnxPxGl+69cD1Ou63C13NUPCnmIcrvqCuM6w==

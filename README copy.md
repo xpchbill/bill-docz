@@ -37,10 +37,10 @@ Docz enables you to quickly create a live-reloading, SEO-friendly, production-re
 
 ## Getting started
 
-Start by adding `docz` as a dependency to your project with Yarn or npm:
+Start by adding `docz` as a dependency to your project with npm run or npm:
 
 ```bash
-$ yarn add docz # react react-dom
+$ npm run add docz # react react-dom
 
 # or
 
@@ -96,25 +96,25 @@ export default Button
 Finally, run:
 
 ```bash
-yarn docz dev
+npm run docz dev
 ```
 
 This starts a local development server and opens your documentation site in the browser.
 
 ## Build
 
-`yarn docz build` generates a static site in `.docz/dist/`.
+`npm run docz build` generates a static site in `.docz/dist/`.
 
-Try it with `yarn docz serve` or by serving the generated site with your favorite static file server (e.g. `npx serve .docz/dist`).
+Try it with `npm run docz serve` or by serving the generated site with your favorite static file server (e.g. `npx serve .docz/dist`).
 
-You can have `yarn docz build` emit to a different directory by providing a path to the `dest` field in your `doczrc.js` or from the command line: `yarn docz build --dest docs-site-directory`.
+You can have `npm run docz build` emit to a different directory by providing a path to the `dest` field in your `doczrc.js` or from the command line: `npm run docz build --dest docs-site-directory`.
 
 ## Deploying
 
 The output of docz consists of static assets only.
 This allows you to deploy your generated `docz` site with any static site hosting provider you'd like.
 
-Start by building your site with `yarn docz build`, if you haven't provided a `dest` flag to your config then you will find your generated files in `.docz/dist` to copy to the server.
+Start by building your site with `npm run docz build`, if you haven't provided a `dest` flag to your config then you will find your generated files in `.docz/dist` to copy to the server.
 
 ## Examples
 

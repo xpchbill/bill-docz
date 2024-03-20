@@ -17,13 +17,14 @@
     "directory": "core/docz-core"
   },
   "scripts": {
-    "build": "babel src --out-dir dist/ --extensions .ts,.tsx,.js",
-    "dev": "yarn cross-env NODE_ENV=development npm run build -w",
-    "fix": "yarn lint --fix",
-    "lint": "yarn eslint . --ext mdx,ts,tsx",
+    "build": "babel src --out-dir dist/ --extensions .ts,.tsx,.js && npm run copy",
+    "dev": "npm run cross-env NODE_ENV=development npm run build -w",
+    "copy": "copy-files-from-to",
+    "fix": "npm run lint --fix",
+    "lint": "npm run eslint . --ext mdx,ts,tsx",
     "precommit": "lint-staged",
     "prepare": "npm run build",
-    "test": "yarn jest"
+    "test": "npm run jest"
   },
   "volta": {
     "node": "18.18.0"

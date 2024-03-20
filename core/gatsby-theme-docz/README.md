@@ -7,7 +7,7 @@ The official Gatsby theme for Docz.
 ## Installation
 
 ```sh
-yarn add gatsby gatsby-theme-docz react react-dom
+npm run add gatsby gatsby-theme-docz react react-dom
 ```
 
 ## Usage

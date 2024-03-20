@@ -28,7 +28,7 @@ yarn
 Setup development environment:
 
 ```sh
-yarn dev
+npm run dev
 ```
 
 That's it you're ready to start contributing 👍!
@@ -37,7 +37,7 @@ The example docz app is in `dev-env/basic` and runs on `http://localhost:3000`
 
 You can change any of the core packages and see the effect or edit the mdx and jsx in `dev-env/basic`
 
-### What does `yarn dev` do ?
+### What does `npm run dev` do ?
 
 1. Builds and watches all core docz packages.
 2. Copies build output to local dev-env node_modules on every change.
@@ -82,7 +82,7 @@ If there are some plugins that you want to create, please contact me before to t
 
 ## Commit messages
 
-Commit messages should follow the [commit message convention](https://conventionalcommits.org/) so, changelogs could be generated automatically by that. Commit messages are validated automatically upon commit. If you aren't familiar with the commit message convention, you can use yarn commit (or `npm run commit`) instead of git commit, which provides an interactive CLI for generating proper commit messages.
+Commit messages should follow the [commit message convention](https://conventionalcommits.org/) so, changelogs could be generated automatically by that. Commit messages are validated automatically upon commit. If you aren't familiar with the commit message convention, you can use npm run commit (or `npm run commit`) instead of git commit, which provides an interactive CLI for generating proper commit messages.
 
 ### Pull Requests
 

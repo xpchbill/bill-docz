@@ -58,12 +58,12 @@ const startLocalRegistry = async () => {
   console.log('Waiting for Verdaccio to boot')
   await waitOn({ resources: [LOCAL_REGISTRY] })
   await runCommand(`npm set registry ${LOCAL_REGISTRY}`)
-  await runCommand(`yarn config set registry ${LOCAL_REGISTRY}`)
+  await runCommand(`npm run config set registry ${LOCAL_REGISTRY}`)
 }
 
 const stopLocalRegistry = async () => {
   await runCommand(`npm set registry ${REMOTE_REGISTRY}`)
-  await runCommand(`yarn config set registry ${REMOTE_REGISTRY}`)
+  await runCommand(`npm run config set registry ${REMOTE_REGISTRY}`)
 }
 
 const runCommand = (
@@ -96,7 +96,7 @@ const installNodeModules = async (packagePath, cacheKey = '') => {
     console.log(
       `Couldnt find node_modules cache at ${cachePath} for node_modules of  ${cacheKey}`
     )
-    await runCommand(`yarn install`, { cwd: packagePath })
+    await runCommand(`npm run install`, { cwd: packagePath })
     await fs.copy(freshModulesPath, cachePath)
   }
 }
@@ -181,13 +181,13 @@ const runTests = async () => {
     console.log(`Installing modules in tmp directory`)
     await installNodeModules(example.tmp, exampleName)
 
-    // await runCommand(`yarn build`, example.tmp)
-    const command = runCommand(`yarn dev --port ${PORT}`, { cwd: example.tmp })
+    // await runCommand(`npm run build`, example.tmp)
+    const command = runCommand(`npm run dev --port ${PORT}`, { cwd: example.tmp })
 
     await waitOn({ resources: [`http://localhost:${PORT}`] })
     console.log('Ready. Starting e2e tests')
 
-    await runCommand('yarn run testcafe:ci', { cwd: e2eTestsPath })
+    await runCommand('npm run run testcafe:ci', { cwd: e2eTestsPath })
     command.kill('SIGTERM', {
       forceKillAfterTimeout: 2000,
     })

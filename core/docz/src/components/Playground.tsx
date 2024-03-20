@@ -9,7 +9,6 @@ export interface PlaygroundProps {
   children: any
   __scope: Record<string, any>
   __position: number
-  __code: string
   useScoping?: boolean
   language?: string
 }
@@ -21,7 +20,6 @@ export const Playground: FC<PlaygroundProps> = ({
   wrapper,
   __scope,
   __position,
-  __code,
   language,
   useScoping,
 }) => {

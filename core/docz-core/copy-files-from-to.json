@@ -1,0 +1,11 @@
+{
+  "copyFiles": [
+    {
+      "from": "templates/",
+      "to": "dist/templates/"
+    }
+  ],
+  "copyFileSettings": {
+    "whenFileExists": "overwrite"
+  }
+}

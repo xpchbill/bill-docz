@@ -16,7 +16,7 @@
   },
   "scripts": {
     "dev": "echo noop",
-    "fix": "yarn lint --fix",
+    "fix": "npm run lint --fix",
     "lint": "eslint . --ext .js",
     "precommit": "lint-staged"
   },

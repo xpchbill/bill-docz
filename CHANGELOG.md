@@ -516,7 +516,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - **docz-components:** typo boder -> border ([1246b19](https://github.com/pedronauck/docz/commit/1246b19))
 - **docz-core:** make onCreateWebpackConfig extendable ([8968a6c](https://github.com/pedronauck/docz/commit/8968a6c))
 - **docz-core:** run init on build if docz is not initialized ([26aa7f6](https://github.com/pedronauck/docz/commit/26aa7f6))
-- **docz-core:** set yarn production to false to download all deps ([2b4cc6b](https://github.com/pedronauck/docz/commit/2b4cc6b))
+- **docz-core:** set npm run production to false to download all deps ([2b4cc6b](https://github.com/pedronauck/docz/commit/2b4cc6b))
 - **docz-core:** use react from parent directory ([#1053](https://github.com/pedronauck/docz/issues/1053)) ([b55b786](https://github.com/pedronauck/docz/commit/b55b786))
 - **gatsby-theme-docz:** expose gatsby actions to plugin ([66546a4](https://github.com/pedronauck/docz/commit/66546a4))
 - **gatsby-theme-docz:** fix style differences between dev and build ([9cb5237](https://github.com/pedronauck/docz/commit/9cb5237))
@@ -544,7 +544,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - **docz-components:** typo boder -> border ([1246b19](https://github.com/pedronauck/docz/commit/1246b19))
 - **docz-core:** make onCreateWebpackConfig extendable ([8968a6c](https://github.com/pedronauck/docz/commit/8968a6c))
 - **docz-core:** run init on build if docz is not initialized ([fe984fd](https://github.com/pedronauck/docz/commit/fe984fd))
-- **docz-core:** set yarn production to false to download all deps ([1258553](https://github.com/pedronauck/docz/commit/1258553))
+- **docz-core:** set npm run production to false to download all deps ([1258553](https://github.com/pedronauck/docz/commit/1258553))
 - **docz-core:** use react from parent directory ([#1053](https://github.com/pedronauck/docz/issues/1053)) ([b55b786](https://github.com/pedronauck/docz/commit/b55b786))
 - **gatsby-theme-docz:** fix style differences between dev and build ([9cb5237](https://github.com/pedronauck/docz/commit/9cb5237))
 - **gatsby-theme-docz:** replace iframe in playground with div [#984](https://github.com/pedronauck/docz/issues/984) [#1035](https://github.com/pedronauck/docz/issues/1035) ([4214180](https://github.com/pedronauck/docz/commit/4214180))
@@ -560,7 +560,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-- **docz-core:** set yarn production to false to download all deps ([c9db7f1](https://github.com/pedronauck/docz/commit/c9db7f1))
+- **docz-core:** set npm run production to false to download all deps ([c9db7f1](https://github.com/pedronauck/docz/commit/c9db7f1))
 
 # [2.0.0-rc.29](https://github.com/pedronauck/docz/compare/v2.0.0-rc.1...v2.0.0-rc.29) (2019-09-03)
 
