@@ -9,7 +9,7 @@ import {
   headingsFromAst,
   Heading,
   ParsedData,
-} from '../../../doc-utils/lib/mdast'
+} from '../../../doc-utils/dist/mdast'
 
 import * as paths from '../config/paths'
 import { Config } from '../config/argv'

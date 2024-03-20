@@ -1,7 +1,7 @@
 import * as path from 'path'
 import * as fs from 'fs-extra'
-import { compiled } from '../../../doc-utils/lib/fs'
-import { format } from '../../../doc-utils/lib/format'
+import { compiled } from '../../../doc-utils/dist/fs'
+import { format } from '../../../doc-utils/dist/format'
 
 import * as paths from '../config/paths'
 

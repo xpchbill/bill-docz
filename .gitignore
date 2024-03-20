@@ -25,17 +25,14 @@ typings/
 .yarn-integrity
 .env
 es
-packages/docz-utils/lib
 stats.html
 build
 dist
 .rpt2_cache
 .cache
-.docz
+.doc
 .idea
 
 storage
-.e2e-tests-cache
 
-examples/**/yarn.lock
 .DS_Store

@@ -3,11 +3,11 @@
   "version": "2.4.0",
   "description": "Some methods used and utilities used on docz",
   "license": "MIT",
-  "main": "lib/index.js",
-  "module": "lib/index.esm.js",
-  "typings": "lib/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "typings": "dist/index.d.ts",
   "files": [
-    "lib/",
+    "dist/",
     "package.json",
     "README.md"
   ],
@@ -17,7 +17,7 @@
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development npm run build -w",
-    "build": "babel src --out-dir lib/ --extensions \".ts\"",
+    "build": "babel src --out-dir dist/ --extensions \".ts\"",
     "fix": "npm run lint --fix",
     "lint": "eslint . --ext mdx,ts,tsx",
     "test": "npm run jest"
