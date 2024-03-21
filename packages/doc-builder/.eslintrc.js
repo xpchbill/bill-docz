@@ -1,3 +1,3 @@
 module.exports = {
-  extends: 'docz-ts',
+  extends: 'doc-ts',
 }

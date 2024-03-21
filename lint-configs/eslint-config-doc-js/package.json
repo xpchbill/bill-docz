@@ -1,7 +1,7 @@
 {
-  "name": "eslint-config-docz-ts",
+  "name": "eslint-config-doc-js",
   "version": "2.4.0",
-  "description": "Eslint config for Typescript",
+  "description": "Eslint config for Javascript",
   "license": "MIT",
   "author": {
     "name": "Bill Xiong",
@@ -21,8 +21,7 @@
     "fix:prettier": "prettier \"**/*.js\" --write"
   },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^7.1.1",
-    "@typescript-eslint/parser": "^7.1.1",
+    "babel-eslint": "^10.0.2",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^5.0.0",
     "eslint-plugin-mdx": "^1.6.1",
