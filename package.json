@@ -19,9 +19,9 @@
     "packages:lint": "lerna run --parallel lint",
     "packages:build": "lerna run build --ignore={examples-*,@bill-doc/doc-plugin-remark}",
     "packages:test": "lerna run test --stream --ignore={examples-*}",
-    "prerelease": "npm run run packages",
+    "prerelease": "npm run packages",
     "release": "lerna publish --conventional-commits",
-    "release:next": "npm run run packages && lerna publish --conventional-commits --conventional-prerelease --dist-tag=next --exact",
+    "release:next": "npm run packages && lerna publish --conventional-commits --conventional-prerelease --dist-tag=next --exact",
     "promote:next": "lerna publish --conventional-commits --conventional-graduate",
     "release:beta": "npm run release --dist-tag=beta --preid=beta",
     "release:canary": "npm run release --force-publish=\"*\" --canary --exact --npm-client npm",
@@ -63,6 +63,8 @@
     "cross-env": "^5.2.1",
     "eslint-config-doc-js": "^2.4.0",
     "eslint-config-doc-ts": "^2.4.0",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-plugin-prettier": "5.1.3",
     "eslint-plugin-react": "^7.16.0",
     "eslint": "^8.57.0",
     "find-up": "^4.1.0",
@@ -80,7 +82,9 @@
     "typescript": "^5.4.2"
   },
   "overrides": {
-    "lerna": "8.1.2"
+    "lerna": "8.1.2",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-plugin-prettier": "5.1.3"
   },
   "volta": {
     "node": "18.18.0"

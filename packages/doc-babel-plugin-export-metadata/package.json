@@ -24,7 +24,7 @@
   },
   "scripts": {
     "fix": "npm run lint --fix",
-    "lint": "eslint . --ext .js",
+    "lint": "npx eslint . --ext .js",
     "test": "jest"
   },
   "dependencies": {

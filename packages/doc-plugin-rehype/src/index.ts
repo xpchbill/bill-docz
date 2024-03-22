@@ -39,14 +39,14 @@ const addComponentsProps = (scopes: string[] = []) => async (
     })
     console.log('childJsxArray: ', childJsxArray)
 
-    return format(childJsxArray.join(''), { parser: "mdx", plugins: [parserBabel, markdown, prettierPluginEstree] }).then(result => {
+    return format(childJsxArray.join(''), { parser: "mdx", plugins: [parserBabel, markdown, prettierPluginEstree ] }).then(result => {
       const jsxValue = result.replace(/\n$/,"")
       console.log(jsxValue)
       node.children = [{
         type: 'code',
         lang: 'jsx',
         meta: null,
-        value: childJsxArray.join(''),
+        value: jsxValue,
       }]
       node.attributes.push({
         type: 'mdxJsxAttribute',

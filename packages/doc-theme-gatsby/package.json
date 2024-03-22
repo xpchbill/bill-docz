@@ -14,7 +14,7 @@
   "scripts": {
     "dev": "echo noop",
     "fix": "npm run lint --fix",
-    "lint": "eslint . --ext .js"
+    "lint": "npx eslint . --ext .js"
   },
   "dependencies": {
     "@emotion/react": "^11.1.1",

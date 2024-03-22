@@ -19,7 +19,7 @@
     "dev": "cross-env NODE_ENV=development npm run build -w",
     "build": "babel src --out-dir dist/ --extensions \".ts\"",
     "fix": "npm run lint --fix",
-    "lint": "eslint . --ext mdx,ts,tsx",
+    "lint": "npx eslint . --ext mdx,ts,tsx",
     "test": "npm run jest"
   },
   "volta": {
