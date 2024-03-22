@@ -18,9 +18,9 @@ try {
   const buildParser = require('react-docgen/dist/babelParser').default
   babylon = buildParser()
 } catch (e: any) {
-  /** DOCZ: special error message as people often encounter errors here because they misconfigure or lack a babel plugin */
+  /** DOC: special error message as people often encounter errors here because they misconfigure or lack a babel plugin */
   console.error('Error while initializing babel in doc: ', e)
-  /** DOCZ: disabling this require because it no longer exists */
+  /** DOC: disabling this require because it no longer exists */
   throw new Error(e)
   // babylon = require('react-docgen/dist/babylon').default
 }

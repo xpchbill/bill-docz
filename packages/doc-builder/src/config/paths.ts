@@ -17,10 +17,10 @@ export const ensureSlash = (filepath: any, needsSlash: boolean) => {
 }
 
 export const root = fs.realpathSync(process.cwd())
-const IS_DOCZ_PROJECT = path.parse(root).base === '.doc'
+const IS_DOC_PROJECT = path.parse(root).base === '.doc'
 
 export const resolveApp = (to: string) =>
-  path.resolve(root, IS_DOCZ_PROJECT ? '../' : './', to)
+  path.resolve(root, IS_DOC_PROJECT ? '../' : './', to)
 
 export const checkIsDocProject = (config: Config) => {
   return path.parse(config.root || root).base === '.doc'

@@ -60,7 +60,7 @@ export interface RT {
 }
 
 export const getClientEnvironment = (publicUrl: string) => {
-  const APP_TEST = /^(REACT_APP_)|(ANGULAR_APP_)|(VUE_APP_)|(DOCZ_)/i
+  const APP_TEST = /^(REACT_APP_)|(ANGULAR_APP_)|(VUE_APP_)|(DOC_)/i
   const raw: RT = Object.keys(process.env)
     .filter(key => APP_TEST.test(key))
     .reduce(

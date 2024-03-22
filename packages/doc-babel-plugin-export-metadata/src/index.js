@@ -68,7 +68,7 @@ const renameDefaultAddFileMetaProperties = (t, path, filename, name) => {
   const pathToInsert = findPathToInsert(path)
 
   const fallbackName =
-    localeName === 'default' ? '__DOCZ_DUMMY_EXPORT_DEFAULT' : localeName
+    localeName === 'default' ? '__DOC_DUMMY_EXPORT_DEFAULT' : localeName
 
   // replace
   const nameExport = replaceExportDefault({
@@ -87,7 +87,7 @@ const replaceDefaultCallAddFileMetaProperties = (t, path, filename) => {
   const declaration = get(path, 'node.declaration')
   const pathToInsert = findPathToInsert(path)
 
-  const fallbackName = '__DOCZ_DUMMY_EXPORT_DEFAULT'
+  const fallbackName = '__DOC_DUMMY_EXPORT_DEFAULT'
 
   // replace
   const nameExport = replaceExportDefaultCall({

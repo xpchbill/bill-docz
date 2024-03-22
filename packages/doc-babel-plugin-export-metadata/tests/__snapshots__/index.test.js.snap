@@ -33,15 +33,15 @@ exports[`export-metadata export default works with Call expression 1`] = `
 "/* ExportDefaultDeclaration with Call expression */
 const foo = v => v;
 
-const __DOCZ_DUMMY_EXPORT_DEFAULT = foo(5);
+const __DOC_DUMMY_EXPORT_DEFAULT = foo(5);
 
-export default __DOCZ_DUMMY_EXPORT_DEFAULT;
+export default __DOC_DUMMY_EXPORT_DEFAULT;
 
-if (typeof __DOCZ_DUMMY_EXPORT_DEFAULT !== 'undefined' && __DOCZ_DUMMY_EXPORT_DEFAULT && __DOCZ_DUMMY_EXPORT_DEFAULT === Object(__DOCZ_DUMMY_EXPORT_DEFAULT) && Object.isExtensible(__DOCZ_DUMMY_EXPORT_DEFAULT) && !Object.prototype.hasOwnProperty.call(__DOCZ_DUMMY_EXPORT_DEFAULT, '__filemeta')) {
-  Object.defineProperty(__DOCZ_DUMMY_EXPORT_DEFAULT, '__filemeta', {
+if (typeof __DOC_DUMMY_EXPORT_DEFAULT !== 'undefined' && __DOC_DUMMY_EXPORT_DEFAULT && __DOC_DUMMY_EXPORT_DEFAULT === Object(__DOC_DUMMY_EXPORT_DEFAULT) && Object.isExtensible(__DOC_DUMMY_EXPORT_DEFAULT) && !Object.prototype.hasOwnProperty.call(__DOC_DUMMY_EXPORT_DEFAULT, '__filemeta')) {
+  Object.defineProperty(__DOC_DUMMY_EXPORT_DEFAULT, '__filemeta', {
     configurable: true,
     value: {
-      name: \\"__DOCZ_DUMMY_EXPORT_DEFAULT\\",
+      name: \\"__DOC_DUMMY_EXPORT_DEFAULT\\",
       filename: \\"tests/fixtures/export-default/with-identifier.js\\"
     }
   });
@@ -213,14 +213,14 @@ if (typeof Bar2 !== 'undefined' && Bar2 && Bar2 === Object(Bar2) && Object.isExt
 
 exports[`export-metadata re-export re export default 1`] = `
 "/* Re-export  */
-import __DOCZ_DUMMY_EXPORT_DEFAULT from \\"../assets/a\\";
-export default __DOCZ_DUMMY_EXPORT_DEFAULT;
+import __DOC_DUMMY_EXPORT_DEFAULT from \\"../assets/a\\";
+export default __DOC_DUMMY_EXPORT_DEFAULT;
 
-if (typeof __DOCZ_DUMMY_EXPORT_DEFAULT !== 'undefined' && __DOCZ_DUMMY_EXPORT_DEFAULT && __DOCZ_DUMMY_EXPORT_DEFAULT === Object(__DOCZ_DUMMY_EXPORT_DEFAULT) && Object.isExtensible(__DOCZ_DUMMY_EXPORT_DEFAULT) && !Object.prototype.hasOwnProperty.call(__DOCZ_DUMMY_EXPORT_DEFAULT, '__filemeta')) {
-  Object.defineProperty(__DOCZ_DUMMY_EXPORT_DEFAULT, '__filemeta', {
+if (typeof __DOC_DUMMY_EXPORT_DEFAULT !== 'undefined' && __DOC_DUMMY_EXPORT_DEFAULT && __DOC_DUMMY_EXPORT_DEFAULT === Object(__DOC_DUMMY_EXPORT_DEFAULT) && Object.isExtensible(__DOC_DUMMY_EXPORT_DEFAULT) && !Object.prototype.hasOwnProperty.call(__DOC_DUMMY_EXPORT_DEFAULT, '__filemeta')) {
+  Object.defineProperty(__DOC_DUMMY_EXPORT_DEFAULT, '__filemeta', {
     configurable: true,
     value: {
-      name: \\"__DOCZ_DUMMY_EXPORT_DEFAULT\\",
+      name: \\"__DOC_DUMMY_EXPORT_DEFAULT\\",
       filename: \\"tests/fixtures/re-export/re-export-default.js\\"
     }
   });
