@@ -16,6 +16,9 @@
     "fix": "npx eslint \"{src,lib}/**/*.{ts,js}\" --fix",
     "lint": "npx eslint \"{src,lib}/**/*.{ts,js}\""
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@bill-doc/doc-babel-plugin-export-metadata": "^2.4.1",
     "@bill-doc/doc-plugin-rehype": "^2.4.1",
@@ -63,5 +66,5 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
-  "gitHead": "74932cd67112bacd1e29780a202d466acdd79535"
+  "gitHead": "55c2c8efddbde57a7c360f8a212dc3c5adea46ca"
 }

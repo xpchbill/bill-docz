@@ -1,5 +1,4 @@
 {
-  "private": true,
   "license": "MIT",
   "author": {
     "name": "Bill Xiong",
@@ -88,6 +87,9 @@
   },
   "volta": {
     "node": "18.18.0"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "workspaces": {
     "packages": [

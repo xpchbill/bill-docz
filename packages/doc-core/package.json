@@ -29,6 +29,9 @@
   "volta": {
     "node": "18.18.0"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@bill-doc/builder": "^2.4.1",
     "@bill-doc/doc-theme-gatsby": "^2.4.1",
@@ -52,5 +55,6 @@
   "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
-  }
+  },
+  "gitHead": "55c2c8efddbde57a7c360f8a212dc3c5adea46ca"
 }

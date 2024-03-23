@@ -21,11 +21,15 @@
     "lint": "npx eslint src/ --ext .js",
     "test": "jest"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@babel/cli": "^7.23.9",
     "@babel/core": "^7.23.9",
     "@babel/preset-env": "^7.24.0",
     "@babel/template": "^7.24.0",
     "lodash": "^4.17.14"
-  }
+  },
+  "gitHead": "55c2c8efddbde57a7c360f8a212dc3c5adea46ca"
 }

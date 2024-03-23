@@ -20,7 +20,6 @@ export const valueFromTraverse = <Value = any>(
       }
     },
   });
-
   return value;
 };
 

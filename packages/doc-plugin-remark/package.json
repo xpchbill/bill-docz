@@ -25,10 +25,14 @@
   "volta": {
     "node": "18.18.0"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@babel/generator": "^7.23.6",
     "@babel/types": "^7.24.0",
     "unist-util-remove": "^1.0.3",
     "unist-util-visit": "^1.4.1"
-  }
+  },
+  "gitHead": "55c2c8efddbde57a7c360f8a212dc3c5adea46ca"
 }

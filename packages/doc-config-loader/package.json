@@ -22,6 +22,9 @@
     "fix": "npx eslint \"{src,lib}/**/*.{ts,js}\" --fix",
     "lint": "npx eslint \"{src,lib}/**/*.{ts,js}\""
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@babel/core": "^7.23.9",
     "@babel/preset-env": "^7.24.0",
@@ -29,5 +32,6 @@
     "find-up": "^4.1.0",
     "fs-extra": "^8.1.0",
     "lodash": "^4.17.14"
-  }
+  },
+  "gitHead": "55c2c8efddbde57a7c360f8a212dc3c5adea46ca"
 }

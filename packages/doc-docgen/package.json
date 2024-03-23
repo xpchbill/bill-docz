@@ -21,8 +21,12 @@
     "fix": "npx eslint \"{src,lib}/**/*.{ts,js}\" --fix",
     "lint": "npx eslint \"{src,lib}/**/*.{ts,js}\""
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "react-docgen": "^4.1.1",
     "recast": "^0.18.1"
-  }
+  },
+  "gitHead": "55c2c8efddbde57a7c360f8a212dc3c5adea46ca"
 }
