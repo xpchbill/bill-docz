@@ -18,7 +18,6 @@
     "packages:fix": "lerna run --parallel fix && echo",
     "packages:lint": "lerna run --parallel lint",
     "packages:build": "lerna run build --ignore={examples-*,@bill-doc/doc-plugin-remark}",
-    "packages:test": "lerna run test --stream --ignore={examples-*}",
     "prerelease": "npm run packages",
     "release": "lerna publish --conventional-commits",
     "release:next": "npm run packages && lerna publish --conventional-commits --conventional-prerelease --dist-tag=next --exact",
