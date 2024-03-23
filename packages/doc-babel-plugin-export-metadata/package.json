@@ -1,4 +1,5 @@
 {
+  "private": false,
   "name": "@bill-doc/doc-babel-plugin-export-metadata",
   "version": "2.4.2",
   "description": "Add file metadata for function declarations",
@@ -31,5 +32,5 @@
     "@babel/template": "^7.24.0",
     "lodash": "^4.17.14"
   },
-  "gitHead": "55c2c8efddbde57a7c360f8a212dc3c5adea46ca"
+  "gitHead": "f48d1d6c714d4205ad52615f7a5650b1da580c79"
 }

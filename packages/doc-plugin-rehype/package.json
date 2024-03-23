@@ -1,4 +1,5 @@
 {
+  "private": false,
   "name": "@bill-doc/doc-plugin-rehype",
   "version": "2.4.2",
   "description": "Rehype plugin",
@@ -40,5 +41,5 @@
     "react-ace": "^7.0.2",
     "unist-util-is": "^3.0.0"
   },
-  "gitHead": "55c2c8efddbde57a7c360f8a212dc3c5adea46ca"
+  "gitHead": "f48d1d6c714d4205ad52615f7a5650b1da580c79"
 }
