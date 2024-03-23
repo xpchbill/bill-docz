@@ -28,7 +28,7 @@ export const ensureFiles = ({ args }: ServerMachineCtx) => {
   themeNames.forEach(themeName => {
     fs.copySync(
       path.join(appPath, themeName),
-      path.join(paths.doc, 'src', themeName)
+      path.join(paths.doc, 'src', themeName),
     )
   })
   const userPagesPath = path.join(appPath, 'pages')
@@ -51,7 +51,7 @@ export const ensureFiles = ({ args }: ServerMachineCtx) => {
       fs.copySync(publicPath, destinationPath)
     } catch (err: any) {
       console.log(
-        `Failed to copy static assets from ${publicPath} to ${destinationPath} : ${err.message}`
+        `Failed to copy static assets from ${publicPath} to ${destinationPath} : ${err.message}`,
       )
     }
   }
@@ -74,7 +74,6 @@ export const checkIsDocRepo = assign((ctx: ServerMachineCtx) => {
   return assoc('isDocRepo', isDocRepo, ctx)
 })
 
-// @ts-ignore
 export const logError = (ctx: ServerMachineCtx, ev: Event<any>) => {
   log.fatal(ev.data)
   sh.exit(0)

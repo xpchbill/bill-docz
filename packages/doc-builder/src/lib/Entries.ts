@@ -13,7 +13,7 @@ import { getRepoEditUrl } from '../utils/repo-info'
 const mapToObj = (map: Map<any, any>) =>
   Array.from(map.entries()).reduce(
     (obj, [key, value]) => ({ ...obj, [`${key}`]: value }),
-    {}
+    {},
   )
 
 export const matchFilesWithSrc = (config: Config) => (files: string[]) => {
@@ -22,7 +22,7 @@ export const matchFilesWithSrc = (config: Config) => (files: string[]) => {
   const srcDir = path.resolve(rootDir, src)
   const prefix = path.relative(rootDir, srcDir)
   return files.map(file =>
-    file.startsWith(prefix) ? file : path.join(prefix, file)
+    file.startsWith(prefix) ? file : path.join(prefix, file),
   )
 }
 
@@ -52,7 +52,7 @@ export class Entries {
     const srcHasNodeModules = src.indexOf('node_modules') !== -1
     // Hack around fast-glob not returning the whole set when many patterns are provided in the array
     let initialFiles: string[] = []
-    for (let filePattern of fileMatchingPatterns) {
+    for (const filePattern of fileMatchingPatterns) {
       const filePatternHasNodeModules =
         filePattern.indexOf('node_modules') !== -1
       const shouldIncludeNodeModules =
@@ -107,7 +107,7 @@ export class Entries {
 
     const map = new Map()
     const entries = await Promise.all(
-      modifiedFiles.map(createEntry).filter(Boolean)
+      modifiedFiles.map(createEntry).filter(Boolean),
     )
 
     for (const entry of entries) {

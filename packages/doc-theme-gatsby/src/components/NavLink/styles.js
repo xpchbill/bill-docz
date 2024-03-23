@@ -7,7 +7,7 @@ export const link = {
   '&.active': {
     color: 'sidebar.navLinkActive',
   },
-}
+};
 
 export const smallLink = {
   ...link,
@@ -30,4 +30,4 @@ export const smallLink = {
     width: '2px',
     borderRadius: 1,
   },
-}
+};

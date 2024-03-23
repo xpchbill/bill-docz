@@ -1,21 +1,21 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui'
-import { theme, useConfig, ComponentsProvider } from '@bill-doc/doc-core'
-import { ThemeProvider } from 'theme-ui'
+import { jsx } from 'theme-ui';
+import { theme, useConfig, ComponentsProvider } from '@bill-doc/doc-core';
+import { ThemeProvider } from 'theme-ui';
 
-import defaultTheme from '~theme'
-import components from '~components'
+import defaultTheme from '~theme';
+import components from '~components';
 
 const Theme = ({ children }) => {
-  const config = useConfig()
-  console.log(children)
+  const config = useConfig();
+  console.log(children);
   return (
     <ThemeProvider theme={config.themeConfig}>
       <ComponentsProvider components={components}>
         {children}
       </ComponentsProvider>
     </ThemeProvider>
-  )
-}
+  );
+};
 
-export default theme(defaultTheme)(Theme)
+export default theme(defaultTheme)(Theme);

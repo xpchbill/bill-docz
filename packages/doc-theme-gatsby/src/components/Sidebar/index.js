@@ -1,27 +1,27 @@
 /** @jsx jsx */
-import { Fragment, forwardRef, useState, useRef, useEffect } from 'react'
-import { Global } from '@emotion/react'
-import { jsx, Box } from 'theme-ui'
-import { useMenus, useCurrentDoc } from '@bill-doc/doc-core'
+import { Fragment, forwardRef, useState, useRef, useEffect } from 'react';
+import { Global } from '@emotion/react';
+import { jsx, Box } from 'theme-ui';
+import { useMenus, useCurrentDoc } from '@bill-doc/doc-core';
 
-import * as styles from './styles'
-import { NavSearch } from '../NavSearch'
-import { NavLink } from '../NavLink'
-import { NavGroup } from '../NavGroup'
+import * as styles from './styles';
+import { NavSearch } from '../NavSearch';
+import { NavLink } from '../NavLink';
+import { NavGroup } from '../NavGroup';
 
 export const Sidebar = forwardRef(function Sidebar(props, ref) {
-  const [query, setQuery] = useState('')
-  const menus = useMenus({ query })
-  const currentDoc = useCurrentDoc()
-  const currentDocRef = useRef()
-  const handleChange = ev => {
-    setQuery(ev.target.value)
-  }
+  const [query, setQuery] = useState('');
+  const menus = useMenus({ query });
+  const currentDoc = useCurrentDoc();
+  const currentDocRef = useRef();
+  const handleChange = (ev) => {
+    setQuery(ev.target.value);
+  };
   useEffect(() => {
     if (ref.current && currentDocRef.current) {
-      ref.current.scrollTo(0, currentDocRef.current.offsetTop)
+      ref.current.scrollTo(0, currentDocRef.current.offsetTop);
     }
-  }, [])
+  }, []);
   return (
     <Fragment>
       <Box onClick={props.onClick} sx={styles.overlay(props)}>
@@ -34,23 +34,23 @@ export const Sidebar = forwardRef(function Sidebar(props, ref) {
           onChange={handleChange}
         />
         {menus &&
-          menus.map(menu => {
+          menus.map((menu) => {
             if (!menu.route)
-              return <NavGroup key={menu.id} item={menu} sidebarRef={ref} />
+              return <NavGroup key={menu.id} item={menu} sidebarRef={ref} />;
             if (menu.route === currentDoc.route) {
               return (
                 <NavLink key={menu.id} item={menu} ref={currentDocRef}>
                   {menu.name}
                 </NavLink>
-              )
+              );
             }
             return (
               <NavLink key={menu.id} item={menu}>
                 {menu.name}
               </NavLink>
-            )
+            );
           })}
       </Box>
     </Fragment>
-  )
-})
+  );
+});

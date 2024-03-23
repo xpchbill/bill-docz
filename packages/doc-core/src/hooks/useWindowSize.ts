@@ -1,31 +1,31 @@
-import { useState, useEffect } from 'react'
-import { throttle } from 'lodash/fp'
+import { useState, useEffect } from 'react';
+import { throttle } from 'lodash/fp';
 
-const isClient = typeof window === 'object'
+const isClient = typeof window === 'object';
 
 const getSize = (initialWidth: number, initialHeight: number) => ({
   innerHeight: isClient ? window.innerHeight : initialHeight,
   innerWidth: isClient ? window.innerWidth : initialWidth,
   outerHeight: isClient ? window.outerHeight : initialHeight,
   outerWidth: isClient ? window.outerWidth : initialWidth,
-})
+});
 
 export const useWindowSize = (
-  throttleMs: number = 300,
+  throttleMs = 300,
   _initialWidth = Infinity,
-  initialHeight = Infinity
+  initialHeight = Infinity,
 ) => {
   const [windowSize, setWindowSize] = useState(
-    getSize(initialHeight, initialHeight)
-  )
+    getSize(initialHeight, initialHeight),
+  );
   const tSetWindowResize = throttle(throttleMs, () =>
-    setWindowSize(getSize(initialHeight, initialHeight))
-  )
+    setWindowSize(getSize(initialHeight, initialHeight)),
+  );
 
   useEffect(() => {
-    window.addEventListener('resize', tSetWindowResize)
-    return () => void window.removeEventListener('resize', tSetWindowResize)
-  }, [])
+    window.addEventListener('resize', tSetWindowResize);
+    return () => void window.removeEventListener('resize', tSetWindowResize);
+  }, []);
 
-  return windowSize
-}
+  return windowSize;
+};

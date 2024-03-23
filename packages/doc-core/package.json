@@ -21,7 +21,8 @@
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development npm run build -w",
-    "build": "babel src --out-dir dist/ --extensions .ts,.tsx,.js",
+    "build": "npm run tsc && babel src --out-dir dist/ --extensions .ts,.tsx,.js",
+    "tsc": "tsc --project tsconfig.json --emitDeclarationOnly",
     "fix": "npm run lint --fix",
     "lint": "npx eslint . --ext mdx,ts,tsx"
   },

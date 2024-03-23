@@ -1,4 +1,4 @@
-import { useStaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby';
 
 export const useDbQuery = () => {
   try {
@@ -9,12 +9,12 @@ export const useDbQuery = () => {
           db
         }
       }
-    `)
+    `);
 
-    return JSON.parse(data.docDb.db)
+    return JSON.parse(data.docDb.db);
   } catch (err) {
-    console.error(err)
-    console.error('Error when parsing doc database')
-    return {}
+    console.error(err);
+    console.error('Error when parsing doc database');
+    return {};
   }
-}
+};

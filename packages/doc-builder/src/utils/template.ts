@@ -1,7 +1,7 @@
 import * as path from 'path'
 import * as fs from 'fs-extra'
-import { compiled } from '../../../doc-utils/dist/fs'
-import { format } from '../../../doc-utils/dist/format'
+import { compiled } from '@bill-doc/doc-utils'
+import { format } from '@bill-doc/doc-utils'
 
 import * as paths from '../config/paths'
 
@@ -13,7 +13,7 @@ export const outputFileFromTemplate = async (
   templatePath: string,
   outputPath: string,
   templateProps?: Record<string, any>,
-  compileProps?: Record<string, any>
+  compileProps?: Record<string, any>,
 ) => {
   const filepath = fromTemplates(templatePath)
   const template = await compiled(filepath, compileProps || { minimize: false })

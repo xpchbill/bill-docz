@@ -43,7 +43,7 @@ const styles = {
     py: 3,
     px: 4,
     bg: 'blockquote.bg',
-    borderLeft: t => `5px solid ${t.colors.blockquote.border}`,
+    borderLeft: (t) => `5px solid ${t.colors.blockquote.border}`,
     color: 'blockquote.color',
     fontStyle: 'italic',
     '> p': {
@@ -88,8 +88,8 @@ const styles = {
   },
   hr: {
     border: 0,
-    borderBottom: t => `1px solid ${t.colors.border}`,
+    borderBottom: (t) => `1px solid ${t.colors.border}`,
   },
-}
+};
 
-export default styles
+export default styles;

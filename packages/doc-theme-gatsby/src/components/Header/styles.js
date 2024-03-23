@@ -1,12 +1,12 @@
-import * as mixins from '~utils/mixins'
-import { media } from '~theme/breakpoints'
+import * as mixins from '~utils/mixins';
+import { media } from '~theme/breakpoints';
 
 export const wrapper = {
   bg: 'header.bg',
   position: 'relative',
   zIndex: 1,
-  borderBottom: t => `1px solid ${t.colors.border}`,
-}
+  borderBottom: (t) => `1px solid ${t.colors.border}`,
+};
 
 export const innerContainer = {
   ...mixins.centerAlign,
@@ -14,7 +14,7 @@ export const innerContainer = {
   position: 'relative',
   justifyContent: 'space-between',
   height: 80,
-}
+};
 
 export const menuIcon = {
   display: 'none',
@@ -24,14 +24,14 @@ export const menuIcon = {
   [media.tablet]: {
     display: 'block',
   },
-}
+};
 
 export const menuButton = {
   ...mixins.ghostButton,
   color: 'header.text',
   opacity: 0.5,
   cursor: 'pointer',
-}
+};
 
 export const headerButton = {
   ...mixins.centerAlign,
@@ -44,7 +44,7 @@ export const headerButton = {
   fontSize: 0,
   fontWeight: 600,
   cursor: 'pointer',
-}
+};
 
 export const editButton = {
   ...mixins.centerAlign,
@@ -56,4 +56,4 @@ export const editButton = {
   fontSize: 1,
   textDecoration: 'none',
   borderRadius: 'radius',
-}
+};

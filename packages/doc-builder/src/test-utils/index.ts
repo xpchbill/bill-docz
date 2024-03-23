@@ -5,7 +5,7 @@ import { Params } from '../lib/DataServer'
 import { getBaseConfig } from '../config/doc'
 
 export const mockedParams = (): Params => {
-  let data: any = {}
+  const data: any = {}
   return {
     getState: () => data,
     setState: (key: string, value: string) => (data[key] = value),
@@ -15,6 +15,7 @@ export const mockedParams = (): Params => {
 export const mockedArgv = () => {
   const yargsArgs: any = {
     argv: {},
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     //@ts-ignore
     option: jest.fn().mockImplementation((key, value) => {
       yargs.argv[value.alias ? value.alias : key] = value.default
@@ -28,6 +29,7 @@ export const mockedArgv = () => {
 export const getTestConfig = (overrides?: Partial<Config>): Config => {
   const argv = mockedArgv()
   return {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     //@ts-ignore
     ...getBaseConfig(argv),
     paths,

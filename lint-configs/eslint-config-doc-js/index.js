@@ -14,7 +14,25 @@ module.exports = {
         argsIgnorePattern: '^_',
       },
     ],
-    'comma-dangle': ['error', 'always-multiline'],
+    'comma-dangle': [
+      'error',
+      {
+        arrays: 'always-multiline',
+        objects: 'always-multiline',
+        imports: 'always-multiline',
+        exports: 'always-multiline',
+        functions: 'never',
+      },
+    ],
+    "react/no-unknown-property": [
+      2,
+      {
+        "ignore": [
+          "jsx",
+          "sx"
+        ]
+      }
+    ],
     'no-mixed-operators': 'error',
     'no-console': 'off',
     'react/prop-types': 'off',
@@ -31,4 +49,4 @@ module.exports = {
       version: 'detect',
     },
   },
-}
+};

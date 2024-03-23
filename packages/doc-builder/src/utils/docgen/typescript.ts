@@ -109,7 +109,7 @@ function getTSConfigFile(tsconfigPath: string): ts.ParsedCommandLine {
     ts.sys,
     basePath,
     {},
-    tsconfigPath
+    tsconfigPath,
   )
 }
 
@@ -129,7 +129,7 @@ function loadFiles(filesToLoad: string[], config: Config): void {
 function createServiceHost(
   compilerOptions: ts.CompilerOptions,
   files: Map<string, TSFile>,
-  config: Config
+  config: Config,
 ): ts.LanguageServiceHost {
   const root = paths.getRootDir(config)
   return {
@@ -211,7 +211,7 @@ const parseFiles = (files: string[], config: Config, tsconfig: string) => {
 export const tsParser = (
   files: string[],
   config: Config,
-  tsconfig?: string
+  tsconfig?: string,
 ) => {
   if (!tsconfig) return []
   const filesToLoad = checkFilesOnCache(files, config)

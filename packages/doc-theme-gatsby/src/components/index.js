@@ -1,10 +1,10 @@
-import * as headings from './Headings'
+import * as headings from './Headings';
 
-import { Code } from './Code'
-import { Layout } from './Layout'
-import { Playground } from './Playground'
-import { Pre } from './Pre'
-import { Props } from './Props'
+import { Code } from './Code';
+import { Layout } from './Layout';
+import { Playground } from './Playground';
+import { Pre } from './Pre';
+import { Props } from './Props';
 
 export default {
   ...headings,
@@ -13,4 +13,4 @@ export default {
   pre: Pre,
   layout: Layout,
   props: Props,
-}
+};

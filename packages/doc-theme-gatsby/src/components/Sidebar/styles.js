@@ -1,12 +1,12 @@
-import { media } from '~theme/breakpoints'
+import { media } from '~theme/breakpoints';
 
 export const global = {
   body: {
     overflow: 'hidden',
   },
-}
+};
 
-const HEADER_HEIGHT = 81
+const HEADER_HEIGHT = 81;
 
 export const overlay = ({ open }) => ({
   zIndex: 999,
@@ -19,7 +19,7 @@ export const overlay = ({ open }) => ({
   transition: 'all .2s ease-out',
   visibility: open ? 'visible' : 'hidden',
   opacity: open ? 1 : 0,
-})
+});
 
 export const wrapper = ({ open }) => ({
   py: 4,
@@ -30,7 +30,7 @@ export const wrapper = ({ open }) => ({
   zIndex: 1,
   minWidth: 0,
   maxHeight: '100vh',
-  borderRight: t => `1px solid ${t.colors.border}`,
+  borderRight: (t) => `1px solid ${t.colors.border}`,
   overflow: 'auto',
   WebkitOverflowScrolling: 'touch',
   bg: 'sidebar.bg',
@@ -48,4 +48,4 @@ export const wrapper = ({ open }) => ({
     transition: 'transform .2s ease-out',
     transform: open ? 'translateX(0)' : 'translateX(-100%)',
   },
-})
+});

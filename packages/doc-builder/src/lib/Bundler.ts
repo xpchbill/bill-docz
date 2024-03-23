@@ -45,8 +45,8 @@ export class Bundler {
     if (root === path.resolve(dist)) {
       logger.fatal(
         new Error(
-          'Unexpected option: "dest" cannot be set to the current working directory.'
-        )
+          'Unexpected option: "dest" cannot be set to the current working directory.',
+        ),
       )
       process.exit(1)
     }

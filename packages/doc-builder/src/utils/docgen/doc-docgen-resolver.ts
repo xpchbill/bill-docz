@@ -145,6 +145,6 @@ export const resolver = (ast: Todo, recast: Todo) => [
   ...reactDocgenResolver.findAllExportedComponentDefinitions(ast, recast),
   ...createStyledComponentResolvers().findAllExportedStyledComponents(
     ast,
-    recast
+    recast,
   ),
 ]

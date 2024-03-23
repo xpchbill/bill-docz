@@ -1,4 +1,4 @@
-import { media } from '~theme/breakpoints'
+import { media } from '~theme/breakpoints';
 
 export const container = {
   backgroundColor: 'background',
@@ -12,4 +12,4 @@ export const container = {
     px: 4,
     pt: 5,
   },
-}
+};

@@ -48,7 +48,7 @@ export class DataServer {
           setState,
           getState,
         })
-      })
+      }),
     )
   }
 
@@ -87,7 +87,7 @@ export class DataServer {
   private mapToObject<T>(map: Map<string, any>): T {
     return Array.from(map.entries()).reduce(
       (obj, [key, val]) => ({ ...obj, [key]: val }),
-      {} as T
+      {} as T,
     )
   }
 }

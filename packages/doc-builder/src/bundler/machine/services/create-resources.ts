@@ -17,7 +17,7 @@ export const copyDocRc = (configPath?: string) => {
   const destinationDocRc = path.join(paths.doc, 'docrc.js')
   try {
     fs.copySync(sourceDocRc, destinationDocRc)
-  } catch (err: any) {}
+  } catch (err: any) { /* empty */ }
 }
 
 const copyAndModifyPkgJson = async (ctx: ServerMachineCtx) => {

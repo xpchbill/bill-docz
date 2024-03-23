@@ -34,7 +34,7 @@ export const docRcBaseConfig = {
         return false
       }
       const startsWithCapitalLetter = /\/([A-Z]\w*)\.(js|jsx|ts|tsx)$/.test(
-        filepath
+        filepath,
       )
       const isCalledIndex = /\/index\.(js|jsx|ts|tsx)$/.test(filepath)
       const hasJsxOrTsxExtension = /.(jsx|tsx)$/.test(filepath)
@@ -44,7 +44,7 @@ export const docRcBaseConfig = {
 
 export const getBaseConfig = (
   argv: Arguments<Argv>,
-  custom?: Partial<Config>
+  custom?: Partial<Config>,
 ): Config => {
   const initial = omit<Arguments<Argv>, any>(toOmit, argv)
   const base = { ...docRcBaseConfig, ...initial, paths }
@@ -53,7 +53,7 @@ export const getBaseConfig = (
 
 export const parseConfig = async (
   argv: Arguments<Argv>,
-  custom?: Partial<Config>
+  custom?: Partial<Config>,
 ): Promise<Config> => {
   const port = await detectPort(argv.port)
   const defaultConfig = getBaseConfig(argv, { port, ...custom })

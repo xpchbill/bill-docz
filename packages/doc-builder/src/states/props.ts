@@ -27,7 +27,7 @@ export const getPattern = (config: Config) => {
   const src = path.relative(root, srcDir)
   const filesPattern = path.join(
     src,
-    ts ? '**/*.{ts,tsx,js,jsx,mjs}' : '**/*.{js,jsx,mjs}'
+    ts ? '**/*.{ts,tsx,js,jsx,mjs}' : '**/*.{js,jsx,mjs}',
   )
 
   return ignore
@@ -44,7 +44,7 @@ const removeFilepath = (items: any[], filepath: string) =>
   items.filter((item: any) => item.key !== filepath)
 
 export const initial = (config: Config, pattern: string[]) => async (
-  p: Params
+  p: Params,
 ) => {
   const { filterComponents } = config
   const cwd = paths.getRootDir(config)

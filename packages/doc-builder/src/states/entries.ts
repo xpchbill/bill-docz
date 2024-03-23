@@ -25,7 +25,7 @@ const updateEntries = (entries: Entries) => async (p: Params) => {
 export const state = (
   entries: Entries,
   config: Config,
-  dev?: boolean
+  dev?: boolean,
 ): State => {
   const ignored = config.watchIgnore || WATCH_IGNORE
   const watcher = chokidar.watch(getFilesToMatch(config), {
@@ -46,6 +46,7 @@ export const state = (
         watcher.on('add', async () => update(params))
         watcher.on('change', async () => update(params))
         watcher.on('unlink', async () => update(params))
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         watcher.on('raw', async (event: string, path: string, details: any) => {
           if (details.event === 'moved' && details.type === 'directory') {

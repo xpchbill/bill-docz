@@ -1,13 +1,29 @@
 module.exports = {
   extends: [
+    'eslint:recommended',
     'plugin:react/recommended',
-    'plugin:prettier/recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:mdx/recommended',
-    'prettier/@typescript-eslint',
+    'prettier',
   ],
   rules: {
-    'comma-dangle': ['error', 'always-multiline'],
+    'comma-dangle': [
+      'error',
+      {
+        arrays: 'always-multiline',
+        objects: 'always-multiline',
+        imports: 'always-multiline',
+        exports: 'always-multiline',
+        functions: 'always-multiline',
+      },
+    ],
+    "react/no-unknown-property": [
+      2,
+      {
+        "ignore": [
+          "jsx"
+        ]
+      }
+    ],
     'no-mixed-operators': 'error',
     'no-console': 'off',
     'react/prop-types': 'off',
@@ -42,4 +58,4 @@ module.exports = {
       version: 'detect',
     },
   },
-}
+};

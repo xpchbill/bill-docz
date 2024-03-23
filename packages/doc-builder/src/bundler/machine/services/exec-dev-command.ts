@@ -14,18 +14,18 @@ export const findRootPath = async () => {
     const foundRootPath = await findUp(
       async directory => {
         const hasGatsby = await findUp.exists(
-          path.join(directory, 'node_modules', 'gatsby')
+          path.join(directory, 'node_modules', 'gatsby'),
         )
         return hasGatsby ? directory : ''
       },
-      { type: 'directory' }
+      { type: 'directory' },
     )
     if (typeof foundRootPath === 'string') {
       repoRootPath = foundRootPath
     }
   } catch (err: any) {
     console.log(
-      `Failed to find root folder ${err.message} \n Assuming it is ${repoRootPath}`
+      `Failed to find root folder ${err.message} \n Assuming it is ${repoRootPath}`,
     )
   }
   return repoRootPath
@@ -62,7 +62,7 @@ export const execDevCommand = async ({ args }: ServerMachineCtx) => {
     {
       stdio: 'inherit',
       cwd: paths.doc,
-    }
+    },
   )
   const protocol = useHttps ? 'https' : 'http'
   const url = `${protocol}://${args.host}:${args.port}`

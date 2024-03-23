@@ -1,2 +1,5 @@
 dist
 node_modules
+eslint-config-doc-js/index.js
+eslint-config-doc-ts/index.js
+.eslintrc.js

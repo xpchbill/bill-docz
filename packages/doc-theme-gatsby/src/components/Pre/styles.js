@@ -1,7 +1,7 @@
 export const wrapper = {
   position: 'relative',
   my: 4,
-}
+};
 
 export const language = {
   py: 1,
@@ -11,4 +11,4 @@ export const language = {
   right: 0,
   fontSize: 1,
   color: 'muted',
-}
+};

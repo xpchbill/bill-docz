@@ -1,6 +1,6 @@
-import * as colors from './colors'
-import prismDark from './prism/dark'
-import prismLight from './prism/light'
+import * as colors from './colors';
+import prismDark from './prism/dark';
+import prismLight from './prism/light';
 
 export const light = {
   ...colors,
@@ -47,7 +47,7 @@ export const light = {
   prism: {
     ...prismLight,
   },
-}
+};
 
 export const dark = {
   ...colors,
@@ -94,4 +94,4 @@ export const dark = {
   prism: {
     ...prismDark,
   },
-}
+};

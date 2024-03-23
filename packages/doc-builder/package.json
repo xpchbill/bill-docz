@@ -20,7 +20,7 @@
     "dev": "npm run cross-env NODE_ENV=development npm run build -w",
     "copy": "copy-files-from-to",
     "fix": "npm run lint --fix",
-    "lint": "npm run eslint . --ext mdx,ts,tsx",
+    "lint": "npx eslint . --ext mdx,ts,tsx --fix",
     "prepare": "npm run build",
     "test": "npm run jest"
   },

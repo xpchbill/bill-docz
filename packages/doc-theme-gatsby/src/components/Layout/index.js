@@ -1,23 +1,23 @@
 /** @jsx jsx */
-import { useRef, useState } from 'react'
-import { jsx } from 'theme-ui'
-import { Global } from '@emotion/react'
+import { useRef, useState } from 'react';
+import { jsx } from 'theme-ui';
+import { Global } from '@emotion/react';
 
-import global from '~theme/global'
-import { Header } from '../Header'
-import { Sidebar } from '../Sidebar'
-import { MainContainer } from '../MainContainer'
-import * as styles from './styles'
+import global from '~theme/global';
+import { Header } from '../Header';
+import { Sidebar } from '../Sidebar';
+import { MainContainer } from '../MainContainer';
+import * as styles from './styles';
 
 export const Layout = ({ children }) => {
-  const [open, setOpen] = useState(false)
-  const nav = useRef()
+  const [open, setOpen] = useState(false);
+  const nav = useRef();
 
   return (
     <div sx={{ '& > div': { flex: '1 1 auto' } }} data-testid="layout">
       <Global styles={global} />
       <div sx={styles.main}>
-        <Header onOpen={() => setOpen(s => !s)} />
+        <Header onOpen={() => setOpen((s) => !s)} />
         <div sx={styles.wrapper}>
           <Sidebar
             ref={nav}
@@ -30,5 +30,5 @@ export const Layout = ({ children }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};

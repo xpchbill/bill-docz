@@ -1,43 +1,49 @@
-const path = require('path')
-const { getDocConfig } = require('./lib/utils/parseConfig')
+const path = require('path');
+const { getDocConfig } = require('./lib/utils/parseConfig');
 
 const getRemarkPlugins = () => {
-  let plugins = []
+  let plugins = [];
 
   try {
     // plugins = [
     //   [require('remark-frontmatter'), { type: 'yaml', marker: '-' }],
     //   require('@bill-doc/doc-plugin-remark'),
-    // ]
-    plugins = [require('@bill-doc/doc-plugin-rehype').default]
+    // ];
+    plugins = [require('@bill-doc/doc-plugin-rehype').default];
   } catch (err) {
-    plugins = []
+    plugins = [];
   }
 
-  return plugins
-}
+  return plugins;
+};
 
 const getRehypePlugins = () => {
-  let plugins = []
+  let plugins = [];
 
   try {
-    plugins = [[require('@bill-doc/doc-plugin-rehype').default, {strict: true, throwOnError: true}], require('rehype-slug')]
+    plugins = [
+      // [
+      //   require('@bill-doc/doc-plugin-rehype').default,
+      //   { strict: true, throwOnError: true },
+      // ],
+      require('rehype-slug'),
+    ];
   } catch (err) {
-    plugins = []
+    plugins = [];
   }
 
-  return plugins
-}
+  return plugins;
+};
 
 const getGatsbyRemarkPlugins = () => {
-  return []
-}
+  return [];
+};
 
-module.exports = opts => {
-  const config = getDocConfig(opts)
-  const mdPlugins = getRemarkPlugins()
-  // const hastPlugins = getRehypePlugins()
-  const gatsbyRemarkPlugins = getGatsbyRemarkPlugins()
+module.exports = (opts) => {
+  const config = getDocConfig(opts);
+  const mdPlugins = getRemarkPlugins();
+  const hastPlugins = getRehypePlugins();
+  const gatsbyRemarkPlugins = getGatsbyRemarkPlugins();
 
   return {
     plugins: [
@@ -78,10 +84,10 @@ module.exports = opts => {
               config && config.mdPlugins
                 ? config.mdPlugins.concat(mdPlugins)
                 : mdPlugins,
-            // rehypePlugins:
-            //   config && config.hastPlugins
-            //     ? config.hastPlugins.concat(hastPlugins)
-            //     : hastPlugins,
+            rehypePlugins:
+              config && config.hastPlugins
+                ? config.hastPlugins.concat(hastPlugins)
+                : hastPlugins,
           },
           // defaultLayouts: {
           //   default: path.join(__dirname, 'src/base/Layout.js'),
@@ -124,5 +130,5 @@ module.exports = opts => {
         },
       },
     ],
-  }
-}
+  };
+};

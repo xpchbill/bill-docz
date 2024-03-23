@@ -27,6 +27,7 @@ const asyncState = (src: string, onDoneTarget?: string) => ({
   },
 })
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 const machine = Machine<ServerMachineCtx>({
   id: 'devServer',

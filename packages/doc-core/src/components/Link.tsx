@@ -1,1 +1,1 @@
-export { Link, GatsbyLinkProps as LinkProps } from 'gatsby'
+export { Link, type GatsbyLinkProps as LinkProps } from 'gatsby';

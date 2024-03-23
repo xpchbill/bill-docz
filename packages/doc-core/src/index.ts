@@ -1,7 +1,7 @@
-export { Link, LinkProps } from './components/Link'
-export { Playground, PlaygroundProps } from './components/Playground'
-export { Props, PropsComponentProps } from './components/Props'
+export { Link, type LinkProps } from './components/Link';
+export { Playground, type PlaygroundProps } from './components/Playground';
+export { Props, type PropsComponentProps } from './components/Props';
 
-export * from './hooks'
-export { theme } from './theme'
-export { docState, Entry, MenuItem, ThemeConfig } from './state'
+export * from './hooks';
+export { theme } from './theme';
+export { docState, type Entry, type MenuItem, type ThemeConfig } from './state';

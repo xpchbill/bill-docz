@@ -13,7 +13,7 @@ const replaceThemesDir = (filepath: string, args: Config) => {
   // Make the path to a given relative`filepath` relative to themesDir:
   const rawFilePath = path.relative(
     paths.getThemesDir(args),
-    path.resolve(paths.root, filepath)
+    path.resolve(paths.root, filepath),
   )
   // => e.g. '/@bill-doc/doc-theme-gatsby/**/index.tsx'
 
@@ -25,7 +25,7 @@ const replaceThemesDir = (filepath: string, args: Config) => {
 const watchGatsbyThemeFiles = (args: Config) => {
   const watcher = createWatcher(
     path.join(args.themesDir, 'gatsby-theme-**/**/*'),
-    args
+    args,
   )
   const copy = (filepath: string) => {
     const src = path.resolve(paths.root, filepath)
@@ -49,13 +49,13 @@ const watchGatsbyThemeFiles = (args: Config) => {
 const createWatch = (args: Config) => (
   glob: any,
   src: string,
-  custom?: boolean
+  custom?: boolean,
 ) => {
   const watcher = createWatcher(glob, args)
   const srcPath = path.join(paths.root, src)
   const destPath = path.join(
     paths.doc,
-    custom ? src.replace('.js', '.custom.js') : src
+    custom ? src.replace('.js', '.custom.js') : src,
   )
 
   const copyFile = () => fs.copySync(srcPath, destPath)
@@ -72,7 +72,7 @@ const createWatch = (args: Config) => (
 const watchDocRc = (args: Context['args']) => {
   const watcher = createWatcher(
     path.join(paths.root, args.config ? args.config : 'docrc.js'),
-    args
+    args,
   )
 
   const copy = (filepath: string) => {

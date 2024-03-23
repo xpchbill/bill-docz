@@ -45,6 +45,7 @@ const update = async (params: Params, initial: Payload, { config }: Config) => {
   params.setState('config', next)
 }
 
+// eslint-disable-next-line no-useless-escape
 export const WATCH_IGNORE = /(((^|[\/\\])\.((?!doc)(.+)))|(node_modules))/
 
 export const createWatcher = (glob: any, config: Config) => {

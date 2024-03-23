@@ -1,15 +1,15 @@
 /** @jsx jsx */
 /* eslint react/jsx-key: 0 */
-import Highlight, { defaultProps } from 'prism-react-renderer'
-import { jsx } from 'theme-ui'
+import Highlight, { defaultProps } from 'prism-react-renderer';
+import { jsx } from 'theme-ui';
 
-import { usePrismTheme } from '~utils/theme'
+import { usePrismTheme } from '~utils/theme';
 
 export const Code = ({ children, className: outerClassName }) => {
   const [language] = outerClassName
     ? outerClassName.replace(/language-/, '').split(' ')
-    : ['text']
-  const theme = usePrismTheme()
+    : ['text'];
+  const theme = usePrismTheme();
 
   return (
     <Highlight
@@ -37,5 +37,5 @@ export const Code = ({ children, className: outerClassName }) => {
         </pre>
       )}
     </Highlight>
-  )
-}
+  );
+};

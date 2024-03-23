@@ -60,7 +60,7 @@ function amendPropTypes(documentation: any, path: any) {
 
     if (nodeType === types.Property.name) {
       propDescriptor = documentation.getPropDescriptor(
-        utils.getPropertyName(propertyPath)
+        utils.getPropertyName(propertyPath),
       )
       valuePath = propertyPath.get('value')
       type = isPropTypesExpression(valuePath)
@@ -331,7 +331,6 @@ function resolveDependencies(filePaths: string[], componentPath: string) {
 
       if (src) {
         const ast = getAST(src)
-        // @ts-ignore
         importedNodes.push(resolveImportedDependencies(ast, srcPath))
       }
     }
@@ -420,7 +419,7 @@ function amendDocs(doc: any, path: any, props: any) {
 
   propsToPatch.each((propertyPath: string) => {
     const propDescriptor = doc.getPropDescriptor(
-      utils.getPropertyName(propertyPath)
+      utils.getPropertyName(propertyPath),
     )
 
     if (propDescriptor.type.name === 'enum' && propDescriptor.type.computed) {
@@ -462,7 +461,7 @@ function externalProptypesHandler(componentPath: string) {
       //First resolve dependencies against component path
       propTypesFilePath = resolveFilePath(
         componentPath,
-        propTypesPath.node.source.value
+        propTypesPath.node.source.value,
       )
       const propTypesSrc = getSrc(propTypesFilePath)
       propTypesAST = getAST(propTypesSrc)
@@ -500,7 +499,7 @@ function externalProptypesHandler(componentPath: string) {
 
     const resolvedImports = resolveDependencies(
       filteredProps,
-      propTypesFilePath
+      propTypesFilePath,
     )
 
     if (resolvedImports && !resolvedImports.length) {

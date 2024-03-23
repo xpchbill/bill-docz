@@ -34,7 +34,7 @@ export interface PluginFactory {
 
 export class Plugin<C = any> implements PluginFactory {
   public static runPluginsMethod(
-    plugins: Plugin[] | undefined
+    plugins: Plugin[] | undefined,
   ): (method: keyof Plugin, ...args: any[]) => void {
     return (method, ...args) => {
       if (plugins && plugins.length > 0) {
@@ -49,7 +49,7 @@ export class Plugin<C = any> implements PluginFactory {
   }
 
   public static propsOfPlugins(
-    plugins: Plugin[]
+    plugins: Plugin[],
   ): (prop: keyof Plugin) => any[] {
     return prop =>
       plugins && plugins.length > 0
@@ -58,7 +58,7 @@ export class Plugin<C = any> implements PluginFactory {
   }
 
   public static reduceFromPlugins<C>(
-    plugins: Plugin[] | undefined
+    plugins: Plugin[] | undefined,
   ): (method: keyof Plugin, initial: C, ...args: any[]) => C {
     return (method, initial, ...args) => {
       return [...(plugins || [])].reduce((obj: any, plugin) => {
@@ -69,7 +69,7 @@ export class Plugin<C = any> implements PluginFactory {
   }
 
   public static reduceFromPluginsAsync<C>(
-    plugins: Plugin[] | undefined
+    plugins: Plugin[] | undefined,
   ): (method: keyof Plugin, initial: C, ...args: any[]) => Promise<C> {
     return (method, initial, ...args) => {
       return pReduce(
@@ -78,7 +78,7 @@ export class Plugin<C = any> implements PluginFactory {
           const fn = get(method, plugin)
           return Promise.resolve(fn && isFunction(fn) ? fn(obj, ...args) : obj)
         },
-        initial
+        initial,
       )
     }
   }

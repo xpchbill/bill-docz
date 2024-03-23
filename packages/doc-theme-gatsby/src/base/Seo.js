@@ -1,13 +1,13 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Helmet } from 'react-helmet-async'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Helmet } from 'react-helmet-async';
 
-import { useDbQuery } from '../hooks/useDbQuery'
+import { useDbQuery } from '../hooks/useDbQuery';
 
 const SEO = ({ description, lang, meta, keywords, title: initialTitle }) => {
-  const db = useDbQuery()
-  const title = initialTitle || db.config.title
-  const metaDescription = description || db.config.description
+  const db = useDbQuery();
+  const title = initialTitle || db.config.title;
+  const metaDescription = description || db.config.description;
 
   return (
     <Helmet
@@ -54,14 +54,14 @@ const SEO = ({ description, lang, meta, keywords, title: initialTitle }) => {
         )
         .concat(meta)}
     />
-  )
-}
+  );
+};
 
 SEO.defaultProps = {
   lang: `en`,
   meta: [],
   keywords: [],
-}
+};
 
 SEO.propTypes = {
   description: PropTypes.string,
@@ -69,6 +69,6 @@ SEO.propTypes = {
   meta: PropTypes.array,
   keywords: PropTypes.arrayOf(PropTypes.string),
   title: PropTypes.string.isRequired,
-}
+};
 
-export default SEO
+export default SEO;

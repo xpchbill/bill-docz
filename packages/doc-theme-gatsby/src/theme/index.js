@@ -1,13 +1,13 @@
-import moraga from 'typography-theme-moraga'
-import { toTheme } from '@theme-ui/typography'
-import { merge } from 'lodash/fp'
+import moraga from 'typography-theme-moraga';
+import { toTheme } from '@theme-ui/typography';
+import { merge } from 'lodash/fp';
 
-import * as modes from './modes'
-import prism from './prism'
-import styles from './styles'
+import * as modes from './modes';
+import prism from './prism';
+import styles from './styles';
 
-moraga.headerWeight = 700
-const typography = toTheme(moraga)
+moraga.headerWeight = 700;
+const typography = toTheme(moraga);
 
 export default merge(typography, {
   initialColorMode: 'light',
@@ -54,4 +54,4 @@ export default merge(typography, {
   },
   styles,
   prism,
-})
+});

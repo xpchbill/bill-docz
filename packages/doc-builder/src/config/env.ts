@@ -18,7 +18,7 @@ const populateNodePath = () => {
       .split(path.delimiter)
       .filter((folder: any) => folder && !path.isAbsolute(folder))
       .map((folder: any) => path.resolve(root, folder))
-      .join(path.delimiter)
+      .join(path.delimiter),
   )
 }
 
@@ -77,7 +77,7 @@ export const getClientEnvironment = (publicUrl: string) => {
         // only be used as an escape hatch. Normally you would put images into the `src`
         // and `import` them in code to get their
         PUBLIC_URL: publicUrl,
-      }
+      },
     )
   const stringified = {
     'process.env': Object.keys(raw).reduce((env: RT, key) => {

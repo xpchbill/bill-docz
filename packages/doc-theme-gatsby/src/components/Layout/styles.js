@@ -1,10 +1,10 @@
-import { media } from '~theme/breakpoints'
+import { media } from '~theme/breakpoints';
 
 export const main = {
   display: 'flex',
   flexDirection: 'column',
   minHeight: '100vh',
-}
+};
 
 export const wrapper = {
   py: 0,
@@ -15,4 +15,4 @@ export const wrapper = {
   [media.tablet]: {
     display: 'block',
   },
-}
+};
