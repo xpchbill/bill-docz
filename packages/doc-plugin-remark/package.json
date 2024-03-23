@@ -20,8 +20,7 @@
     "build": "npm run tsc && babel src --out-dir dist/ --extensions .ts",
     "tsc": "tsc --project tsconfig.json --emitDeclarationOnly",
     "fix": "npx eslint \"{src,lib}/**/*.{ts,js}\" --fix",
-    "lint": "npx eslint \"{src,lib}/**/*.{ts,js}\"",
-    "test": "jest"
+    "lint": "npx eslint \"{src,lib}/**/*.{ts,js}\""
   },
   "volta": {
     "node": "18.18.0"
