@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@bill-doc/doc-babel-plugin-export-metadata",
-  "version": "2.4.4",
+  "version": "2.4.5",
   "description": "Add file metadata for function declarations",
   "license": "MIT",
   "author": {

@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "eslint-config-doc-js",
-  "version": "2.4.4",
+  "version": "2.4.5",
   "description": "Eslint config for Javascript",
   "license": "MIT",
   "author": {
