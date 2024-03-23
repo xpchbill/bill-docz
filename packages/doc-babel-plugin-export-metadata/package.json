@@ -7,12 +7,6 @@
     "name": "Bill Xiong",
     "email": "xpchbill8@gmail.com"
   },
-  "contributors": [
-    {
-      "name": "Pedro Nauck",
-      "email": "pedronauck@gmail.com"
-    }
-  ],
   "main": "src/index.js",
   "files": [
     "src/",
