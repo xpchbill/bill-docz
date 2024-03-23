@@ -1,6 +1,6 @@
 {
   "name": "@bill-doc/doc-utils",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "description": "Some utilities methods",
   "license": "MIT",
   "main": "dist/index.js",
