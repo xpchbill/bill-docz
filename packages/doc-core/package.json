@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@bill-doc/doc-core",
-  "version": "2.4.6",
+  "version": "2.4.7",
   "description": "It's has never been so easy to documents your things!",
   "license": "MIT",
   "main": "dist/index.js",
@@ -34,8 +34,8 @@
     "access": "public"
   },
   "dependencies": {
-    "@bill-doc/builder": "^2.4.6",
-    "@bill-doc/doc-theme-gatsby": "^2.4.6",
+    "@bill-doc/builder": "^2.4.7",
+    "@bill-doc/doc-theme-gatsby": "^2.4.7",
     "@emotion/react": "^11.1.1",
     "@mdx-js/react": "^2.0.0",
     "array-sort": "^1.0.0",
