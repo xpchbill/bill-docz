@@ -19,7 +19,7 @@
     "packages:lint": "lerna run --parallel lint",
     "packages:build": "lerna run build --ignore={examples-*,@bill-doc/doc-plugin-remark}",
     "prerelease": "npm run packages",
-    "release": "lerna publish --conventional-commits",
+    "release": "lerna publish --force-publish --conventional-commits",
     "release:next": "npm run packages && lerna publish --conventional-commits --conventional-prerelease --dist-tag=next --exact",
     "promote:next": "lerna publish --conventional-commits --conventional-graduate",
     "release:beta": "npm run release --dist-tag=beta --preid=beta",
