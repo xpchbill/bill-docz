@@ -1,7 +1,6 @@
 import * as path from 'path';
 import * as fs from 'fs-extra';
 import { compiled } from '@bill-doc/doc-utils';
-// import { format } from '@bill-doc/doc-utils';
 
 import * as paths from '../config/paths';
 
@@ -18,8 +17,5 @@ export const outputFileFromTemplate = async (
   const filepath = fromTemplates(templatePath);
   const template = await compiled(filepath, compileProps || { minimize: false });
   const file = template(templateProps || {});
-  // console.log('file: ', file);
-  // const raw = await format(file);
-  // console.log('raw: ', raw);
   await fs.outputFile(outputPath, file);
 };
