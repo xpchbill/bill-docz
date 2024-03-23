@@ -1,62 +1,62 @@
-import vfile from 'to-vfile'
-import unified from 'unified'
-import remark from 'remark-parse'
-import matter from 'remark-frontmatter'
-import slug from 'remark-slug'
-import parseFrontmatter from 'remark-parse-yaml'
-import find from 'unist-util-find'
-import visit from 'unist-util-visit'
-import humanize from 'humanize-string'
-import flatten from 'lodash/flatten'
-import get from 'lodash/get'
+import vfile from 'to-vfile';
+import unified from 'unified';
+import remark from 'remark-parse';
+import matter from 'remark-frontmatter';
+import slug from 'remark-slug';
+import parseFrontmatter from 'remark-parse-yaml';
+import find from 'unist-util-find';
+import visit from 'unist-util-visit';
+import humanize from 'humanize-string';
+import flatten from 'lodash/flatten';
+import get from 'lodash/get';
 
 export const parseMdx = (file: string, plugins: any[]): Promise<string> => {
-  const raw = vfile.readSync(file, 'utf-8')
+  const raw = vfile.readSync(file, 'utf-8');
   const parser = unified()
     .use(remark, { type: 'yaml', marker: '-' })
     .use(matter)
     .use(parseFrontmatter)
-    .use(slug)
+    .use(slug);
 
   for (const plugin of plugins) {
-    const [item, opts = {}] = Array.isArray(plugin) ? plugin : [plugin]
-    parser.use(item, opts)
+    const [item, opts = {}] = Array.isArray(plugin) ? plugin : [plugin];
+    parser.use(item, opts);
   }
 
-  return parser.run(parser.parse(raw))
-}
+  return parser.run(parser.parse(raw));
+};
 
 const getChildValue = (children: any) =>
   children.map((child: any) =>
-    child.children ? getChildValue(child.children) : child.value
-  )
+    child.children ? getChildValue(child.children) : child.value,
+  );
 
 const valueFromHeading = (node: any) => {
-  const children = get(node, 'children')
-  const slug = get(node, 'data.id')
+  const children = get(node, 'children');
+  const slug = get(node, 'data.id');
 
   if (Array.isArray(children)) {
     return flatten(getChildValue(children))
       .filter(Boolean)
-      .join(' ')
+      .join(' ');
   }
 
-  return humanize(slug)
-}
+  return humanize(slug);
+};
 
 function extractAst<T>(
   callback: (node: any) => T,
-  type: string
+  type: string,
 ): (ast: any) => T[] {
   return ast => {
-    const results: T[] = []
+    const results: T[] = [];
 
     visit(ast, type, (node: any) => {
-      results.push(callback(node))
-    })
+      results.push(callback(node));
+    });
 
-    return results
-  }
+    return results;
+  };
 }
 
 export interface Heading {
@@ -71,14 +71,14 @@ export const headingsFromAst = extractAst<Heading>(
     depth: get(node, 'depth'),
     value: valueFromHeading(node),
   }),
-  'heading'
-)
+  'heading',
+);
 
 export interface ParsedData {
   [key: string]: any
 }
 
 export const getParsedData = (ast: any): ParsedData => {
-  const node = find(ast, { type: 'yaml' })
-  return get(node, `data.parsedValue`) || {}
-}
+  const node = find(ast, { type: 'yaml' });
+  return get(node, `data.parsedValue`) || {};
+};

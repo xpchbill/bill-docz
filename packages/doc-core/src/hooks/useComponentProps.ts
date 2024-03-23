@@ -1,4 +1,4 @@
-import { createElement, useContext, useMemo } from 'react'
+import { createElement, useContext, useMemo } from 'react';
 import { assoc, first, get, mapValues, kebabCase } from 'lodash/fp';
 import { pascalCase } from 'pascal-case';
 import marksy from 'marksy';

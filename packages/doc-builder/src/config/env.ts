@@ -1,7 +1,7 @@
-import * as path from 'path'
-import * as envDotProp from 'env-dot-prop'
+import * as path from 'path';
+import * as envDotProp from 'env-dot-prop';
 
-import { root, resolveApp } from './paths'
+import { root, resolveApp } from './paths';
 
 const populateNodePath = () => {
   // We support resolving modules according to `NODE_PATH`.
@@ -19,12 +19,12 @@ const populateNodePath = () => {
       .filter((folder: any) => folder && !path.isAbsolute(folder))
       .map((folder: any) => path.resolve(root, folder))
       .join(path.delimiter),
-  )
-}
+  );
+};
 
 const configDotEnv = () => {
-  const NODE_ENV = envDotProp.get('node.env')
-  const dotenv = resolveApp('.env')
+  const NODE_ENV = envDotProp.get('node.env');
+  const dotenv = resolveApp('.env');
 
   const dotenvFiles = [
     `${dotenv}.${NODE_ENV}.local`,
@@ -34,7 +34,7 @@ const configDotEnv = () => {
     // results for everyone
     NODE_ENV !== 'test' && `${dotenv}.local`,
     dotenv,
-  ]
+  ];
 
   // Load environment variables from .env* files. Suppress warnings using silent
   // if this file is missing. dotenv will never modify any environment variables
@@ -43,30 +43,30 @@ const configDotEnv = () => {
   dotenvFiles.filter(Boolean).forEach(dotenvFile => {
     require('dotenv').config({
       path: dotenvFile,
-    })
-  })
-}
+    });
+  });
+};
 
 export const setEnv = (env: string) => {
-  envDotProp.set('babel.env', env)
-  envDotProp.set('node.env', env)
+  envDotProp.set('babel.env', env);
+  envDotProp.set('node.env', env);
 
-  configDotEnv()
-  populateNodePath()
-}
+  configDotEnv();
+  populateNodePath();
+};
 
 export interface RT {
   [key: string]: any
 }
 
 export const getClientEnvironment = (publicUrl: string) => {
-  const APP_TEST = /^(REACT_APP_)|(ANGULAR_APP_)|(VUE_APP_)|(DOC_)/i
+  const APP_TEST = /^(REACT_APP_)|(ANGULAR_APP_)|(VUE_APP_)|(DOC_)/i;
   const raw: RT = Object.keys(process.env)
     .filter(key => APP_TEST.test(key))
     .reduce(
       (env: RT, key) => {
-        env[key] = process.env[key]
-        return env
+        env[key] = process.env[key];
+        return env;
       },
       {
         // Useful for determining whether we’re running in production mode. Most
@@ -78,13 +78,13 @@ export const getClientEnvironment = (publicUrl: string) => {
         // and `import` them in code to get their
         PUBLIC_URL: publicUrl,
       },
-    )
+    );
   const stringified = {
     'process.env': Object.keys(raw).reduce((env: RT, key) => {
-      env[key] = JSON.stringify(raw[key])
-      return env
+      env[key] = JSON.stringify(raw[key]);
+      return env;
     }, {}),
-  }
+  };
 
-  return { raw, stringified }
-}
+  return { raw, stringified };
+};

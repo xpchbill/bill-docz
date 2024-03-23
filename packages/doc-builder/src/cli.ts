@@ -1,33 +1,33 @@
-import * as yargs from 'yargs'
+import * as yargs from 'yargs';
 
-import { setArgs } from './config/argv'
-import { setEnv } from './config/env'
-import * as commands from './commands'
+import { setArgs } from './config/argv';
+import { setEnv } from './config/env';
+import * as commands from './commands';
 
 export const cli = () => {
   return yargs
     .command('init', 'initialize doc in your app', setArgs, async args => {
-      setEnv('development')
-      await commands.init(args)
+      setEnv('development');
+      await commands.init(args);
     })
     .command('dev', 'initialize doc dev server', setArgs, async args => {
-      setEnv('development')
-      await commands.dev(args)
+      setEnv('development');
+      await commands.dev(args);
     })
     .command('build', 'build dir as static site', setArgs, async args => {
-      setEnv('production')
-      await commands.build(args)
-      process.exit()
+      setEnv('production');
+      await commands.build(args);
+      process.exit();
     })
     .command('serve', 'serve dir as static site', setArgs, async args => {
-      setEnv('production')
-      await commands.serve(args)
-      process.exit()
+      setEnv('production');
+      await commands.serve(args);
+      process.exit();
     })
     .demandCommand()
     .recommendCommands()
     .help()
     .wrap(72)
     .epilog('for more information visit https://github.com/docjs/doc')
-    .showHelpOnFail(false, 'whoops, something went wrong! run with --help').argv
-}
+    .showHelpOnFail(false, 'whoops, something went wrong! run with --help').argv;
+};

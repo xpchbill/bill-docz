@@ -1,2 +1,2 @@
 /* Re-export  */
-export { a as default } from '../assets/a'
+export { a as default } from '../assets/a';

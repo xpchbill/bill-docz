@@ -1,23 +1,23 @@
 export const pReduce = (iterable: any, reducer: any, initialValue: any): any =>
   new Promise((resolve, reject) => {
-    const iterator = iterable[Symbol.iterator]()
-    let index = 0
+    const iterator = iterable[Symbol.iterator]();
+    let index = 0;
 
     const next = async (total: any) => {
-      const element = iterator.next()
+      const element = iterator.next();
 
       if (element.done) {
-        resolve(total)
-        return
+        resolve(total);
+        return;
       }
 
       try {
-        const value = await Promise.all([total, element.value])
-        next(reducer(value[0], value[1], index++))
+        const value = await Promise.all([total, element.value]);
+        next(reducer(value[0], value[1], index++));
       } catch (error) {
-        reject(error)
+        reject(error);
       }
-    }
+    };
 
-    next(initialValue)
-  })
+    next(initialValue);
+  });

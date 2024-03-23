@@ -1,8 +1,8 @@
-import { Machine } from 'xstate'
+import { Machine } from 'xstate';
 
-import { ServerMachineCtx } from './context'
-import * as services from './services'
-import * as actions from './actions'
+import { ServerMachineCtx } from './context';
+import * as services from './services';
+import * as actions from './actions';
 
 const asyncState = (src: string, onDoneTarget?: string) => ({
   initial: 'exec',
@@ -25,7 +25,7 @@ const asyncState = (src: string, onDoneTarget?: string) => ({
   onDone: {
     target: onDoneTarget || 'exit',
   },
-})
+});
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
@@ -59,9 +59,9 @@ const machine = Machine<ServerMachineCtx>({
       },
     },
   },
-})
+});
 
 export const devServerMachine = machine.withConfig({
   services,
   actions,
-} as any)
+} as any);

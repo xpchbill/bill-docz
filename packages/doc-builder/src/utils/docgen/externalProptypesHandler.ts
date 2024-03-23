@@ -2,44 +2,44 @@
 // which is not well maintained
 // https://github.com/docjs/doc/issues/727
 
-const path = require('path')
-const fs = require('fs')
-const recast = require('recast')
+const path = require('path');
+const fs = require('fs');
+const recast = require('recast');
 
 /**
  * Re-using few private methods of react-docgen to avoid code duplication
  */
 const isRequiredPropType = require('react-docgen/dist/utils/isRequiredPropType')
-  .default
+  .default;
 const setPropDescription = require('react-docgen/dist/utils/setPropDescription')
-  .default
-let babylon: any
+  .default;
+let babylon: any;
 try {
-  const buildParser = require('react-docgen/dist/babelParser').default
-  babylon = buildParser()
+  const buildParser = require('react-docgen/dist/babelParser').default;
+  babylon = buildParser();
 } catch (e: any) {
   /** DOC: special error message as people often encounter errors here because they misconfigure or lack a babel plugin */
-  console.error('Error while initializing babel in doc: ', e)
+  console.error('Error while initializing babel in doc: ', e);
   /** DOC: disabling this require because it no longer exists */
-  throw new Error(e)
+  throw new Error(e);
   // babylon = require('react-docgen/dist/babylon').default
 }
 
-const utils = require('react-docgen').utils
-const types = recast.types.namedTypes
-const HOP = Object.prototype.hasOwnProperty
-const createObject = Object.create
+const utils = require('react-docgen').utils;
+const types = recast.types.namedTypes;
+const HOP = Object.prototype.hasOwnProperty;
+const createObject = Object.create;
 
 function isPropTypesExpression(path: string) {
-  const moduleName = utils.resolveToModule(path)
+  const moduleName = utils.resolveToModule(path);
 
   if (moduleName) {
     return (
       utils.isReactModuleName(moduleName) || moduleName === 'ReactPropTypes'
-    )
+    );
   }
 
-  return false
+  return false;
 }
 
 /**
@@ -50,42 +50,42 @@ function isPropTypesExpression(path: string) {
  */
 function amendPropTypes(documentation: any, path: any) {
   if (!types.ObjectExpression.check(path.node)) {
-    return
+    return;
   }
 
   path.get('properties').each((propertyPath: any) => {
-    let propDescriptor, valuePath, type, resolvedValuePath
+    let propDescriptor, valuePath, type, resolvedValuePath;
 
-    const nodeType = propertyPath.node.type
+    const nodeType = propertyPath.node.type;
 
     if (nodeType === types.Property.name) {
       propDescriptor = documentation.getPropDescriptor(
         utils.getPropertyName(propertyPath),
-      )
-      valuePath = propertyPath.get('value')
+      );
+      valuePath = propertyPath.get('value');
       type = isPropTypesExpression(valuePath)
         ? utils.getPropType(valuePath)
         : {
             name: 'custom',
             raw: utils.printValue(valuePath),
-          }
+          };
       if (type) {
-        propDescriptor.type = type
+        propDescriptor.type = type;
         propDescriptor.required =
-          type.name !== 'custom' && isRequiredPropType(valuePath)
+          type.name !== 'custom' && isRequiredPropType(valuePath);
       }
     } else if (nodeType === types.SpreadProperty.name) {
-      resolvedValuePath = utils.resolveToValue(propertyPath.get('argument'))
+      resolvedValuePath = utils.resolveToValue(propertyPath.get('argument'));
       // normal object literal
       if (resolvedValuePath.node.type === types.ObjectExpression.name) {
-        amendPropTypes(documentation, resolvedValuePath)
+        amendPropTypes(documentation, resolvedValuePath);
       }
     }
 
     if (types.Property.check(propertyPath.node)) {
-      setPropDescription(documentation, propertyPath)
+      setPropDescription(documentation, propertyPath);
     }
-  })
+  });
 }
 
 /**
@@ -95,20 +95,20 @@ function amendPropTypes(documentation: any, path: any) {
  * @return {String} Source code of the given file if file exist else returns empty
  */
 function getSrc(filePath: string) {
-  let src
+  let src;
 
   if (fs.existsSync(filePath)) {
-    src = fs.readFileSync(filePath, 'utf-8')
+    src = fs.readFileSync(filePath, 'utf-8');
   }
 
-  return src
+  return src;
 }
 
 function getAST(src: string) {
   return recast.parse(src, {
     source: 'module',
     esprima: babylon,
-  })
+  });
 }
 
 /**
@@ -121,14 +121,14 @@ function getAST(src: string) {
  * @return {String} Resolved file path if file exist else null
  */
 function resolveFilePath(componentPath: string, importedFilePath: string) {
-  const regEx = /\.(js|jsx)$/
-  let srcPath = path.resolve(path.dirname(componentPath), importedFilePath)
+  const regEx = /\.(js|jsx)$/;
+  let srcPath = path.resolve(path.dirname(componentPath), importedFilePath);
 
   if (regEx.exec(srcPath)) {
-    return srcPath
+    return srcPath;
   } else {
-    srcPath += fs.existsSync(`${srcPath}.js`) ? '.js' : '.jsx'
-    return srcPath
+    srcPath += fs.existsSync(`${srcPath}.js`) ? '.js' : '.jsx';
+    return srcPath;
   }
 }
 
@@ -138,13 +138,13 @@ function resolveFilePath(componentPath: string, importedFilePath: string) {
  * @method getSpecifiersOfNode
  */
 function getSpecifiersOfNode(specifiers: any) {
-  const specifier: string[] = []
+  const specifier: string[] = [];
 
   specifiers.forEach((node: any) => {
-    specifier.push(node.local.name)
-  })
+    specifier.push(node.local.name);
+  });
 
-  return specifier
+  return specifier;
 }
 
 /**
@@ -155,50 +155,50 @@ function getSpecifiersOfNode(specifiers: any) {
  * @return {Object} Which holds identifier relative file path as `key` and identifier name as `value`
  */
 function getIdentifiers(ast: any) {
-  const identifiers = createObject(null)
+  const identifiers = createObject(null);
 
   recast.visit(ast, {
     visitVariableDeclarator(path: any) {
-      const node = path.node
-      const nodeType = node.init.type
+      const node = path.node;
+      const nodeType = node.init.type;
 
       if (nodeType === types.Identifier.name) {
         if (identifiers[node.init.name]) {
-          identifiers[node.init.name].push(node.init.name)
+          identifiers[node.init.name].push(node.init.name);
         } else {
-          identifiers[node.init.name] = [node.init.name]
+          identifiers[node.init.name] = [node.init.name];
         }
       } else if (nodeType === types.Literal.name) {
         if (identifiers[node.id.name]) {
-          identifiers[node.id.name].push(node.init.value)
+          identifiers[node.id.name].push(node.init.value);
         } else {
-          identifiers[node.id.name] = [node.init.value]
+          identifiers[node.id.name] = [node.init.value];
         }
       } else if (nodeType === types.ArrayExpression.name) {
         if (identifiers[node.id.name]) {
-          identifiers[node.id.name].push(node.init.elements)
+          identifiers[node.id.name].push(node.init.elements);
         } else {
-          identifiers[node.id.name] = node.init.elements
+          identifiers[node.id.name] = node.init.elements;
         }
       } else if (nodeType === types.ObjectExpression.name) {
         if (identifiers[node.id.name]) {
           identifiers[node.id.name].push({
             path,
             value: node.init.properties,
-          })
+          });
         } else {
           identifiers[node.id.name] = {
             path,
             value: node.init.properties,
-          }
+          };
         }
       }
 
-      this.traverse(path)
+      this.traverse(path);
     },
-  })
+  });
 
-  return identifiers
+  return identifiers;
 }
 
 /**
@@ -209,22 +209,22 @@ function getIdentifiers(ast: any) {
  * @return {Array} which holds list of named identifiers
  */
 function getExports(ast: any) {
-  const exports: any = []
+  const exports: any = [];
 
   recast.visit(ast, {
     visitExportNamedDeclaration(path: any) {
-      const node = path.node
-      const specifiers = getSpecifiersOfNode(node.specifiers)
-      const declarations = Object.keys(getIdentifiers(ast))
+      const node = path.node;
+      const specifiers = getSpecifiersOfNode(node.specifiers);
+      const declarations = Object.keys(getIdentifiers(ast));
 
-      exports.push(...new Set(specifiers.concat(declarations)))
-      this.traverse(path)
+      exports.push(...new Set(specifiers.concat(declarations)));
+      this.traverse(path);
     },
     visitExportDefaultDeclaration(path: any) {
-      const node = path.node
+      const node = path.node;
 
       if (node.declaration.type === types.Identifier.name) {
-        exports.push(node.declaration.name)
+        exports.push(node.declaration.name);
       }
       /* Commenting it for now, this might needed for further enhancements.
       else if (nodeType === types.Literal.name) {
@@ -232,11 +232,11 @@ function getExports(ast: any) {
       } else if (nodeType === types.ArrayExpression.name) {
         computedPropNodes[node.id.name] = node.init.elements;
       }*/
-      this.traverse(path)
+      this.traverse(path);
     },
-  })
+  });
 
-  return exports
+  return exports;
 }
 
 /**
@@ -248,24 +248,24 @@ function getExports(ast: any) {
  *                          and identifier as `value`, else return false
  */
 function getImports(ast: any) {
-  const specifiers = createObject(null)
+  const specifiers = createObject(null);
 
   recast.visit(ast, {
     visitImportDeclaration: (path: any) => {
-      const name = path.node.source.value
-      const specifier = getSpecifiersOfNode(path.node.specifiers)
+      const name = path.node.source.value;
+      const specifier = getSpecifiersOfNode(path.node.specifiers);
 
       if (!specifiers[name]) {
-        specifiers[name] = specifier
+        specifiers[name] = specifier;
       } else {
-        specifiers[name].push(...specifier)
+        specifiers[name].push(...specifier);
       }
 
-      return false
+      return false;
     },
-  })
+  });
 
-  return specifiers
+  return specifiers;
 }
 
 /**
@@ -277,23 +277,23 @@ function getImports(ast: any) {
  * @return {Object} Holds export identifier as `key` and respective AST node path as value
  */
 function resolveImportedDependencies(ast: any, srcFilePath: any) {
-  const filteredItems = createObject(null)
-  const importSpecifiers = getImports(ast)
+  const filteredItems = createObject(null);
+  const importSpecifiers = getImports(ast);
 
-  let identifiers, resolvedNodes
+  let identifiers, resolvedNodes;
 
   if (importSpecifiers && Object.keys(importSpecifiers).length) {
-    resolvedNodes = resolveDependencies(importSpecifiers, srcFilePath)
+    resolvedNodes = resolveDependencies(importSpecifiers, srcFilePath);
   }
 
-  const exportSpecifiers = getExports(ast)
+  const exportSpecifiers = getExports(ast);
 
   if (exportSpecifiers && exportSpecifiers.length) {
-    identifiers = getIdentifiers(ast)
+    identifiers = getIdentifiers(ast);
   }
 
   if (resolvedNodes) {
-    Object.assign(identifiers, ...resolvedNodes)
+    Object.assign(identifiers, ...resolvedNodes);
   }
 
   for (const identifier in identifiers) {
@@ -301,11 +301,11 @@ function resolveImportedDependencies(ast: any, srcFilePath: any) {
       HOP.call(identifiers, identifier) &&
       exportSpecifiers.indexOf(identifier) > -1
     ) {
-      filteredItems[identifier] = identifiers[identifier]
+      filteredItems[identifier] = identifiers[identifier];
     }
   }
 
-  return filteredItems
+  return filteredItems;
 }
 
 /**
@@ -317,26 +317,26 @@ function resolveImportedDependencies(ast: any, srcFilePath: any) {
  *                  absolute path to the file where `propTypes` is declared.
  */
 function resolveDependencies(filePaths: string[], componentPath: string) {
-  const importedNodes = []
+  const importedNodes = [];
 
   for (const importedFilePath in filePaths) {
     if (HOP.call(filePaths, importedFilePath)) {
-      const srcPath = resolveFilePath(componentPath, importedFilePath)
+      const srcPath = resolveFilePath(componentPath, importedFilePath);
 
       if (!srcPath) {
-        return
+        return;
       }
 
-      const src = getSrc(srcPath)
+      const src = getSrc(srcPath);
 
       if (src) {
-        const ast = getAST(src)
-        importedNodes.push(resolveImportedDependencies(ast, srcPath))
+        const ast = getAST(src);
+        importedNodes.push(resolveImportedDependencies(ast, srcPath));
       }
     }
   }
 
-  return importedNodes
+  return importedNodes;
 }
 
 /**
@@ -347,23 +347,23 @@ function resolveDependencies(filePaths: string[], componentPath: string) {
  * @return {Object} computedPropNames  List which holds all the computed values from `propTypes` property
  */
 function filterSpecifiers(specifiers: any, computedPropNames: any) {
-  const filteredSpecifiers = createObject(null)
+  const filteredSpecifiers = createObject(null);
 
   for (const cp in computedPropNames) {
     if (HOP.call(computedPropNames, cp)) {
       for (const sp in specifiers) {
         if (HOP.call(specifiers, sp) && specifiers[sp].indexOf(cp) > -1) {
           if (filteredSpecifiers[sp]) {
-            filteredSpecifiers[sp].push(cp)
+            filteredSpecifiers[sp].push(cp);
           } else {
-            filteredSpecifiers[sp] = [cp]
+            filteredSpecifiers[sp] = [cp];
           }
         }
       }
     }
   }
 
-  return filteredSpecifiers
+  return filteredSpecifiers;
 }
 
 /**
@@ -376,25 +376,25 @@ function filterSpecifiers(specifiers: any, computedPropNames: any) {
  */
 
 function getComputedPropValuesFromDoc(doc: any) {
-  let flag
-  const computedProps = createObject(null)
-  const props = doc.toObject().props
+  let flag;
+  const computedProps = createObject(null);
+  const props = doc.toObject().props;
 
-  flag = false
+  flag = false;
 
   if (props) {
     for (const prop in props) {
       if (HOP.call(props, prop)) {
-        const o = props[prop]
+        const o = props[prop];
         if (o.type && o.type.name === 'enum' && o.type.computed) {
-          flag = true
-          computedProps[o.type.value] = o
+          flag = true;
+          computedProps[o.type.value] = o;
         }
       }
     }
-    return flag ? computedProps : false
+    return flag ? computedProps : false;
   } else {
-    return false
+    return false;
   }
 }
 
@@ -407,12 +407,12 @@ function getComputedPropValuesFromDoc(doc: any) {
  * @param  {Object} props  list of actual values of computed properties
  */
 function amendDocs(doc: any, path: any, props: any) {
-  const propsToPatch = path.get('properties')
+  const propsToPatch = path.get('properties');
 
   function getComputedPropVal(name: string) {
     for (let i = 0; i < props.length; i++) {
       if (props[i][name]) {
-        return props[i][name]
+        return props[i][name];
       }
     }
   }
@@ -420,15 +420,15 @@ function amendDocs(doc: any, path: any, props: any) {
   propsToPatch.each((propertyPath: string) => {
     const propDescriptor = doc.getPropDescriptor(
       utils.getPropertyName(propertyPath),
-    )
+    );
 
     if (propDescriptor.type.name === 'enum' && propDescriptor.type.computed) {
-      const oldVal = propDescriptor.type.value
-      const newVal = getComputedPropVal(propDescriptor.type.value) || oldVal
-      propDescriptor.type.value = newVal
-      propDescriptor.type.computed = false
+      const oldVal = propDescriptor.type.value;
+      const newVal = getComputedPropVal(propDescriptor.type.value) || oldVal;
+      propDescriptor.type.value = newVal;
+      propDescriptor.type.computed = false;
     }
-  })
+  });
 }
 
 /**
@@ -439,22 +439,22 @@ function amendDocs(doc: any, path: any, props: any) {
  */
 function externalProptypesHandler(componentPath: string) {
   return (doc: any, path: any) => {
-    const root = path.scope.getGlobalScope().node
-    let propTypesPath, propTypesFilePath, propTypesAST
+    const root = path.scope.getGlobalScope().node;
+    let propTypesPath, propTypesFilePath, propTypesAST;
 
-    propTypesPath = utils.getMemberValuePath(path, 'propTypes')
-    propTypesAST = root
-    propTypesFilePath = componentPath
+    propTypesPath = utils.getMemberValuePath(path, 'propTypes');
+    propTypesAST = root;
+    propTypesFilePath = componentPath;
 
     if (!propTypesPath) {
-      return
+      return;
     }
 
-    const propsNameIdentifier = propTypesPath.node.name
-    propTypesPath = utils.resolveToValue(propTypesPath)
+    const propsNameIdentifier = propTypesPath.node.name;
+    propTypesPath = utils.resolveToValue(propTypesPath);
 
     if (!propTypesPath) {
-      return
+      return;
     }
 
     if (!types.ObjectExpression.check(propTypesPath.node)) {
@@ -462,52 +462,52 @@ function externalProptypesHandler(componentPath: string) {
       propTypesFilePath = resolveFilePath(
         componentPath,
         propTypesPath.node.source.value,
-      )
-      const propTypesSrc = getSrc(propTypesFilePath)
-      propTypesAST = getAST(propTypesSrc)
+      );
+      const propTypesSrc = getSrc(propTypesFilePath);
+      propTypesAST = getAST(propTypesSrc);
       const importedPropTypes = getIdentifiers(propTypesAST)[
         propsNameIdentifier
-      ]
+      ];
 
       if (!importedPropTypes) {
-        return
+        return;
       }
 
-      propTypesPath = utils.resolveToValue(importedPropTypes.path)
+      propTypesPath = utils.resolveToValue(importedPropTypes.path);
 
       //updating doc object with external props
-      amendPropTypes(doc, propTypesPath)
+      amendPropTypes(doc, propTypesPath);
     }
 
-    const computedPropNames = getComputedPropValuesFromDoc(doc)
+    const computedPropNames = getComputedPropValuesFromDoc(doc);
 
     if (!computedPropNames) {
-      return
+      return;
     }
 
-    const importSpecifiers = getImports(propTypesAST)
+    const importSpecifiers = getImports(propTypesAST);
 
     if (!importSpecifiers) {
-      return
+      return;
     }
 
-    const filteredProps = filterSpecifiers(importSpecifiers, computedPropNames)
+    const filteredProps = filterSpecifiers(importSpecifiers, computedPropNames);
 
     if (!Object.keys(filteredProps).length) {
-      return
+      return;
     }
 
     const resolvedImports = resolveDependencies(
       filteredProps,
       propTypesFilePath,
-    )
+    );
 
     if (resolvedImports && !resolvedImports.length) {
-      return
+      return;
     }
 
-    amendDocs(doc, propTypesPath, resolvedImports)
-  }
+    amendDocs(doc, propTypesPath, resolvedImports);
+  };
 }
 
-export default externalProptypesHandler
+export default externalProptypesHandler;

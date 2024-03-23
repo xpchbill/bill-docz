@@ -19,8 +19,8 @@
     "dev": "cross-env NODE_ENV=development npm run build -w",
     "build": "npm run tsc && babel src --out-dir dist/ --extensions .ts",
     "tsc": "tsc --project tsconfig.json --emitDeclarationOnly",
-    "fix": "npm run lint --fix",
-    "lint": "npx eslint . --ext mdx,ts,tsx",
+    "fix": "npx eslint \"{src,lib}/**/*.{ts,js}\" --fix",
+    "lint": "npx eslint \"{src,lib}/**/*.{ts,js}\"",
     "test": "jest"
   },
   "volta": {

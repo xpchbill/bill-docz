@@ -1,63 +1,63 @@
-import * as path from 'path'
-import * as logger from 'signale'
-import { parseMdx } from '../../../doc-utils/dist/mdast'
-import { isRegExp, isString } from 'lodash/fp'
-import minimatch from 'minimatch'
-import glob from 'fast-glob'
+import * as path from 'path';
+import * as logger from 'signale';
+import { parseMdx } from '../../../doc-utils/dist/mdast';
+import { isRegExp, isString } from 'lodash/fp';
+import minimatch from 'minimatch';
+import glob from 'fast-glob';
 
-import { Entry, EntryObj } from './Entry'
-import { Plugin } from './Plugin'
-import { Config } from '../config/argv'
-import { getRepoEditUrl } from '../utils/repo-info'
+import { Entry, EntryObj } from './Entry';
+import { Plugin } from './Plugin';
+import { Config } from '../config/argv';
+import { getRepoEditUrl } from '../utils/repo-info';
 
 const mapToObj = (map: Map<any, any>) =>
   Array.from(map.entries()).reduce(
     (obj, [key, value]) => ({ ...obj, [`${key}`]: value }),
     {},
-  )
+  );
 
 export const matchFilesWithSrc = (config: Config) => (files: string[]) => {
-  const { paths, src } = config
-  const rootDir = paths.getRootDir(config)
-  const srcDir = path.resolve(rootDir, src)
-  const prefix = path.relative(rootDir, srcDir)
+  const { paths, src } = config;
+  const rootDir = paths.getRootDir(config);
+  const srcDir = path.resolve(rootDir, src);
+  const prefix = path.relative(rootDir, srcDir);
   return files.map(file =>
     file.startsWith(prefix) ? file : path.join(prefix, file),
-  )
-}
+  );
+};
 
 export const getFilesToMatch = (config: Config) => {
-  const { files: pattern } = config
-  const arr = Array.isArray(pattern) ? pattern : [pattern]
-  const toMatch = matchFilesWithSrc(config)
-  return toMatch(arr)
-}
+  const { files: pattern } = config;
+  const arr = Array.isArray(pattern) ? pattern : [pattern];
+  const toMatch = matchFilesWithSrc(config);
+  return toMatch(arr);
+};
 
 export type EntryMap = Record<string, EntryObj>
 
 export class Entries {
-  public all: Map<string, EntryObj>
-  public get: () => Promise<EntryMap>
-  public repoEditUrl: string | null
+  public all: Map<string, EntryObj>;
+  public get: () => Promise<EntryMap>;
+  public repoEditUrl: string | null;
 
   constructor(config: Config) {
-    this.repoEditUrl = getRepoEditUrl(config)
-    this.all = new Map()
-    this.get = async () => this.getMap(config)
+    this.repoEditUrl = getRepoEditUrl(config);
+    this.all = new Map();
+    this.get = async () => this.getMap(config);
   }
 
   private async getMap(config: Config): Promise<EntryMap> {
-    const { paths, ignore, plugins, mdPlugins, src } = config
-    const fileMatchingPatterns = getFilesToMatch(config)
-    const srcHasNodeModules = src.indexOf('node_modules') !== -1
+    const { paths, ignore, plugins, mdPlugins, src } = config;
+    const fileMatchingPatterns = getFilesToMatch(config);
+    const srcHasNodeModules = src.indexOf('node_modules') !== -1;
     // Hack around fast-glob not returning the whole set when many patterns are provided in the array
-    let initialFiles: string[] = []
+    let initialFiles: string[] = [];
     for (const filePattern of fileMatchingPatterns) {
       const filePatternHasNodeModules =
-        filePattern.indexOf('node_modules') !== -1
+        filePattern.indexOf('node_modules') !== -1;
       const shouldIncludeNodeModules =
-        srcHasNodeModules || filePatternHasNodeModules
-      const globIgnore = shouldIncludeNodeModules ? [] : ['**/node_modules/**']
+        srcHasNodeModules || filePatternHasNodeModules;
+      const globIgnore = shouldIncludeNodeModules ? [] : ['**/node_modules/**'];
 
       const filesFromPattern = await glob([filePattern], {
         cwd: paths.getRootDir(config),
@@ -66,57 +66,57 @@ export class Entries {
         unique: true,
         baseNameMatch: false,
         caseSensitiveMatch: false,
-      })
-      initialFiles = [...initialFiles, ...filesFromPattern]
+      });
+      initialFiles = [...initialFiles, ...filesFromPattern];
     }
     const files = initialFiles.filter((value: string) => {
       return !ignore.some(pattern => {
-        if (isString(pattern)) return minimatch(value, pattern)
-        if (isRegExp(pattern)) return pattern.test(value)
-        return false
-      })
-    })
+        if (isString(pattern)) return minimatch(value, pattern);
+        if (isRegExp(pattern)) return pattern.test(value);
+        return false;
+      });
+    });
 
-    const rootDir = paths.getRootDir(config)
+    const rootDir = paths.getRootDir(config);
     const createEntry = async (file: string) => {
       try {
-        const fullpath = path.resolve(rootDir, file)
-        const ast = await parseMdx(fullpath, mdPlugins)
-        const entry = new Entry(ast, file, config)
+        const fullpath = path.resolve(rootDir, file);
+        const ast = await parseMdx(fullpath, mdPlugins);
+        const entry = new Entry(ast, file, config);
 
-        if (this.repoEditUrl) entry.setLink(this.repoEditUrl)
+        if (this.repoEditUrl) entry.setLink(this.repoEditUrl);
 
         // reduce modify entry plugin
-        const reduce = Plugin.reduceFromPlugins<Entry>(plugins)
-        const modifiedEntry = reduce('modifyEntry', entry, config)
+        const reduce = Plugin.reduceFromPlugins<Entry>(plugins);
+        const modifiedEntry = reduce('modifyEntry', entry, config);
 
-        const { settings, ...rest } = modifiedEntry
+        const { settings, ...rest } = modifiedEntry;
 
         return {
           ...settings,
           ...rest,
-        }
+        };
       } catch (err: any) {
-        logger.error(err)
-        return null
+        logger.error(err);
+        return null;
       }
-    }
+    };
 
-    const reduce = Plugin.reduceFromPlugins<string[]>(plugins)
-    const modifiedFiles = reduce('modifyFiles', files, config)
+    const reduce = Plugin.reduceFromPlugins<string[]>(plugins);
+    const modifiedFiles = reduce('modifyFiles', files, config);
 
-    const map = new Map()
+    const map = new Map();
     const entries = await Promise.all(
       modifiedFiles.map(createEntry).filter(Boolean),
-    )
+    );
 
     for (const entry of entries) {
       if (entry) {
-        map.set(entry.filepath, entry)
+        map.set(entry.filepath, entry);
       }
     }
 
-    this.all = map
-    return mapToObj(map)
+    this.all = map;
+    return mapToObj(map);
   }
 }

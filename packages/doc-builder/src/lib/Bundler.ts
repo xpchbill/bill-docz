@@ -1,8 +1,8 @@
-import * as path from 'path'
-import logger from 'signale'
+import * as path from 'path';
+import logger from 'signale';
 
-import { Config as Args } from '../config/argv'
-import * as paths from '../config/paths'
+import { Config as Args } from '../config/argv';
+import * as paths from '../config/paths';
 
 export interface BundlerServer {
   start(): void
@@ -22,35 +22,35 @@ export interface ConfigObj {
 }
 
 export class Bundler {
-  private readonly args: Args
-  private server: ServerFn
-  private builder: BuildFn
+  private readonly args: Args;
+  private server: ServerFn;
+  private builder: BuildFn;
 
   constructor(params: BundlerConstructor) {
-    const { args, server, build } = params
+    const { args, server, build } = params;
 
-    this.args = args
-    this.server = server
-    this.builder = build
+    this.args = args;
+    this.server = server;
+    this.builder = build;
   }
 
   public async createApp(): Promise<BundlerServer> {
-    return this.server()
+    return this.server();
   }
 
   public async build(): Promise<void> {
-    const dist = paths.getDist(this.args.dest)
-    const root = paths.getRootDir(this.args)
+    const dist = paths.getDist(this.args.dest);
+    const root = paths.getRootDir(this.args);
 
     if (root === path.resolve(dist)) {
       logger.fatal(
         new Error(
           'Unexpected option: "dest" cannot be set to the current working directory.',
         ),
-      )
-      process.exit(1)
+      );
+      process.exit(1);
     }
 
-    await this.builder(this.args, dist)
+    await this.builder(this.args, dist);
   }
 }

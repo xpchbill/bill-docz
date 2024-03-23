@@ -1,16 +1,16 @@
 /** cli exports */
-export { cli } from './cli'
+export { cli } from './cli';
 
 /** config exports */
-export { parseConfig, getBaseConfig } from './config/doc'
-export { Config, setArgs } from './config/argv'
+export { parseConfig, getBaseConfig } from './config/doc';
+export { Config, setArgs } from './config/argv';
 
 /** states */
-import * as states from './states'
-export { states }
+import * as states from './states';
+export { states };
 
 /** lib exports */
-export { Plugin, createPlugin } from './lib/Plugin'
-export { DataServer } from './lib/DataServer'
-export { Entries } from './lib/Entries'
-export { Entry } from './lib/Entry'
+export { Plugin, createPlugin } from './lib/Plugin';
+export { DataServer } from './lib/DataServer';
+export { Entries } from './lib/Entries';
+export { Entry } from './lib/Entry';

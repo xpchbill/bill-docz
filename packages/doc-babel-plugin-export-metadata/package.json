@@ -23,8 +23,8 @@
     "url": "https://github.com/xpchbill/bill-docz.git"
   },
   "scripts": {
-    "fix": "npm run lint --fix",
-    "lint": "npx eslint . --ext .js",
+    "fix": "npx eslint \"{src,lib}/**/*.{ts,js}\" --fix",
+    "lint": "npx eslint src/ --ext .js",
     "test": "jest"
   },
   "dependencies": {

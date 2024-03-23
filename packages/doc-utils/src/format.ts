@@ -1,5 +1,5 @@
-import * as prettier from 'prettier'
-import logger from 'signale'
+import * as prettier from 'prettier';
+import logger from 'signale';
 
 export const formatter = (code: string) =>
   prettier.format(code, {
@@ -7,16 +7,16 @@ export const formatter = (code: string) =>
     semi: false,
     singleQuote: true,
     trailingComma: 'all',
-  } as any)
+  } as any);
 
 export const format = (code: string): Promise<string> =>
   new Promise(resolve => {
     try {
-      const result = formatter(code)
+      const result = formatter(code);
 
-      resolve(result)
+      resolve(result);
     } catch (err: any) {
-      logger.fatal(err)
-      resolve(code)
+      logger.fatal(err);
+      resolve(code);
     }
-  })
+  });

@@ -1,2 +1,2 @@
 /* Re-export  */
-export { a } from '../assets/a'
+export { a } from '../assets/a';

@@ -6,6 +6,8 @@ module.exports = {
     'prettier',
   ],
   rules: {
+    semi: ['error', 'always', { omitLastInOneLineClassBody: true }],
+    'semi-spacing': ['error', { before: false, after: true }],
     'comma-dangle': [
       'error',
       {
@@ -16,13 +18,11 @@ module.exports = {
         functions: 'always-multiline',
       },
     ],
-    "react/no-unknown-property": [
+    'react/no-unknown-property': [
       2,
       {
-        "ignore": [
-          "jsx"
-        ]
-      }
+        ignore: ['jsx'],
+      },
     ],
     'no-mixed-operators': 'error',
     'no-console': 'off',

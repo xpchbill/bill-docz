@@ -19,8 +19,8 @@
     "build": "babel src --out-dir dist/ --extensions .ts,.tsx,.js && npm run copy",
     "dev": "npm run cross-env NODE_ENV=development npm run build -w",
     "copy": "copy-files-from-to",
-    "fix": "npm run lint --fix",
-    "lint": "npx eslint . --ext mdx,ts,tsx --fix",
+    "fix": "npx eslint \"{src,lib}/**/*.{ts,js}\" --fix",
+    "lint": "npx eslint src/ --ext mdx,ts,tsx --fix",
     "prepare": "npm run build",
     "test": "npm run jest"
   },

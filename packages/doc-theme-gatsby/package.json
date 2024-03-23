@@ -13,8 +13,8 @@
   },
   "scripts": {
     "dev": "echo noop",
-    "fix": "npm run lint --fix",
-    "lint": "npx eslint . --ext .js"
+    "fix": "npx eslint \"{src,lib}/**/*.{ts,js}\" --fix",
+    "lint": "npx eslint \"{src,lib}/**/*.{ts,js}\""
   },
   "dependencies": {
     "@emotion/react": "^11.1.1",

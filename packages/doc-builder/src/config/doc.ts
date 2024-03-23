@@ -1,14 +1,14 @@
-import * as path from 'path'
-import { Arguments } from 'yargs'
-import { omit, merge } from 'lodash/fp'
-import { load, loadFrom } from '@bill-doc/doc-config-loader'
-import detectPort from 'detect-port'
+import * as path from 'path';
+import { Arguments } from 'yargs';
+import { omit, merge } from 'lodash/fp';
+import { load, loadFrom } from '@bill-doc/doc-config-loader';
+import detectPort from 'detect-port';
 
-import * as paths from './paths'
-import { Config, Argv } from './argv'
-import { Plugin } from '../lib/Plugin'
+import * as paths from './paths';
+import { Config, Argv } from './argv';
+import { Plugin } from '../lib/Plugin';
 
-const toOmit = ['_', '$0', 'version', 'help']
+const toOmit = ['_', '$0', 'version', 'help'];
 export const docRcBaseConfig = {
   themeConfig: {},
   src: './',
@@ -29,39 +29,39 @@ export const docRcBaseConfig = {
   ],
   filterComponents: (files: string[]) =>
     files.filter(filepath => {
-      const isTestFile = /\.(test|spec)\.(js|jsx|ts|tsx)$/.test(filepath)
+      const isTestFile = /\.(test|spec)\.(js|jsx|ts|tsx)$/.test(filepath);
       if (isTestFile) {
-        return false
+        return false;
       }
       const startsWithCapitalLetter = /\/([A-Z]\w*)\.(js|jsx|ts|tsx)$/.test(
         filepath,
-      )
-      const isCalledIndex = /\/index\.(js|jsx|ts|tsx)$/.test(filepath)
-      const hasJsxOrTsxExtension = /.(jsx|tsx)$/.test(filepath)
-      return startsWithCapitalLetter || isCalledIndex || hasJsxOrTsxExtension
+      );
+      const isCalledIndex = /\/index\.(js|jsx|ts|tsx)$/.test(filepath);
+      const hasJsxOrTsxExtension = /.(jsx|tsx)$/.test(filepath);
+      return startsWithCapitalLetter || isCalledIndex || hasJsxOrTsxExtension;
     }),
-}
+};
 
 export const getBaseConfig = (
   argv: Arguments<Argv>,
   custom?: Partial<Config>,
 ): Config => {
-  const initial = omit<Arguments<Argv>, any>(toOmit, argv)
-  const base = { ...docRcBaseConfig, ...initial, paths }
-  return merge(base, custom) as Config
-}
+  const initial = omit<Arguments<Argv>, any>(toOmit, argv);
+  const base = { ...docRcBaseConfig, ...initial, paths };
+  return merge(base, custom) as Config;
+};
 
 export const parseConfig = async (
   argv: Arguments<Argv>,
   custom?: Partial<Config>,
 ): Promise<Config> => {
-  const port = await detectPort(argv.port)
-  const defaultConfig = getBaseConfig(argv, { port, ...custom })
+  const port = await detectPort(argv.port);
+  const defaultConfig = getBaseConfig(argv, { port, ...custom });
 
   const config = argv.config
     ? loadFrom<Config>(path.join(paths.doc, 'docrc.js'), defaultConfig)
-    : load<Config>('doc', defaultConfig)
+    : load<Config>('doc', defaultConfig);
 
-  const reduceAsync = Plugin.reduceFromPluginsAsync<Config>(config.plugins)
-  return reduceAsync('setConfig', config)
-}
+  const reduceAsync = Plugin.reduceFromPluginsAsync<Config>(config.plugins);
+  return reduceAsync('setConfig', config);
+};

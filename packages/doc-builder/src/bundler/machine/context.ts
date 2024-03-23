@@ -1,4 +1,4 @@
-import { Config } from '../../config/argv'
+import { Config } from '../../config/argv';
 
 export interface ServerMachineCtx {
   args: Config

@@ -5,6 +5,8 @@ module.exports = {
     'plugin:prettier/recommended',
   ],
   rules: {
+    semi: ['error', 'always', { omitLastInOneLineClassBody: true }],
+    'semi-spacing': ['error', { before: false, after: true }],
     'no-unused-vars': [
       'error',
       {
@@ -24,14 +26,11 @@ module.exports = {
         functions: 'never',
       },
     ],
-    "react/no-unknown-property": [
+    'react/no-unknown-property': [
       2,
       {
-        "ignore": [
-          "jsx",
-          "sx"
-        ]
-      }
+        ignore: ['jsx', 'sx'],
+      },
     ],
     'no-mixed-operators': 'error',
     'no-console': 'off',

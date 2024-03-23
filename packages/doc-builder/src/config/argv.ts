@@ -1,24 +1,24 @@
-import * as fs from 'fs-extra'
-import { Argv as Yargs } from 'yargs'
-import * as envDotProp from 'env-dot-prop'
-import humanize from 'humanize-string'
-import titleize from 'titleize'
-import { get } from 'lodash/fp'
+import * as fs from 'fs-extra';
+import { Argv as Yargs } from 'yargs';
+import * as envDotProp from 'env-dot-prop';
+import humanize from 'humanize-string';
+import titleize from 'titleize';
+import { get } from 'lodash/fp';
 
-import { Plugin } from '../lib/Plugin'
-import * as paths from '../config/paths'
-import { docRcBaseConfig } from './doc'
+import { Plugin } from '../lib/Plugin';
+import * as paths from './paths';
+import { docRcBaseConfig } from './doc';
 
 const getEnv = (val: string | string[], defaultValue: any = null): any =>
-  envDotProp.get(val, defaultValue, { parse: true })
+  envDotProp.get(val, defaultValue, { parse: true });
 
 const getInitialTitle = (pkg: any): string => {
-  const name = get('name', pkg) || 'MyDoc'
-  return titleize(humanize(name.replace(/^@.*\//, '')))
-}
+  const name = get('name', pkg) || 'MyDoc';
+  return titleize(humanize(name.replace(/^@.*\//, '')));
+};
 
 const getInitialDescription = (pkg: any): string =>
-  get('description', pkg) || 'My awesome app using doc'
+  get('description', pkg) || 'My awesome app using doc';
 
 export type Env = 'production' | 'development'
 export type ThemeConfig = Record<string, any>
@@ -85,7 +85,7 @@ export interface Config extends Argv {
 }
 
 export const setArgs = (yargs: Yargs) => {
-  const pkg = fs.readJsonSync(paths.appPackageJson, { throws: false })
+  const pkg = fs.readJsonSync(paths.appPackageJson, { throws: false });
 
   return yargs
     .option('root', {
@@ -174,5 +174,5 @@ export const setArgs = (yargs: Yargs) => {
       describe: 'auto open browser in dev mode',
       type: 'boolean',
       default: null,
-    })
-}
+    });
+};

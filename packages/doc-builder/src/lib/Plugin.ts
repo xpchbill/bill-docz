@@ -1,8 +1,8 @@
-import { get, isFunction } from 'lodash/fp'
+import { get, isFunction } from 'lodash/fp';
 
-import { pReduce } from '../utils/p-reduce'
-import { Config } from '../config/argv'
-import { Entry } from './Entry'
+import { pReduce } from '../utils/p-reduce';
+import { Config } from '../config/argv';
+import { Entry } from './Entry';
 
 export type SetConfig = (config: Config) => Config | Promise<Config>
 export type OnCreateBabelConfig = (params: any, dev: boolean) => void
@@ -39,13 +39,13 @@ export class Plugin<C = any> implements PluginFactory {
     return (method, ...args) => {
       if (plugins && plugins.length > 0) {
         for (const plugin of plugins) {
-          const fn = get<Plugin, any>(method, plugin)
+          const fn = get<Plugin, any>(method, plugin);
           if (isFunction(fn)) {
-            fn(...args)
+            fn(...args);
           }
         }
       }
-    }
+    };
   }
 
   public static propsOfPlugins(
@@ -54,7 +54,7 @@ export class Plugin<C = any> implements PluginFactory {
     return prop =>
       plugins && plugins.length > 0
         ? plugins.map(p => get(prop, p)).filter(Boolean)
-        : []
+        : [];
   }
 
   public static reduceFromPlugins<C>(
@@ -62,10 +62,10 @@ export class Plugin<C = any> implements PluginFactory {
   ): (method: keyof Plugin, initial: C, ...args: any[]) => C {
     return (method, initial, ...args) => {
       return [...(plugins || [])].reduce((obj: any, plugin) => {
-        const fn = get<Plugin, any>(method, plugin)
-        return fn && isFunction(fn) ? fn(obj, ...args) : obj
-      }, initial)
-    }
+        const fn = get<Plugin, any>(method, plugin);
+        return fn && isFunction(fn) ? fn(obj, ...args) : obj;
+      }, initial);
+    };
   }
 
   public static reduceFromPluginsAsync<C>(
@@ -75,35 +75,35 @@ export class Plugin<C = any> implements PluginFactory {
       return pReduce(
         [...(plugins || [])],
         (obj: any, plugin: any) => {
-          const fn = get(method, plugin)
-          return Promise.resolve(fn && isFunction(fn) ? fn(obj, ...args) : obj)
+          const fn = get(method, plugin);
+          return Promise.resolve(fn && isFunction(fn) ? fn(obj, ...args) : obj);
         },
         initial,
-      )
-    }
+      );
+    };
   }
 
-  public readonly setConfig?: SetConfig
-  public readonly onCreateWebpackConfig?: OnCreateWebpackConfig<C>
-  public readonly onCreateBabelConfig?: OnCreateBabelConfig
-  public readonly modifyFiles?: ModifyFiles
-  public readonly modifyEntry?: ModifyEntry
-  public readonly onCreateDevServer?: OnCreateDevServer
-  public readonly onPreBuild?: OnPreBuild
-  public readonly onPostBuild?: OnPostBuild
+  public readonly setConfig?: SetConfig;
+  public readonly onCreateWebpackConfig?: OnCreateWebpackConfig<C>;
+  public readonly onCreateBabelConfig?: OnCreateBabelConfig;
+  public readonly modifyFiles?: ModifyFiles;
+  public readonly modifyEntry?: ModifyEntry;
+  public readonly onCreateDevServer?: OnCreateDevServer;
+  public readonly onPreBuild?: OnPreBuild;
+  public readonly onPostBuild?: OnPostBuild;
 
   constructor(p: PluginFactory) {
-    this.setConfig = p.setConfig
-    this.onCreateWebpackConfig = p.onCreateWebpackConfig
-    this.onCreateBabelConfig = p.onCreateBabelConfig
-    this.modifyFiles = p.modifyFiles
-    this.modifyEntry = p.modifyEntry
-    this.onCreateDevServer = p.onCreateDevServer
-    this.onPreBuild = p.onPreBuild
-    this.onPostBuild = p.onPostBuild
+    this.setConfig = p.setConfig;
+    this.onCreateWebpackConfig = p.onCreateWebpackConfig;
+    this.onCreateBabelConfig = p.onCreateBabelConfig;
+    this.modifyFiles = p.modifyFiles;
+    this.modifyEntry = p.modifyEntry;
+    this.onCreateDevServer = p.onCreateDevServer;
+    this.onPreBuild = p.onPreBuild;
+    this.onPostBuild = p.onPostBuild;
   }
 }
 
 export function createPlugin<C = any>(factory: PluginFactory): Plugin<C> {
-  return new Plugin(factory)
+  return new Plugin(factory);
 }

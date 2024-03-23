@@ -1,10 +1,10 @@
-import { utils } from 'react-docgen'
-import * as recast from 'recast'
+import { utils } from 'react-docgen';
+import * as recast from 'recast';
 
-const { getNameOrValue, resolveFunctionDefinitionToReturnValue } = utils
+const { getNameOrValue, resolveFunctionDefinitionToReturnValue } = utils;
 const {
   types: { namedTypes: types },
-} = recast
+} = recast;
 
 export default function actualNameHandler(documentation: any, path: any): any {
   // Function and class declarations need special treatment. The name of the
@@ -13,18 +13,18 @@ export default function actualNameHandler(documentation: any, path: any): any {
     types.ClassDeclaration.check(path.node) ||
     types.FunctionDeclaration.check(path.node)
   ) {
-    documentation.set('actualName', getNameOrValue(path.get('id')))
+    documentation.set('actualName', getNameOrValue(path.get('id')));
   } else if (
     types.ArrowFunctionExpression.check(path.node) ||
     types.FunctionExpression.check(path.node)
   ) {
     if (types.VariableDeclarator.check(path.parentPath.node)) {
-      documentation.set('actualName', getNameOrValue(path.parentPath.get('id')))
+      documentation.set('actualName', getNameOrValue(path.parentPath.get('id')));
     } else if (types.AssignmentExpression.check(path.parentPath.node)) {
       documentation.set(
         'actualName',
-        getNameOrValue(path.parentPath.get('left'))
-      )
+        getNameOrValue(path.parentPath.get('left')),
+      );
     }
   } else if (
     // React.createClass() or createReactClass()
@@ -33,21 +33,21 @@ export default function actualNameHandler(documentation: any, path: any): any {
   ) {
     documentation.set(
       'actualName',
-      getNameOrValue(path.parentPath.parentPath.parentPath.get('id'))
-    )
+      getNameOrValue(path.parentPath.parentPath.parentPath.get('id')),
+    );
   } else {
     // Could not find an actual name
-    documentation.set('actualName', '')
+    documentation.set('actualName', '');
   }
-  return
+  return;
 
   // If display name is defined as a getter we get a function expression as
   // value. In that case we try to determine the value from the return
   // statement.
-  let displayNamePath
+  let displayNamePath;
   if (types.FunctionExpression.check(displayNamePath.node)) {
-    displayNamePath = resolveFunctionDefinitionToReturnValue(displayNamePath)
+    displayNamePath = resolveFunctionDefinitionToReturnValue(displayNamePath);
   }
-  if (!displayNamePath || !types.Literal.check(displayNamePath.node)) return
-  documentation.set('actualName', displayNamePath.node.value)
+  if (!displayNamePath || !types.Literal.check(displayNamePath.node)) return;
+  documentation.set('actualName', displayNamePath.node.value);
 }

@@ -1,5 +1,5 @@
-import { Config } from '../config/argv'
-import * as paths from '../config/paths'
+import { Config } from '../config/argv';
+import * as paths from '../config/paths';
 // let a: Config
 export const createConfigStateInput = () => {
   return ({
@@ -11,5 +11,5 @@ export const createConfigStateInput = () => {
     themeConfig: undefined,
     separator: undefined,
     src: 'src/',
-  } as unknown) as Config
-}
+  } as unknown) as Config;
+};

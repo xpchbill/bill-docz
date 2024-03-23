@@ -20,7 +20,7 @@ exports.createPagesStatefully = args => {
   const createPagesStatefully = get(
     gatsbyNodeCustom,
     'createPagesStatefully',
-    NO_OP
+    NO_OP,
   )
   return createPagesStatefully(args)
 }
@@ -34,7 +34,7 @@ exports.createSchemaCustomization = args => {
   const createSchemaCustomization = get(
     gatsbyNodeCustom,
     'createSchemaCustomization',
-    NO_OP
+    NO_OP,
   )
   return createSchemaCustomization(args)
 }
@@ -43,7 +43,7 @@ exports.generateSideEffects = args => {
   const generateSideEffects = get(
     gatsbyNodeCustom,
     'generateSideEffects',
-    NO_OP
+    NO_OP,
   )
   return generateSideEffects(args)
 }
@@ -52,7 +52,7 @@ exports.onCreateBabelConfig = args => {
   const onCreateBabelConfig = get(
     gatsbyNodeCustom,
     'onCreateBabelConfig',
-    NO_OP
+    NO_OP,
   )
   return onCreateBabelConfig(args)
 }
@@ -76,7 +76,7 @@ exports.onCreateWebpackConfig = args => {
   const onCreateWebpackConfig = get(
     gatsbyNodeCustom,
     'onCreateWebpackConfig',
-    NO_OP
+    NO_OP,
   )
   return onCreateWebpackConfig(args)
 }
@@ -105,7 +105,7 @@ exports.onPreExtractQueries = args => {
   const onPreExtractQueries = get(
     gatsbyNodeCustom,
     'onPreExtractQueries',
-    NO_OP
+    NO_OP,
   )
   return onPreExtractQueries(args)
 }
@@ -124,7 +124,7 @@ exports.resolvableExtensions = args => {
   const resolvableExtensions = get(
     gatsbyNodeCustom,
     'resolvableExtensions',
-    DEFAULT_RESOLVABLE_EXTENSIONS
+    DEFAULT_RESOLVABLE_EXTENSIONS,
   )
   return resolvableExtensions(args)
 }
@@ -133,7 +133,7 @@ exports.setFieldsOnGraphQLNodeType = args => {
   const setFieldsOnGraphQLNodeType = get(
     gatsbyNodeCustom,
     'setFieldsOnGraphQLNodeType',
-    () => ({})
+    () => ({}),
   )
   return setFieldsOnGraphQLNodeType(args)
 }
