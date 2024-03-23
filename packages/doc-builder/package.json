@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@bill-doc/builder",
-  "version": "2.4.5",
+  "version": "2.4.6",
   "description": "All core logic of bundle and parsing is included on this package",
   "license": "MIT",
   "main": "dist/index.js",
@@ -35,9 +35,9 @@
     "typescript": "^3.5.0 || ^4.0.0 || ^5.0.0"
   },
   "dependencies": {
-    "@bill-doc/doc-config-loader": "^2.4.5",
-    "@bill-doc/doc-docgen": "^2.4.5",
-    "@bill-doc/doc-utils": "^2.4.5",
+    "@bill-doc/doc-config-loader": "^2.4.6",
+    "@bill-doc/doc-docgen": "^2.4.6",
+    "@bill-doc/doc-utils": "^2.4.6",
     "@sindresorhus/slugify": "^0.9.1",
     "chalk": "^2.4.2",
     "chokidar": "^3.0.2",

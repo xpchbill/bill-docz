@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@bill-doc/doc-config-loader",
-  "version": "2.4.5",
+  "version": "2.4.6",
   "description": "Method that can load project configurations based",
   "license": "MIT",
   "main": "dist/index.js",
