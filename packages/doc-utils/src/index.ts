@@ -4,6 +4,5 @@ export * from './imports';
 export * from './exports';
 export * from './jsx';
 export * from './mdast';
-export { format } from './format';
 export { mergeWith } from 'lodash/fp';
 export { get } from 'lodash';

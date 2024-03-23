@@ -1,6 +1,6 @@
 import flatten from 'lodash/flatten';
-import { getImportsVariables } from '@bill-doc/doc-utils/dist/imports';
-import { getExportsVariables } from '@bill-doc/doc-utils/dist/exports';
+import { getImportsVariables } from '@bill-doc/doc-utils';
+import { getExportsVariables } from '@bill-doc/doc-utils';
 
 import { format } from 'prettier/standalone';
 import * as parserBabel from 'prettier/plugins/babel';

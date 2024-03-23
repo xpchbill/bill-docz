@@ -1,18 +1,13 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
 import { useState } from 'react';
-// import toJSXString from 'react-element-to-jsx-string'
 import { useConfig } from '@bill-doc/doc-core';
 import { LiveProvider, LiveError, LivePreview, LiveEditor } from 'react-live';
 import { Resizable } from 're-resizable';
 import copy from 'copy-text-to-clipboard';
-// import prettier from 'prettier/standalone'
-// import parserBabel from 'prettier/plugins/babel'
-// import parserMdx from 'prettier/plugins/markdown'
-// import * as prettierPluginEstree from 'prettier/plugins/estree'
 
 import { Wrapper } from './Wrapper';
-import { usePrismTheme } from '~utils/theme';
+import { usePrismTheme } from '../../utils/theme';
 import * as styles from './styles';
 import * as Icons from '../Icons';
 
@@ -60,11 +55,6 @@ export const Playground = ({ code, scope, language, useScoping = false }) => {
   const resizableProps = getResizableProps(width, setWidth);
 
   const copyCode = () => copy(code);
-  // console.log('toJSXString', toJSXString(component))
-  // prettier.format(`${code}`, { parser: "mdx", plugins: [parserBabel, parserMdx, prettierPluginEstree] })
-  //         .then(result => {
-  //           console.log(result)
-  //         })
   const toggleCode = () => setShowingCode((s) => !s);
 
   return (
