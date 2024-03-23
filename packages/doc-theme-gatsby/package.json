@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@bill-doc/doc-theme-gatsby",
-  "version": "2.4.3",
+  "version": "2.4.4",
   "description": "Gatsby doc theme",
   "license": "MIT",
   "author": {
@@ -21,9 +21,9 @@
     "access": "public"
   },
   "dependencies": {
-    "@bill-doc/doc-babel-plugin-export-metadata": "^2.4.3",
-    "@bill-doc/doc-plugin-rehype": "^2.4.3",
-    "@bill-doc/doc-plugin-remark": "^2.4.3",
+    "@bill-doc/doc-babel-plugin-export-metadata": "^2.4.4",
+    "@bill-doc/doc-plugin-rehype": "^2.4.4",
+    "@bill-doc/doc-plugin-remark": "^2.4.4",
     "@emotion/react": "^11.1.1",
     "@emotion/styled": "^11.0.0",
     "@loadable/component": "^5.10.2",
