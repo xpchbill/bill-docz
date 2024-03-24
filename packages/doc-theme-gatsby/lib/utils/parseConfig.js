@@ -1,4 +1,8 @@
-const { setArgs, parseConfig, getBaseConfig } = require('@bill-doc/doc-builder');
+const {
+  setArgs,
+  parseConfig,
+  getBaseConfig,
+} = require('@bill-doc/doc-builder');
 const yargs = require('yargs');
 
 const getDocConfig = (opts) => {
