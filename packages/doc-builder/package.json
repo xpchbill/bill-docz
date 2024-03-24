@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@bill-doc/doc-builder",
-  "version": "2.4.10",
+  "version": "2.4.11",
   "description": "All core logic of bundle and parsing is included on this package",
   "license": "MIT",
   "main": "dist/index.js",
