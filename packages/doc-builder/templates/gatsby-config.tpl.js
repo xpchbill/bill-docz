@@ -43,10 +43,8 @@ const config = {
       options: {
         modules: [
           'doc',
-          '@bill-doc/builder',
+          '@bill-doc/doc-builder',
           '@bill-doc/doc-theme-gatsby',
-          'mdast-util-mdx',
-          'mdast-util-to-markdown'
         ],
       },
     },<%}%>

@@ -1,6 +1,6 @@
 const crypto = require('crypto');
 const fs = require('fs-extra');
-const { Entries, DataServer, states } = require('@bill-doc/builder');
+const { Entries, DataServer, states } = require('@bill-doc/doc-builder');
 const { parseConfig } = require('./utils/parseConfig');
 
 const NODE_ENV = process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV;

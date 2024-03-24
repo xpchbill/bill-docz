@@ -27,6 +27,7 @@ const addComponentsProps = (scopes: string[] = []) => async (
       import(`mdast-util-mdx`),
       import(`mdast-util-to-markdown`),
     ]);
+    let isMdxFlowExpression = false;
     const childJsxArray: any[] = [];
     node.children.forEach((item: any) => {
       if (item.type === 'mdxJsxFlowElement') {
@@ -37,10 +38,14 @@ const addComponentsProps = (scopes: string[] = []) => async (
         });
         childJsxArray.push(md);
       }
+      if (item.type === 'mdxFlowExpression') {
+        isMdxFlowExpression = true;
+        childJsxArray.push(item.value);
+      }
     });
     console.log('childJsxArray: ', childJsxArray);
 
-    return format(childJsxArray.join(''), { parser: "mdx", plugins: [parserBabel, markdown, prettierPluginEstree ] }).then(result => {
+    return format(childJsxArray.join(''), { parser: isMdxFlowExpression ? "babel" : "mdx", plugins: [parserBabel, markdown, prettierPluginEstree ] }).then(result => {
       const jsxValue = result.replace(/\n$/,"");
       console.log(jsxValue);
       node.children = [{

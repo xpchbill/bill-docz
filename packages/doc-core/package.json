@@ -34,7 +34,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@bill-doc/builder": "^2.4.8",
+    "@bill-doc/doc-builder": "^2.4.8",
     "@bill-doc/doc-theme-gatsby": "^2.4.8",
     "@emotion/react": "^11.1.1",
     "@mdx-js/react": "^2.0.0",

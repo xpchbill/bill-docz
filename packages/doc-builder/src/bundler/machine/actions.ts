@@ -21,7 +21,7 @@ const ensureFile = (filename: string, toDelete?: string) => {
 export const ensureFiles = ({ args }: ServerMachineCtx) => {
   // themesDir defaults to "src" to behave like a normal gatsby site
   const appPath = path.join(paths.root, args.themesDir);
-  const themeNames = glob.sync('gatsby-theme-**', {
+  const themeNames = glob.sync('doc-theme-**', {
     cwd: appPath,
     onlyDirectories: true,
   });

@@ -12,7 +12,7 @@
   "scripts": {
     "clean": "lerna clean",
     "bs": "lerna bootstrap",
-    "dev": "npm run packages:build && lerna run dev --parallel --scope={@bill-doc/doc-core,@bill-doc/builder,@bill-doc/doc-theme-gatsby,@bill-doc/doc-plugin-rehype,@bill-doc/doc-plugin-remark}",
+    "dev": "npm run packages:build && lerna run dev --parallel --scope={@bill-doc/doc-core,@bill-doc/doc-builder,@bill-doc/doc-theme-gatsby,@bill-doc/doc-plugin-rehype,@bill-doc/doc-plugin-remark}",
     "examples:lint": "eslint examples --ext js,mdx,ts,tsx",
     "packages": "run-s packages:*",
     "packages:fix": "lerna run --parallel fix && echo",

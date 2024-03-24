@@ -1,5 +1,5 @@
 const { get } = require('lodash/fp');
-const { parseConfig } = require('@bill-doc/builder');
+const { parseConfig } = require('@bill-doc/doc-builder');
 
 const ENTRIES_QUERY = `
   {

@@ -1,6 +1,6 @@
 {
   "private": false,
-  "name": "@bill-doc/builder",
+  "name": "@bill-doc/doc-builder",
   "version": "2.4.8",
   "description": "All core logic of bundle and parsing is included on this package",
   "license": "MIT",

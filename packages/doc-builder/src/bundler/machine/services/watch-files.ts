@@ -24,7 +24,7 @@ const replaceThemesDir = (filepath: string, args: Config) => {
 
 const watchGatsbyThemeFiles = (args: Config) => {
   const watcher = createWatcher(
-    path.join(args.themesDir, 'gatsby-theme-**/**/*'),
+    path.join(args.themesDir, 'doc-theme-**/**/*'),
     args,
   );
   const copy = (filepath: string) => {

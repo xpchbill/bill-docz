@@ -1,3 +1,3 @@
 #!/usr/bin/env node
-require('@bill-doc/builder').cli()
+require('@bill-doc/doc-builder').cli()
 // console.log('xxxxxxxxxxxxxxxx');

@@ -63,7 +63,7 @@ export interface Paths {
   db: string
 }
 
-export const templates = path.join(resolve.sync('@bill-doc/builder'), '../templates');
+export const templates = path.join(resolve.sync('@bill-doc/doc-builder'), '../templates');
 
 export const servedPath = (base: string) => ensureSlash(base, true);
 
