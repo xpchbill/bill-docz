@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "@bill-doc/doc-builder": "^2.4.9",
-    "@bill-doc/doc-theme-gatsby": "^2.4.9",
+    "bill-doc-theme-gatsby": "^2.4.9",
     "@emotion/react": "^11.1.1",
     "@mdx-js/react": "^2.0.0",
     "array-sort": "^1.0.0",

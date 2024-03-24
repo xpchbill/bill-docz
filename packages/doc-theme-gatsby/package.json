@@ -1,6 +1,6 @@
 {
   "private": false,
-  "name": "@bill-doc/doc-theme-gatsby",
+  "name": "bill-doc-theme-gatsby",
   "version": "2.4.9",
   "description": "Gatsby doc theme",
   "license": "MIT",

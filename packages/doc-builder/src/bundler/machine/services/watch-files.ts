@@ -15,11 +15,11 @@ const replaceThemesDir = (filepath: string, args: Config) => {
     paths.getThemesDir(args),
     path.resolve(paths.root, filepath),
   );
-  // => e.g. '/@bill-doc/doc-theme-gatsby/**/index.tsx'
+  // => e.g. '/bill-doc-theme-gatsby/**/index.tsx'
 
   // Prefix with 'src':
   return path.join('src', rawFilePath);
-  // => 'src/@bill-doc/doc-theme-gatsby/**/index.tsx'
+  // => 'src/bill-doc-theme-gatsby/**/index.tsx'
 };
 
 const watchGatsbyThemeFiles = (args: Config) => {

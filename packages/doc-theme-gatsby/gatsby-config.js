@@ -123,7 +123,7 @@ module.exports = (opts) => {
           modules: [
             '@bill-doc/doc-core',
             '@bill-doc/doc-builder',
-            '@bill-doc/doc-theme-gatsby',
+            'bill-doc-theme-gatsby',
           ],
         },
       },

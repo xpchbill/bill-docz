@@ -35,7 +35,7 @@ const config = {
       }
     },<%}%>
     {
-      resolve: '@bill-doc/doc-theme-gatsby',
+      resolve: 'bill-doc-theme-gatsby',
       options: <%- opts %>
     },<% if (isDocRepo) {%>
     {
@@ -44,7 +44,7 @@ const config = {
         modules: [
           'doc',
           '@bill-doc/doc-builder',
-          '@bill-doc/doc-theme-gatsby',
+          'bill-doc-theme-gatsby',
         ],
       },
     },<%}%>
