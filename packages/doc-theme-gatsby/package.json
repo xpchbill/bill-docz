@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@bill-doc/doc-theme-gatsby",
-  "version": "2.4.8",
+  "version": "2.4.9",
   "description": "Gatsby doc theme",
   "license": "MIT",
   "author": {
@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@bill-doc/doc-babel-plugin-export-metadata": "^2.4.6",
-    "@bill-doc/doc-plugin-rehype": "^2.4.8",
+    "@bill-doc/doc-plugin-rehype": "^2.4.9",
     "@bill-doc/doc-plugin-remark": "^2.4.6",
     "@emotion/react": "^11.1.1",
     "@emotion/styled": "^11.0.0",
