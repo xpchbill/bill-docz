@@ -5,11 +5,20 @@ const getRemarkPlugins = () => {
   let plugins = [];
 
   try {
-    // plugins = [
-    //   [require('remark-frontmatter'), { type: 'yaml', marker: '-' }],
-    //   require('@bill-doc/doc-plugin-remark'),
-    // ];
-    plugins = [require('@bill-doc/doc-plugin-rehype').default];
+    plugins = [
+      // [require('remark-frontmatter'), { type: 'yaml', marker: '-' }],
+      // require('@bill-doc/doc-plugin-remark'),
+    ];
+    plugins = [
+      [require('remark-frontmatter'), { type: 'yaml', marker: '-' }],
+      function slug() {
+        return function (tree) {
+          console.log('Remark tree', tree.children[2].children);
+        };
+      },
+      require('@bill-doc/doc-plugin-remark').default,
+      require('@bill-doc/doc-plugin-rehype').default,
+    ];
   } catch (err) {
     plugins = [];
   }
@@ -22,10 +31,12 @@ const getRehypePlugins = () => {
 
   try {
     plugins = [
-      // [
-      //   require('@bill-doc/doc-plugin-rehype').default,
-      //   { strict: true, throwOnError: true },
-      // ],
+      // require('@bill-doc/doc-plugin-rehype').default,
+      function slug() {
+        return function (tree) {
+          console.log('Rehype tree', tree.children[5].children);
+        };
+      },
       require('rehype-slug'),
     ];
   } catch (err) {
@@ -89,17 +100,14 @@ module.exports = (opts) => {
                 ? config.hastPlugins.concat(hastPlugins)
                 : hastPlugins,
           },
-          // defaultLayouts: {
-          //   default: path.join(__dirname, 'src/base/Layout.js'),
-          // },
         },
       },
       {
         resolve: 'gatsby-plugin-catch-links',
       },
-      // {
-      //   resolve: 'gatsby-plugin-react-helmet-async',
-      // },
+      {
+        resolve: 'gatsby-plugin-react-helmet-async',
+      },
       {
         resolve: 'gatsby-plugin-root-import',
       },

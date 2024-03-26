@@ -36,7 +36,7 @@
   "dependencies": {
     "@bill-doc/doc-builder": "^2.4.11",
     "@emotion/react": "^11.1.1",
-    "@mdx-js/react": "^2.0.0",
+    "@mdx-js/react": "^2.3.0",
     "array-sort": "^1.0.0",
     "bill-doc-theme-gatsby": "^2.4.10",
     "capitalize": "^2.0.0",

@@ -3,8 +3,34 @@ name: Alert
 menu: Components
 ---
 
+import { useState } from 'react';
 import { Playground, Props } from '@bill-doc/doc-core'
 import { Alert } from './Alert'
+
+## Confirm modal
+
+```ts
+import { confirm, clear } from '@active/react-ui/ConfirmModal';
+
+confirm({
+  title: 'confirm',
+  content: 'Are you sure to do this?'
+})};
+
+confirm({
+  content: <span>'Are you sure to do this?'</span>
+})};
+
+clear();
+```
+
+If you want to have your `Modal` react to different button clicking event when you click on the cancel button or confirm button, you can consider using `<ConfirmModal />`, with its preset APIs `handleOk` and `handleCancel`, you can save your time from constructing the `ModalFooter` and related callbacks that you need to do if you are using `<Modal />`.
+
+```jsx
+<Modal rootElement={element}/>
+
+<Modal getRootElement={() => element }/>
+```
 
 # Alert
 
@@ -14,10 +40,45 @@ import { Alert } from './Alert'
 
 <Props of={Alert} />
 
+<Playground>
+  {
+    () => {
+      const [ show, setShow ] = useState(false);
+      return (
+        <div>
+          <Alert kind="positive">Some mxxxexxxssage</Alert>
+          <Alert kind="negative">Soxxxme message</Alert>
+        </div>
+      );
+    }
+  }
+</Playground>
+
 ## Basic usage
 
 <Playground>
-  <Alert>Some messdddagse</Alert>
+  {
+    () => {
+      class Example extends React.Component {
+        constructor() {
+          super()
+          this.state = {
+            isDisplayed: false,
+            size: '',
+          }
+        }
+        render() {
+          return (
+            <div>
+              <Alert kind="positive">Some mxxxexxxssage</Alert>
+              <Alert kind="negative">Soxxxme message</Alert>
+            </div>
+          )
+        }
+      }
+      return <Example />
+    }
+  }
 </Playground>
 
 ## Using different kinds xxxx

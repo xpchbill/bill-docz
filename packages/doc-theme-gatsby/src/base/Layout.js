@@ -7,7 +7,7 @@ import { MDXProvider } from '@mdx-js/react';
 import { useDbQuery } from '../hooks/useDbQuery';
 import Wrapper from '../wrapper';
 import Theme from '../index';
-// import SEO from './Seo'
+import SEO from './Seo'
 
 const Route = ({ children, entry, isTransclusion, ...defaultProps }) => {
   const components = useComponents();
@@ -50,7 +50,7 @@ const Layout = ({ children, ...defaultProps }) => {
   const isTransclusion = includesTransclusion(db, defaultProps);
   return (
     <>
-      {/* {entry && <SEO title={entry.value.name} {...entry.value} />} */}
+      {entry && <SEO title={entry.value.name} {...entry.value} />}
       <Theme db={db} currentEntry={entry}>
         <Route {...defaultProps} entry={entry} isTransclusion={isTransclusion}>
           {children}
