@@ -11,11 +11,6 @@ const getRemarkPlugins = () => {
     ];
     plugins = [
       [require('remark-frontmatter'), { type: 'yaml', marker: '-' }],
-      function slug() {
-        return function (tree) {
-          console.log('Remark tree', tree.children[2].children);
-        };
-      },
       require('@bill-doc/doc-plugin-remark').default,
       require('@bill-doc/doc-plugin-rehype').default,
     ];
@@ -32,11 +27,6 @@ const getRehypePlugins = () => {
   try {
     plugins = [
       // require('@bill-doc/doc-plugin-rehype').default,
-      function slug() {
-        return function (tree) {
-          console.log('Rehype tree', tree.children[5].children);
-        };
-      },
       require('rehype-slug'),
     ];
   } catch (err) {

@@ -17,16 +17,14 @@
     "packages": "run-s packages:*",
     "packages:fix": "lerna run --parallel fix && echo",
     "packages:lint": "lerna run --parallel lint",
-    "packages:build": "lerna run build --ignore={examples-*,@bill-doc/doc-plugin-remark}",
+    "packages:build": "lerna run build --ignore={examples-*}",
     "prerelease": "npm run packages",
     "release": "lerna publish --conventional-commits",
     "release:next": "npm run packages && lerna publish --conventional-commits --conventional-prerelease --dist-tag=next --exact",
     "promote:next": "lerna publish --conventional-commits --conventional-graduate",
     "release:beta": "npm run release --dist-tag=beta --preid=beta",
     "release:canary": "npm run release --force-publish=\"*\" --canary --exact --npm-client npm",
-    "commit": "git-cz",
-    "contributors:add": "all-contributors add",
-    "contributors:generate": "all-contributors generate"
+    "commit": "git-cz"
   },
   "devDependencies": {
     "@babel/core": "^7.23.9",
@@ -52,7 +50,6 @@
     "@types/shelljs": "^0.8.5",
     "@types/signale": "^1.2.1",
     "@types/wait-on": "^3.2.0",
-    "all-contributors-cli": "^6.8.0",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.8.0",
     "babel-plugin-lodash": "^3.3.4",
