@@ -2,23 +2,28 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useComponents } from '@bill-doc/doc-core';
 import { propEq, get } from 'lodash/fp';
-import { MDXProvider } from '@mdx-js/react';
+import { MDXProvider, useMDXComponents } from '@mdx-js/react';
+import { useThemedStylesWithMdx } from '@theme-ui/mdx';
 
 import { useDbQuery } from '../hooks/useDbQuery';
 import Wrapper from '../wrapper';
 import Theme from '../index';
-import SEO from './Seo'
+// import SEO from './Seo'
 
 const Route = ({ children, entry, isTransclusion, ...defaultProps }) => {
   const components = useComponents();
   const NotFound = components.notFound;
   const Layout = components.layout;
   const props = { ...defaultProps, doc: entry };
+  const componentsWithStyles = useThemedStylesWithMdx(
+    useMDXComponents(components)
+  );
+
   if (!entry && !isTransclusion) return <NotFound />;
   return isTransclusion ? (
     children
   ) : (
-    <MDXProvider components={components}>
+    <MDXProvider components={componentsWithStyles}>
       <Wrapper>
         <Layout {...props}>{children}</Layout>
       </Wrapper>
@@ -50,7 +55,7 @@ const Layout = ({ children, ...defaultProps }) => {
   const isTransclusion = includesTransclusion(db, defaultProps);
   return (
     <>
-      {entry && <SEO title={entry.value.name} {...entry.value} />}
+      {/* {entry && <SEO title={entry.value.name} {...entry.value} />} */}
       <Theme db={db} currentEntry={entry}>
         <Route {...defaultProps} entry={entry} isTransclusion={isTransclusion}>
           {children}

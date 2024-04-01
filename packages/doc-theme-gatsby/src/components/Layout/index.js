@@ -3,7 +3,7 @@ import { useRef, useState } from 'react';
 import { jsx } from 'theme-ui';
 import { Global } from '@emotion/react';
 
-import global from '~theme/global';
+import global from '../../theme/global';
 import { Header } from '../Header';
 import { Sidebar } from '../Sidebar';
 import { MainContainer } from '../MainContainer';

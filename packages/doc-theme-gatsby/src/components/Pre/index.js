@@ -1,5 +1,6 @@
 // @ts-nocheck
 import React from 'react';
+import { Themed } from '@theme-ui/mdx';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 
 import { usePrismTheme } from '../../utils/theme';
@@ -13,7 +14,7 @@ export const Pre = ({ children }) => {
   return (
     <Highlight {...defaultProps} code={code} language={language} theme={theme}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <pre
+        <Themed.pre
           className={`${languageClass || ''} ${className}`}
           style={{ ...style, overflowX: 'auto' }}
           data-testid="code"
@@ -25,7 +26,7 @@ export const Pre = ({ children }) => {
               ))}
             </div>
           ))}
-        </pre>
+        </Themed.pre>
       )}
     </Highlight>
   );
