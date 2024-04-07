@@ -31,6 +31,5 @@
     "@babel/preset-env": "^7.24.0",
     "@babel/template": "^7.24.0",
     "lodash": "^4.17.14"
-  },
-  "gitHead": "0c4ab59103da5679ed04e9e2c3e1a8014851e547"
+  }
 }

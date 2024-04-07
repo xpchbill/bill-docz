@@ -68,6 +68,5 @@
     "wait-on": "^3.3.0",
     "xstate": "^4.6.7",
     "yargs": "^13.3.0"
-  },
-  "gitHead": "c2b80eb9b4cf46663099c69bc9485a8bdecd186d"
+  }
 }

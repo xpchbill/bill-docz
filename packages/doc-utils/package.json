@@ -53,6 +53,5 @@
     "unist-util-find": "^1.0.1",
     "unist-util-is": "^3.0.0",
     "unist-util-visit": "^1.4.1"
-  },
-  "gitHead": "c2b80eb9b4cf46663099c69bc9485a8bdecd186d"
+  }
 }
