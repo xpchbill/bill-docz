@@ -9,7 +9,7 @@ export const Pre = ({ children }) => {
   const theme = usePrismTheme();
   const code = children.props.children.trim();
   const languageClass = children.props.className;
-  const language = languageClass?.replace(/language-/, '').split(' ')[0];
+  const language = languageClass.replace(/language-/, '').split(' ')[0];
 
   return (
     <Highlight {...defaultProps} code={code} language={language} theme={theme}>

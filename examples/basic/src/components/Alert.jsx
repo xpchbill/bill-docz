@@ -1,12 +1,12 @@
-import React from 'react'
-import t from 'prop-types'
+import React from 'react';
+import t from 'prop-types';
 
 const kinds = {
   info1: '#5352ED',
   positive: '#2ED573',
   negative: '#FF4757',
   warning: '#FFA502',
-}
+};
 
 const AlertStyled = ({ children, kind, ...rest }) => (
   <div
@@ -20,14 +20,14 @@ const AlertStyled = ({ children, kind, ...rest }) => (
   >
     {children}
   </div>
-)
+);
 
-export const Alert = props => <AlertStyled {...props} />
+export const Alert = (props) => <AlertStyled {...props} />;
 
 Alert.propTypes = {
   kind: t.oneOf(['info1', 'positive', 'negative', 'warning']),
-}
+};
 
 Alert.defaultProps = {
   kind: 'info',
-}
+};
