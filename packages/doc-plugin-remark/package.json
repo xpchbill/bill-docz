@@ -31,7 +31,6 @@
   },
   "dependencies": {
     "@babel/generator": "^7.23.6",
-    "@babel/types": "^7.24.0",
     "unist-util-remove": "^2.1.0",
     "unist-util-visit": "^2.0.3"
   }
