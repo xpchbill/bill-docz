@@ -6,13 +6,8 @@ const getRemarkPlugins = () => {
 
   try {
     plugins = [
-      // [require('remark-frontmatter'), { type: 'yaml', marker: '-' }],
-      // require('@bill-doc/doc-plugin-remark'),
-    ];
-    plugins = [
       [require('remark-frontmatter'), { type: 'yaml', marker: '-' }],
       require('@bill-doc/doc-plugin-remark').default,
-      require('@bill-doc/doc-plugin-rehype').default,
     ];
   } catch (err) {
     plugins = [];
@@ -25,10 +20,7 @@ const getRehypePlugins = () => {
   let plugins = [];
 
   try {
-    plugins = [
-      // require('@bill-doc/doc-plugin-rehype').default,
-      require('rehype-slug'),
-    ];
+    plugins = [require('rehype-slug')];
   } catch (err) {
     plugins = [];
   }
