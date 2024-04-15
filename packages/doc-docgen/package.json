@@ -22,6 +22,9 @@
     "fix": "npx eslint \"{src,lib}/**/*.{ts,js}\" --fix",
     "lint": "npx eslint \"{src,lib}/**/*.{ts,js}\""
   },
+  "volta": {
+    "extends": "../../package.json"
+  },
   "publishConfig": {
     "access": "public"
   },

@@ -22,6 +22,9 @@
     "lint": "npx eslint src/ --ext .js",
     "test": "jest"
   },
+  "volta": {
+    "extends": "../../package.json"
+  },
   "publishConfig": {
     "access": "public"
   },

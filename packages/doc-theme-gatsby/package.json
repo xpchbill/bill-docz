@@ -61,7 +61,7 @@
     "yargs": "^13.3.0"
   },
   "volta": {
-    "node": "18.18.0"
+    "extends": "../../package.json"
   },
   "peerDependencies": {
     "react": "^18.2.0",

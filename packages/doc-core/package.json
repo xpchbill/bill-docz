@@ -28,7 +28,7 @@
     "lint": "npx eslint \"{src,lib}/**/*.{ts,js}\""
   },
   "volta": {
-    "node": "18.18.0"
+    "extends": "../../package.json"
   },
   "publishConfig": {
     "access": "public"
