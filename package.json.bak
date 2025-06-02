@@ -1,0 +1,24 @@
+{
+  "name": "jfrog_cli_test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "pb": "CI=TRUE jf rt u 'build/' test-bill01/my-archive.zip --archive zip --user=xxx --password=*** --url=http://localhost:8082/artifactory",
+    "pb2": "CI=TRUE jf rt u 'build/' test-bill01/my-archive.zip --archive zip --access-token=??? --url=http://localhost:8082/artifactory",
+    "pb3": "CI=TRUE jf rt u 'build/' test-bill01/my-archive2.zip --archive zip --build-name=my-archive --build-number=44 --access-token=??? --url=http://localhost:8082/artifactory",
+    "pb4": "CI=TRUE jf rt u 'build/' test-bill01/my-archive.zip --archive zip --build-name=my-archive --build-number=18 --access-token=??? --url=http://localhost:8082/artifactory",
+    "bp": "CI=TRUE jf rt bp my-archive 44 --access-token=??? --url=http://localhost:8082/artifactory",
+    "bce": "CI=TRUE jf rt bce my-archive 18 --access-token=??? --url=http://localhost:8082/artifactory",
+    "dl": "CI=TRUE jf rt dl test-bill01/my-archive.zip ./ --build-name=my-archive --build-number=22 --access-token=??? --url=http://localhost:8082/artifactory",
+    "s": "CI=TRUE jf rt s test-bill01/ --access-token=??? --url=http://localhost:8082/artifactory",
+    "sp": "CI=TRUE jf rt sp 'test-bill01/*.zip' 'a=1;b=2,3' --access-token=??? --url=http://localhost:8082/artifactory",
+    "ping": "CI=TRUE npx jf rt ping --user=xxx --password=*** --url=http://localhost:8082/artifactory",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jfrog-cli-v2-jf": "^2.76.1"
+  }
+}
